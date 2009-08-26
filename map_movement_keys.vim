@@ -147,19 +147,20 @@ xnoremap <D-Left>       g0
 xnoremap <End>          g$
 xnoremap <D-Right>      g$
 
+" XXX: DISABLED (at least temporarily)
+"
+if 0
 
 " Don't let MacVim map the Command/Option movement keys
 "
 let macvim_skip_cmd_opt_movement=1
 
 " Don't let MacVim enable HIG shift movement settings.
-unlet macvim_hig_shift_movement=1
+unlet! macvim_hig_shift_movement
+
+endif " 0 - disabled
 
 
-if 0
-
-" XXX: DISABLED (at least temporarily)
-"
 " Enable Human-Interface Guidelines (HIG) command/option/shift movement
 " keys in MacVim. (See MacVim.app/Contents/Resources/vim/gvimrc for details.)
 "
@@ -181,7 +182,6 @@ if has("gui_macvim")
 
 endif " has("gui_macvim")
 
-endif " 0 - disabled
 
 
 " XXX: This block of dead code is copied from MacVim's system gvimrc, so I can
