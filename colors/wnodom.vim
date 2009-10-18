@@ -13,50 +13,50 @@ endif
 
 let g:colors_name = "wnodom"
 
-hi Comment              gui=NONE    guifg=Grey                                term=bold           cterm=bold      ctermfg=cyan
-hi Constant             gui=NONE    guifg=Cyan                                term=underline      cterm=bold      ctermfg=magenta
+hi Comment              gui=NONE    guifg=Grey                                term=bold           cterm=bold      ctermfg=Cyan
+hi Constant             gui=NONE    guifg=Cyan                                term=underline      cterm=bold      ctermfg=Magenta
 hi Cursor               gui=NONE    guifg=bg        guibg=#AAFFAA
-hi CursorLine           gui=NONE                    guibg=Grey10
-hi CursorColumn         gui=NONE                    guibg=Grey10
-hi Directory            gui=NONE    guifg=Blue                                term=bold           cterm=bold      ctermfg=brown
-hi Error                gui=NONE    guifg=Black     guibg=Red                 term=reverse                        ctermfg=darkcyan    ctermbg=black
-hi ErrorMsg             gui=NONE    guifg=White     guibg=Red                 term=standout       cterm=bold      ctermfg=grey        ctermbg=blue
+hi CursorLine           gui=NONE                    guibg=Grey30
+hi CursorColumn         gui=NONE                    guibg=Grey30
+hi Directory            gui=NONE    guifg=Cyan                                term=bold           cterm=bold      ctermfg=Cyan
+hi Error                gui=NONE    guifg=Black     guibg=Red                 term=reverse                        ctermfg=DarkCyan    ctermbg=Black
+hi ErrorMsg             gui=NONE    guifg=White     guibg=Red                 term=standout       cterm=bold      ctermfg=Grey        ctermbg=Blue
 hi FoldColumn           gui=NONE    guifg=Grey      guibg=Grey15
 hi Folded               gui=NONE    guifg=Cyan      guibg=#454545
-hi Identifier           gui=NONE    guifg=Orange                              term=underline                      ctermfg=brown
-hi LineNr               gui=NONE    guifg=DarkGrey  guibg=Black               term=underline      cterm=bold      ctermfg=darkcyan
+hi Identifier           gui=NONE    guifg=Orange                              term=underline                      ctermfg=Brown
+hi LineNr               gui=NONE    guifg=DarkGrey  guibg=Black               term=underline      cterm=bold      ctermfg=DarkCyan
 hi MatchParen           gui=NONE                    guibg=DarkMagenta
-hi Menu                 gui=NONE    guifg=black     guibg=Cyan
+hi Menu                 gui=NONE    guifg=Black     guibg=Cyan
 hi ModeMsg              gui=NONE    guifg=White     guibg=Blue                term=bold           cterm=bold
-hi MoreMsg              gui=NONE    guifg=SeaGreen                            term=bold           cterm=bold      ctermfg=darkgreen
-hi NonText              gui=NONE    guifg=Grey50    guibg=Grey20              term=bold           cterm=bold      ctermfg=darkred
+hi MoreMsg              gui=NONE    guifg=SeaGreen                            term=bold           cterm=bold      ctermfg=DarkGreen
+hi NonText              gui=NONE    guifg=Grey50    guibg=Grey20              term=bold           cterm=bold      ctermfg=DarkRed
 hi Normal               gui=NONE    guifg=White     guibg=Black
-hi PreProc              gui=NONE    guifg=#ff80ff                             term=underline                      ctermfg=darkblue
-hi Question             gui=NONE    guifg=Green                               term=standout       cterm=bold      ctermfg=darkgreen
+hi PreProc              gui=NONE    guifg=#ff80ff                             term=underline                      ctermfg=DarkBlue
+hi Question             gui=NONE    guifg=Green                               term=standout       cterm=bold      ctermfg=DarkGreen
 hi Scrollbar            gui=NONE    guifg=DarkCyan  guibg=Cyan
-hi Search               gui=NONE    guifg=White     guibg=Red                 term=reverse                        ctermfg=white       ctermbg=red
+hi Search               gui=NONE    guifg=White     guibg=Red                 term=reverse                        ctermfg=White       ctermbg=Red
 hi SignColumn           gui=NONE                    guibg=Grey20
-hi Special              gui=NONE    guifg=Orange                              term=bold           cterm=bold      ctermfg=red
-hi SpecialKey           gui=NONE    guifg=Blue                                term=bold           cterm=bold      ctermfg=darkred
-hi Statement            gui=NONE    guifg=#ffff60                             term=bold           cterm=bold      ctermfg=yellow
-hi StatusLine           gui=NONE    guifg=#ffff60   guibg=Grey15              term=bold,reverse   cterm=bold      ctermfg=lightblue   ctermbg=white
-hi StatusLineNC         gui=NONE    guifg=Grey50    guibg=Grey15              term=reverse                        ctermfg=white       ctermbg=lightblue
-hi Title                gui=NONE    guifg=Magenta                             term=bold           cterm=bold      ctermfg=darkmagenta
-hi Todo                 gui=NONE    guifg=Black     guibg=Yellow              term=standout       ctermfg=Black   ctermbg=darkcyan
-hi Type                 gui=NONE    guifg=#60ff60                             term=underline      cterm=bold      ctermfg=lightgreen
+hi Special              gui=NONE    guifg=Orange                              term=bold           cterm=bold      ctermfg=Red
+hi SpecialKey           gui=NONE    guifg=Blue                                term=bold           cterm=bold      ctermfg=DarkRed
+hi Statement            gui=NONE    guifg=#ffff60                             term=bold           cterm=bold      ctermfg=Yellow
+hi StatusLine           gui=NONE    guifg=#ffff60   guibg=Grey15              term=bold,reverse   cterm=bold      ctermfg=LightBlue   ctermbg=White
+hi StatusLineNC         gui=NONE    guifg=Grey50    guibg=Grey15              term=reverse                        ctermfg=White       ctermbg=LightBlue
+hi Title                gui=NONE    guifg=#ffff60                             term=bold           cterm=bold      ctermfg=DarkMagenta
+hi Todo                 gui=NONE    guifg=Black     guibg=Yellow              term=standout       ctermfg=Black   ctermbg=DarkCyan
+hi Type                 gui=NONE    guifg=#60ff60                             term=underline      cterm=bold      ctermfg=LightGreen
 hi VertSplit            gui=NONE    guifg=White     guibg=DarkGrey
-hi Visual               gui=NONE    guifg=white     guibg=DarkCyan            term=reverse        cterm=reverse
-hi WarningMsg           gui=NONE    guifg=Red                                 term=standout       cterm=bold      ctermfg=darkblue
+hi Visual               gui=NONE    guifg=White     guibg=DarkCyan            term=reverse        cterm=reverse
+hi WarningMsg           gui=NONE    guifg=Red                                 term=standout       cterm=bold      ctermfg=Darkblue
 
 
 " These are Perl-specific, but I don't (yet) know where else to put them.
 "
-hi perlPOD              gui=NONE    guifg=LightBlue                           term=bold           cterm=bold      ctermfg=cyan
-hi perlString           gui=NONE    guifg=Cyan                                term=underline      cterm=bold      ctermfg=magenta
-hi perlStringUnexpanded gui=NONE    guifg=#AAFFAA                             term=underline      cterm=bold      ctermfg=magenta
-hi perlHereDoc          gui=NONE    guifg=White     guibg=#404040             term=underline      cterm=bold      ctermfg=magenta
-hi perlDATA             gui=NONE    guifg=White     guibg=#002040             term=bold           cterm=bold      ctermfg=cyan
-hi perlSpecial          gui=NONE    guifg=Lightred                            term=bold           cterm=bold      ctermfg=red
+hi perlPOD              gui=NONE    guifg=LightBlue                           term=bold           cterm=bold      ctermfg=Cyan
+hi perlString           gui=NONE    guifg=Cyan                                term=underline      cterm=bold      ctermfg=Magenta
+hi perlStringUnexpanded gui=NONE    guifg=#AAFFAA                             term=underline      cterm=bold      ctermfg=Magenta
+hi perlHereDoc          gui=NONE    guifg=White     guibg=#404040             term=underline      cterm=bold      ctermfg=Magenta
+hi perlDATA             gui=NONE    guifg=White     guibg=#002040             term=bold           cterm=bold      ctermfg=Cyan
+hi perlSpecial          gui=NONE    guifg=LightRed                            term=bold           cterm=bold      ctermfg=Red
 
 
 " ShowMarks highlight groups.
@@ -74,6 +74,35 @@ hi ShowMarksHLl         gui=NONE    guifg=White     guibg=Grey20
 hi ShowMarksHLm         gui=NONE    guifg=Red       guibg=Grey20
 hi ShowMarksHLo         gui=NONE    guifg=Green     guibg=Grey20
 hi ShowMarksHLu         gui=NONE    guifg=White     guibg=Grey20
+
+" NERDTree highlight groups (temporarily here for reference)
+"
+" hi treeFlag
+" hi treeUp
+" hi treeClosable
+" hi treeOpenable
+" hi treePart
+" hi treePartFile
+" hi treeHelpKey
+" hi treeHelpTitle
+" hi treeToggleOn
+" hi treeToggleOff
+" hi treeHelpCommand
+" hi treeHelp
+" hi treeBookmark
+" hi treeRO
+" hi treeDirSlash
+" hi treeLink
+" hi treeDir
+" hi treeExecFile
+" hi treeFile
+" hi treeCWD
+" hi treeBookmarksLeader
+" hi treeBookmarksHeader
+" hi treeBookmarksName
+" hi NERDTreeCurrentNode
+
+
 
 hi link IncSearch       Visual
 
@@ -109,4 +138,3 @@ hi link SpecialComment  Special
 hi link Debug           Special
 
 " end wnodom.vim
-
