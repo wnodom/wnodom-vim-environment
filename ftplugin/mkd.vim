@@ -13,3 +13,4 @@ setlocal formatoptions+=o   " insert comment leader after hitting 'o' or 'O' in 
 
 setlocal comments=n:>       " allow nested comments starting with >
 
+setlocal wrap               " wrap display of long lines at screen width
