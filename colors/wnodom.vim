@@ -37,12 +37,12 @@ hi Scrollbar            gui=NONE    guifg=DarkCyan  guibg=Cyan
 hi Search               gui=NONE    guifg=White     guibg=Red                 term=reverse                        ctermfg=White       ctermbg=Red
 hi SignColumn           gui=NONE                    guibg=Grey20
 hi Special              gui=NONE    guifg=Orange                              term=bold           cterm=bold      ctermfg=Red
-hi SpecialKey           gui=NONE    guifg=Blue                                term=bold           cterm=bold      ctermfg=DarkRed
+hi SpecialKey           gui=NONE    guifg=Black     guibg=Orange              term=bold           cterm=bold      ctermfg=DarkRed
 hi Statement            gui=NONE    guifg=#ffff60                             term=bold           cterm=bold      ctermfg=Yellow
 hi StatusLine           gui=NONE    guifg=#ffff60   guibg=Grey15              term=bold,reverse   cterm=bold      ctermfg=LightBlue   ctermbg=White
 hi StatusLineNC         gui=NONE    guifg=Grey50    guibg=Grey15              term=reverse                        ctermfg=White       ctermbg=LightBlue
 hi Title                gui=NONE    guifg=#ffff60                             term=bold           cterm=bold      ctermfg=DarkMagenta
-hi Todo                 gui=NONE    guifg=Black     guibg=Yellow              term=standout       ctermfg=Black   ctermbg=DarkCyan
+hi Todo                 gui=NONE    guifg=Black     guibg=Yellow              term=standout                       ctermfg=Black       ctermbg=DarkCyan
 hi Type                 gui=NONE    guifg=#60ff60                             term=underline      cterm=bold      ctermfg=LightGreen
 hi VertSplit            gui=NONE    guifg=White     guibg=DarkGrey
 hi Visual               gui=NONE    guifg=White     guibg=DarkCyan            term=reverse        cterm=reverse
