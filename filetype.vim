@@ -9,6 +9,9 @@ endif
 
 augroup filetypedetect
 
+    " To ignore a filetype, add a line like this:
+    "autocmd! BufNewFile,BufRead *.fs            setfiletype ignored
+
     " ActionScript (Flash and Flex)
     autocmd! BufNewFile,BufRead *.as            setfiletype actionscript
 
