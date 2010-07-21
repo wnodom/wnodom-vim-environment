@@ -39,7 +39,7 @@ hi SignColumn           gui=NONE                    guibg=Grey20
 hi Special              gui=NONE    guifg=Orange                              term=bold           cterm=bold      ctermfg=Red
 hi SpecialKey           gui=NONE    guifg=Black     guibg=Orange              term=bold           cterm=bold      ctermfg=DarkRed
 hi Statement            gui=NONE    guifg=#ffff60                             term=bold           cterm=bold      ctermfg=Yellow
-hi StatusLine           gui=NONE    guifg=#ffff60   guibg=Grey15              term=bold,reverse   cterm=bold      ctermfg=LightBlue   ctermbg=White
+hi StatusLine           gui=NONE    guifg=Black     guibg=#ffff60             term=bold,reverse   cterm=bold      ctermfg=LightBlue   ctermbg=White
 hi StatusLineNC         gui=NONE    guifg=Grey50    guibg=Grey15              term=reverse                        ctermfg=White       ctermbg=LightBlue
 hi Title                gui=NONE    guifg=#ffff60                             term=bold           cterm=bold      ctermfg=DarkMagenta
 hi Todo                 gui=NONE    guifg=Black     guibg=Yellow              term=standout                       ctermfg=Black       ctermbg=DarkCyan
@@ -49,7 +49,7 @@ hi Visual               gui=NONE    guifg=White     guibg=DarkCyan            te
 hi WarningMsg           gui=NONE    guifg=Red                                 term=standout       cterm=bold      ctermfg=Darkblue
 
 
-" These are Perl-specific, but I don't (yet) know where else to put them.
+" Perl-specific colors
 "
 hi perlPOD              gui=NONE    guifg=LightBlue                           term=bold           cterm=bold      ctermfg=Cyan
 hi perlString           gui=NONE    guifg=Cyan                                term=underline      cterm=bold      ctermfg=Magenta
@@ -57,6 +57,14 @@ hi perlStringUnexpanded gui=NONE    guifg=#AAFFAA                             te
 hi perlHereDoc          gui=NONE    guifg=White     guibg=#404040             term=underline      cterm=bold      ctermfg=Magenta
 hi perlDATA             gui=NONE    guifg=White     guibg=#002040             term=bold           cterm=bold      ctermfg=Cyan
 hi perlSpecial          gui=NONE    guifg=LightRed                            term=bold           cterm=bold      ctermfg=Red
+
+" Taglist highlight groups
+"
+" hi TagListTagName  
+" hi TagListTagScope 
+" hi TagListTitle    
+" hi TagListComment  
+hi TagListFileName      gui=NONE    guifg=Cyan      guibg=Black
 
 
 " ShowMarks highlight groups.
