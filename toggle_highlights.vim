@@ -58,6 +58,7 @@ function! ToggleHighlights()
         match none
         set nolist
         set nocursorline
+        set nocursorcolumn
 
     else " ...turn the highlights on
 
@@ -69,6 +70,7 @@ function! ToggleHighlights()
 
         set list
         set cursorline
+        set cursorcolumn
 
     endif
 
