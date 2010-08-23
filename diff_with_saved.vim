@@ -16,4 +16,7 @@ function! DiffWithSaved()
 
 endfunction
 
+
+command! DiffSaved call DiffWithSaved()
+
 " end diff_with_saved.vim

@@ -531,10 +531,17 @@ nnoremap <Leader>l :TlistToggle
 
 
 
+"
 " Commands
 "
-runtime diff_with_saved.vim
-command! DiffSaved call DiffWithSaved()
+
+" View differences between the current buffer and the original file.
+" (Based on code from $VIMRUNTIME/vimrc_example.vim.)
+"
+if !exists(":DiffOrig")
+    command DiffOrig vertical new | set buftype=nofile | read # | 0d_ | diffthis
+        \ | wincmd p | diffthis
+endif
 
 runtime redir_messages.vim
 
