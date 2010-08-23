@@ -485,51 +485,6 @@ nnoremap ,. :NERDTreeToggle<CR>
 "
 nnoremap <Leader>l :TlistToggle
 
-" Some new mappings to try.
-"
-"   " Prime substitute with word under cursor.
-"   " From http://twitter.com/gregmuellegger/statuses/14108492402
-"   " (Will want to change the keystroke -- Ctrl+S is already in use.)
-"   nnoremap <C-s> :%s/<C-R><C-W>//gc<Left><Left><Left>
-"
-" Found here:
-" http://psy.swan.ac.uk/staff/carter/unix/vimrc
-"
-"   "The following two are from the manual.
-"   "Collapse multiple contiguous empty lines into a single line
-"   map <Leader>b GoZ<Esc>:g/^$/.,/./-j<CR>Gdd
-"
-"   "Collapse multiple contiguous blank lines into a single line
-"   map <Leader>n GoZ<Esc>:g/^[ <Tab>]*$/.,/[^ <Tab>]/-j<CR>Gdd
-"
-"   "Replace control characters with a new line separator
-"   map <Leader>c :%s/[[:cntrl:]]/\r/g
-"
-"   "Delete extended characters (128-255)
-"   map <Leader>d :%s/[<Char-128>-<Char-255>]//g
-"
-"   "Remove trailing spaces at the end of a line
-"   map <Leader>e :%s/\(.*[^ ][^ ]*\)  *$/\1/c
-"
-"   "Remove leading spaces at the beginning of a line
-"   map <Leader>f :%s/^  *\(.*\)/\1/c
-"
-"   "Collapse multiple contiguous spaces into a single space
-"   map <Leader>g :%s/   */ /gc
-"
-"   "Convert & to &amp; between CODE tags
-"   map <Leader>h :/<code>/+1,/<\/code>/-1s/&/\&amp;/gc
-"
-"   "Convert < to &lt; between CODE tags
-"   map <Leader>i :/<code>/+1,/<\/code>/-1s/</\&lt;/gc
-"
-"   "Convert > to &gt; between CODE tags
-"   map <Leader>j :/<code>/+1,/<\/code>/-1s/>/\&gt;/gc
-
-
-" nnoremap <C-s> <Esc>:%s/<C-R><C-W>//g<Left><Left>
-
-
 
 "
 " Commands
@@ -544,6 +499,7 @@ if !exists(":DiffOrig")
 endif
 
 runtime redir_messages.vim
+
 
 " Abbreviations
 "
@@ -573,6 +529,7 @@ let perl_fold_blocks = 1
 "
 let NERDChristmasTree=0
 let NERDTreeHighlightCursorline=1
+let NERDTreeShowHidden=1
 let NERDTreeWinSize=40
 
 
