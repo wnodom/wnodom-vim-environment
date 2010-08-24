@@ -455,6 +455,11 @@ nnoremap <Leader>w  :set invwrap<BAR>set wrap?<CR>
 "
 runtime search_enhancements.vim
 
+" Define mappings to paste string-literal versions of register contents, to
+" make it easy to build complex C/Java/JavaScript/Perl/etc. strings.
+"
+runtime paste_into_c_string.vim
+
 " Map Control+G in command-line mode to allow the user to enter
 " a string that, once the user presses Enter, will be automatically
 " converted to a 'literal pattern' -- that is, a pattern with
