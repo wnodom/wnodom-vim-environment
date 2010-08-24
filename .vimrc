@@ -97,12 +97,12 @@ endif
 " and OS X. (These are the same settings you get with `:behave mswin`.)
 "
 " XXX: 'selectmode' and 'keymodel' are important for some of the key mappings
-" below. Note which these are in the comments for the specific maps.
+" defined below. Note the specific mappings below.
 "
-" XXX: The MacVim HIG settings also set 'selectmode' and 'keymodel'
-" (though, luckily, in exactly the same way as `:behave mswin`.)
-" Even so, consider breaking these out based on platform.
-
+" XXX: The MacVim HIG settings also set 'selectmode' and 'keymodel' (though,
+" luckily, in exactly the same way as `:behave mswin`). Even so, consider
+" breaking these out based on platform.
+"
 set selection=exclusive
 set selectmode=mouse,key
 set mousemodel=popup
@@ -159,14 +159,14 @@ elseif has("win32")
 endif
 
 
-" Switch on syntax highlighting when the terminal has colors, or when
-" running in the GUI version of Vim. Tell $VIMRUNTIME/menu.vim to expand
-" the syntax menu.
+" Switch on syntax highlighting when the terminal has colors, or when running
+" in the GUI. Set the do_syntax_sel_menu flag to tell $VIMRUNTIME/menu.vim
+" to expand the syntax menu.
 "
-" Note: This happens before the Autocommands section below to give the
-" syntax command a chance to trigger loading the menus (vs. letting the
-" filetype command do it). If do_syntax_sel_menu isn't set beforehand,
-" the syntax menu won't get populated.
+" Note: This happens before the 'Autocommands' section below to give the syntax
+" command a chance to trigger loading the menus (vs. letting the filetype
+" command do it). If do_syntax_sel_menu isn't set beforehand, the syntax menu
+" won't get populated.
 "
 if &t_Co > 2 || has("gui_running")
     let do_syntax_sel_menu=1
@@ -188,15 +188,13 @@ if has("autocmd") && !exists("autocommands_loaded")
     "
     let autocommands_loaded = 1
 
-    " Enable file type detection. Use the default filetype settings, so
-    " that mail gets 'tw' set to 72, 'cindent' is on in C files, etc.
-    " Also load indent files, to automatically do language-dependent
-    " indenting.
+    " Enable filetype detection, so language-dependent plugins, indentation
+    " files, syntax highlighting, etc., are loaded for specific filetypes.
+    "
+    " Note: See $HOME/.vim/ftplugin and $HOME/.vim/after/ftplugin for
+    " most local filetype autocommands and customizations.
     "
     filetype plugin indent on
-
-    " Note: FileType autocommands are now in $HOME/.vim/ftplugin and
-    " $HOME/.vim/after/ftplugin, to make this file easier to maintain.
 
     " When editing a file, always jump to the last known cursor
     " position. Don't do it when the position is invalid or when inside
@@ -246,10 +244,9 @@ if has("win32")
     cmap <C-V>          <C-R>+
     cmap <S-Insert>     <C-R>+
 
-    " Pasting blockwise and linewise selections is not possible in
-    " Insert and Visual mode without the +virtualedit feature.  They are
-    " pasted as if they were characterwise instead. Uses the paste.vim
-    " autoload script.
+    " Pasting blockwise and linewise selections is not possible in Insert and
+    " Visual mode without the +virtualedit feature.  They are pasted as if
+    " they were characterwise instead. Uses the paste.vim autoload script.
     "
     exe 'inoremap <script> <C-V>' paste#paste_cmd['i']
     exe 'vnoremap <script> <C-V>' paste#paste_cmd['v']
@@ -265,6 +262,7 @@ if has("win32")
     endif
 
     " Use CTRL-Q to do what CTRL-V used to do
+    "
     noremap <C-Q>       <C-V>
 
     " CTRL-F4 is Close window
@@ -291,7 +289,8 @@ if has("win32")
 
 endif " has("win32")
 
-" Backspace in Visual mode deletes selection
+" Backspace in Visual mode deletes selection.
+"
 vnoremap <BS> d
 
 " Control+A is Select All.
@@ -362,7 +361,7 @@ imap <3-MiddleMouse>  <Nop>
 imap <4-MiddleMouse>  <Nop>
 
 " Control+Backslash toggles search/match highlighting, 'list', and
-" 'cursorline'. Note the :execute (vs. :call); see ToggleHighlight
+" 'cursorline'. Note the :execute (vs. :call); see ToggleHighlight()
 " for details.
 "
 runtime toggle_highlights.vim
@@ -408,15 +407,18 @@ inoremap <C-U>= <Esc>kyyp^v$r=ja
 
 " Comma+SingleQuote toggles single/double quoting of the current string.
 "
+" XXX: Consider replacing with surround.vim plugin.
+"
 runtime switch_quotes.vim
 nnoremap <silent> ,'  :call SwitchQuotesOnCurrentString()<CR>
 
-" Set the filetype for the current buffer to JavaScript (for syntax
-" highlighting), then format the current buffer as indented JSON.
+" Define maps to set the filetype for the current buffer to JavaScript (for
+" syntax highlighting), then format the current buffer as indented JSON.
 "
-" For visual mode, just format without setting the filetype.
+" For visual mode, just format without setting the filetype. (This allows
+" for easy formatting of JSON included in a non-JSON file.)
 "
-" Note: Requires ~/bin/format-json.pl.
+" Note: Requires ~/bin/format-json.pl filter.
 "
 nnoremap ,j  :set filetype=javascript<CR>:%!~/bin/format-json.pl<CR>
 xnoremap ,j  :!~/bin/format-json.pl<CR>
@@ -430,7 +432,7 @@ nnoremap ,ev  :tabedit $MYGVIMRC<CR>:tabedit $MYVIMRC<CR>
 imap <C-F>  <C-O><C-F>
 imap <C-B>  <C-O><C-B>
 
-" Space over to match spacing on first previous non-blank line.
+" Insert spaces to match spacing on first previous non-blank line.
 "
 runtime insert_matching_spaces.vim
 imap <expr> <S-Tab>  InsertMatchingSpaces()
@@ -444,9 +446,10 @@ imap <expr> <S-Tab>  InsertMatchingSpaces()
 "
 map <Leader>zz  :let &scrolloff=999-&scrolloff<CR>
 
-" Toggle wrapping the display of long lines.
+" Toggle wrapping the display of long lines (and display the current 'wrap'
+" state once it's been toggled).
 "
-nnoremap <Leader>w :set invwrap<BAR>set wrap?<CR>
+nnoremap <Leader>w  :set invwrap<BAR>set wrap?<CR>
 
 " Load the functions used by the literal-search mappings below.
 "
@@ -498,6 +501,8 @@ if !exists(":DiffOrig")
         \ | wincmd p | diffthis
 endif
 
+" Define commands to redirect mesages to a new buffer, window, or tab.
+"
 runtime redir_messages.vim
 
 
