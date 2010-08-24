@@ -3,14 +3,16 @@
 " GUI-only Vim settings.
 "
 
-set guioptions+=b       " Activate the bottom horizontal scrollbar
-set guioptions-=T       " Turn off the toolbar
+set guioptions+=b           " Activate the bottom horizontal scrollbar
+set guioptions-=T           " Turn off the toolbar
 
-set guitablabel=%t\ %m  " GUI tab labels to show filename and modified flag
-set guitabtooltip=%F    " GUI tab tooltips to show the full pathname
+set guicursor=a:blinkon0    " Turn off cursor blink in all modes
 
-set showtabline=2       " Always show the tab line
-set tabpagemax=100      " Allow many more files to be opened in tabs
+set guitablabel=%t\ %m      " GUI tab labels show filename and modified flag
+set guitabtooltip=%F        " GUI tab tooltips show the full pathname
+
+set showtabline=2           " Always show the tab line
+set tabpagemax=100          " Allow many more files to be opened in tabs
 
 " Note: If you want to control the width of the tabs in MacVim (the OS X
 " Cocoa GUI version of Vim), then use these commands from the Terminal:
@@ -22,8 +24,6 @@ set tabpagemax=100      " Allow many more files to be opened in tabs
 " The values are in pixels. Adjust as necessary for your environment.
 
 
-set guicursor=a:blinkon0    " Turn off cursor blink in all modes
-
 " Avoid all beeping and flashing by turning on the visual bell, and then
 " setting the visual bell to nothing.
 "
@@ -34,7 +34,7 @@ set vb t_vb=
 
 
 "
-" Fonts, window size/position
+" Fonts, window size and position
 "
 
 if has("win32")
@@ -76,6 +76,8 @@ elseif has("macunix")
 
 endif
 
+" Load my custom colorscheme.
+"
 colorscheme wnodom
 
 " end .gvimrc
