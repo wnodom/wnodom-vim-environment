@@ -3,6 +3,8 @@
 " Do all the weird stuff I have to do to make arrow/home/end/etc. keys
 " (and their shifted variants) work the way that I want them to.
 "
+" XXX: Much of this is still a work in progress.
+"
 " Note: The 'standard' movement keys (h j k l ^ 0 $) are left as-is,
 " so it's always possible to use them to do what they should do.
 "
