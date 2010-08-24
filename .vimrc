@@ -505,6 +505,10 @@ endif
 "
 runtime redir_messages.vim
 
+" Define the syntax-sensitive search commands, :SearchInside and :SearchOutside.
+"
+runtime search_with_skip.vim
+
 
 " Abbreviations
 "

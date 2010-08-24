@@ -1,9 +1,7 @@
 " search_with_skip.vim
 "
-" XXX: Consider alternate function names.
-" XXX: Provide sample key mapping.
-" XXX: More docs.
-" XXX: Test with other search() parameters.
+" XXX: This should be considered alpha-level code. It's useful, but not
+" yet well-tested, and almost certainly contains surprises.
 "
 
 function! SearchWithSkip(pattern, flags, stopline, timeout, skip)
