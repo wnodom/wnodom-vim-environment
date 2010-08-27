@@ -529,8 +529,10 @@ runtime redir_messages.vim
 runtime search_with_skip.vim
 
 
+"
 " Abbreviations
 "
+
 runtime set_abbreviations.vim
 
 
@@ -576,7 +578,7 @@ let Tlist_Use_Right_Window = 1
 
 
 "
-" Functions
+" Local Functions
 "
 
 function! ConfigureWindow()
