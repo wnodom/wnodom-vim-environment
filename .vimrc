@@ -374,9 +374,9 @@ imap <4-MiddleMouse>  <Nop>
 " for details.
 "
 runtime toggle_highlights.vim
-map  <silent> <C-Bslash>  :execute ToggleHighlights()<CR>
-imap <silent> <C-BSlash>  <Esc><C-BSlash>a
-vmap <silent> <C-BSlash>  <Esc><C-BSlash>gv
+nnoremap <silent> <C-Bslash>  :execute ToggleHighlights()<CR>
+imap     <silent> <C-BSlash>  <Esc><C-BSlash>a
+vmap     <silent> <C-BSlash>  <Esc><C-BSlash>gv
 
 " Control+Hyphen (yes, I know it says underscore) repeats the character above
 " the cursor.
