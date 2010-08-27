@@ -444,7 +444,7 @@ inoremap <C-B>  <C-O><C-B>
 " Insert spaces to match spacing on first previous non-blank line.
 "
 runtime insert_matching_spaces.vim
-imap <expr> <S-Tab>  InsertMatchingSpaces()
+inoremap <expr> <S-Tab>  InsertMatchingSpaces()
 
 " Keep the working line in the center of the window. This is a toggle, so you
 " can bounce between centered-working-line scrolling and normal scrolling by
