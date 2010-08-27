@@ -453,7 +453,7 @@ inoremap <expr> <S-Tab>  InsertMatchingSpaces()
 " From this message on the MacVim mailing list:
 " http://groups.google.com/group/vim_mac/browse_thread/thread/31876ef48063e487/133e06134425bda1?hl=en¿e06134425bda1
 "
-map <Leader>zz  :let &scrolloff=999-&scrolloff<CR>
+nnoremap <Leader>zz  :let &scrolloff=999-&scrolloff<CR>
 
 " Toggle wrapping the display of long lines (and display the current 'wrap'
 " state once it's been toggled).
