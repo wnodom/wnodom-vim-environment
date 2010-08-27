@@ -27,7 +27,7 @@ set tabpagemax=100          " Allow many more files to be opened in tabs
 " Avoid all beeping and flashing by turning on the visual bell, and then
 " setting the visual bell to nothing.
 "
-" Note: Even if t_vb is set in vimrc, it has to be set again here, as it's
+" Note: Even if t_vb is set in .vimrc, it has to be set again here, as it's
 " reset when the GUI starts.
 "
 set vb t_vb=
