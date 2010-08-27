@@ -91,6 +91,11 @@ if has("win32")
     set grepprg=internal        " Windows findstr.exe just isn't good enough.
 endif
 
+" Enable mouse support if it's available.
+"
+if has('mouse')
+  set mouse=a
+endif
 
 " Set 'selection', 'selectmode', 'mousemodel' and 'keymodel' to make
 " both keyboard- and mouse-based highlighting behave more like Windows
