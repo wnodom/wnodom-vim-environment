@@ -4,6 +4,10 @@
 " (See .gvimrc for GUI-specific settings.)
 "
 
+"
+" Settings
+"
+
 " Use Vim settings instead of Vi settings. Set this early,
 " as it changes many other options as a side effect.
 "
@@ -94,7 +98,7 @@ endif
 " Enable mouse support if it's available.
 "
 if has('mouse')
-  set mouse=a
+    set mouse=a
 endif
 
 " Set 'selection', 'selectmode', 'mousemodel' and 'keymodel' to make
@@ -347,8 +351,8 @@ vnoremap <S-F7>  J
 " highlight after changing the indentation). Works for both Visual and Select
 " modes.
 "
-vmap <Tab>    >gv
-vmap <S-Tab>  <gv
+vnoremap <Tab>    >gv
+vnoremap <S-Tab>  <gv
 
 " Map arrows/home/end keys (with and without modifiers).
 "
