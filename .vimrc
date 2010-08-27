@@ -477,7 +477,7 @@ runtime paste_into_c_string.vim
 " (See notes in GetLiteralPattern() for an explanation of why this isn't an
 " <expr> mapping.)
 "
-cmap <C-G>  <C-R><C-R>=GetLiteralPattern()<CR>
+cnoremap <C-G>  <C-R><C-R>=GetLiteralPattern()<CR>
 
 " Search for the current visually-highlighted text. The text is automatically
 " escaped as with the <C-G> cmap above.
