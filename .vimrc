@@ -1,7 +1,7 @@
 " .vimrc
 "
-" Settings for both console and GUI Vim sessions.
-" (See .gvimrc for GUI-specific settings.)
+" Configuration for both console and GUI Vim sessions.
+" (See .gvimrc for GUI-specific configuration.)
 "
 
 "
