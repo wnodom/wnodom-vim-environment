@@ -515,7 +515,7 @@ endif
 "
 command! Bd enew<Bar>bd #
 
-" Define commands to redirect mesages to a new buffer, window, or tab.
+" Define commands to redirect messages to a new buffer, window, or tab.
 "
 runtime redir_messages.vim
 
