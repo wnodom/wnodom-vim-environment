@@ -438,8 +438,8 @@ nnoremap ,ev  :tabedit $MYGVIMRC<CR>:tabedit $MYVIMRC<CR>
 
 " Make page-forward and page-backward work in insert mode.
 "
-imap <C-F>  <C-O><C-F>
-imap <C-B>  <C-O><C-B>
+inoremap <C-F>  <C-O><C-F>
+inoremap <C-B>  <C-O><C-B>
 
 " Insert spaces to match spacing on first previous non-blank line.
 "
