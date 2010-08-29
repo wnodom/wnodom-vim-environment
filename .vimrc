@@ -502,6 +502,10 @@ nnoremap ,. :NERDTreeToggle<CR>
 "
 nnoremap <Leader>l :TlistToggle
 
+" Delete to end of line, bash-style.
+"
+imap <C-K> <C-O>D
+
 
 "
 " Commands
