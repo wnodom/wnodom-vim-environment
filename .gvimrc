@@ -11,7 +11,7 @@ set guicursor=a:blinkon0    " Turn off cursor blink in all modes
 set guitablabel=%t\ %m      " GUI tab labels show filename and modified flag
 set guitabtooltip=%F        " GUI tab tooltips show the full pathname
 
-set showtabline=2           " Always show the tab line
+set showtabline=1           " Show the tab line if there's more than one tab
 set tabpagemax=100          " Allow many more files to be opened in tabs
 
 " Note: If you want to control the width of the tabs in MacVim (the OS X
@@ -30,13 +30,15 @@ set tabpagemax=100          " Allow many more files to be opened in tabs
 " Note: Even if t_vb is set in .vimrc, it has to be set again here, as it's
 " reset when the GUI starts.
 "
-set vb t_vb=
+set visualbell t_vb=
 
 
 "
 " Fonts, window size and position
 "
 
+" Windows settings
+" 
 if has("win32")
 
     set guifont=Consolas:h11
@@ -48,7 +50,11 @@ if has("win32")
         autocmd GUIEnter * simalt ~x
     endif
 
-elseif has("macunix")
+endif
+
+" Carbon Vim settings
+" 
+if has("gui_mac")
 
     " Workaround to improve text drawing under OS X. (Applicable to Carbon
     " gVim, but not MacVim.) See :h macatsui for details.
@@ -56,6 +62,12 @@ elseif has("macunix")
     if exists('&macatsui')
         set nomacatsui
     endif
+
+endif
+
+" MacVim (Cocoa) settings
+"
+if has("gui_macvim")
 
     " Set the antialias, linespace, and guifont together, since different
     " fonts look better with different settings. (These can be set separately,
@@ -73,6 +85,13 @@ elseif has("macunix")
     " winpos doesn't (yet) work on MacVim.
     "
     "winpos 330 44
+
+    " Maximize both horizontally and vertically when entering
+    " fullscreen mode.
+    "
+    set fuoptions=maxvert,maxhorz
+
+    set fillchars+=vert:\|,fold:•
 
 endif
 
