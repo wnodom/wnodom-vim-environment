@@ -4,8 +4,20 @@
 " Insert-mode abbreviations
 "
 
-iabbrev teh the
-iabbrev tihs this
+" Common typos
+"
+iabbrev teh     the
+iabbrev tihs    this
+iabbrev jsut    just
+iabbrev exmaple example
+
+
+" E-mail addresses and signature
+"
+iabbrev _ett    wnodom@tmtowtdi.com
+iabbrev _egm    billodom@gmail.com
+iabbrev _sig    Thanks,<CR>Bill
+
 
 
 " 
@@ -17,5 +29,6 @@ iabbrev tihs this
 " See http://vim.wikia.com/wiki/VimTip1285 for details.
 "
 cabbrev Set <C-R>=(getcmdtype()==':' && getcmdpos()==1 ? 'set' : 'Set')<CR>
+
 
 " end set_abbreviations.vim
