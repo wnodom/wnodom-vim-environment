@@ -14,15 +14,21 @@
 set selectmode+=key
 set keymodel=startsel,stopsel
 
-" Control+Arrows move lines/selections up and down.
-" (From a comment found in http://www.vim.org/tips/tip.php?tip_id=646)
+
+" Control+Up/Down move lines and selections up and down.
+" Based on http://vim.wikia.com/wiki/VimTip646
+" 
+" Define maps for Normal and Visual modes, then re-use
+" them for Insert and Select.
 "
-nmap <C-Up>     :m-2<CR>
-nmap <C-Down>   :m+<CR>
-imap <C-Up>     <C-O>:m-2<CR><C-O>
-imap <C-Down>   <C-O>:m+<CR><C-O>
-vmap <C-Up>     :m'<-2<CR>
-vmap <C-Down>   :m'>+<CR>
+nnoremap <silent>  <C-Up>    :move -2<CR>
+nnoremap <silent>  <C-Down>  :move +<CR>
+xnoremap <silent>  <C-Up>    :move '<-2<CR>gv
+xnoremap <silent>  <C-Down>  :move '>+<CR>gv
+imap     <silent>  <C-Up>    <C-O><C-Up>
+imap     <silent>  <C-Down>  <C-O><C-Down>
+smap     <silent>  <C-Up>    <C-G><C-Up><C-G>
+smap     <silent>  <C-Down>  <C-G><C-Down><C-G>
 
 
 " Make arrow keys and Home/End (and their Select-mode-triggering
