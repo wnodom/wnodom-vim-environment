@@ -29,7 +29,7 @@ set hlsearch            " Highlight latest search pattern.
 set number              " Display line numbers.
 set numberwidth=4       " Minimum number of columns to show for line numbers.
 set laststatus=2        " Always show a status line.
-set vb t_vb=            " Use null visual bell (no beeps or flashes).
+set visualbell t_vb=    " Use null visual bell (no beeps or flashes).
 
 set scrolloff=3         " Context lines at top and bottom of display.
 set sidescrolloff=5     " Context columns at left and right.
@@ -59,7 +59,7 @@ set nowrapscan          " Don't allow searches to wrap around EOF.
 set nocursorline        " Don't highlight the current screen line...
 set nocursorcolumn      " ...or column.
 
-set virtualedit=block   " Allow virtual editing when in Visual block mode.
+set virtualedit=block   " Allow virtual editing when in Visual Block mode.
 
 set foldcolumn=3        " Number of columns to show at left for folds.
 set foldnestmax=3       " Only allow 3 levels of folding.
@@ -340,6 +340,13 @@ nnoremap <F7>   gqap
 inoremap <F7>   <C-O>gqap
 vnoremap <F7>   gq
 
+" Q does the same thing as <F7> (except in Insert mode, of course). I'm
+" retraining myself to use Q instead of a function key, since it's kind
+" of a de facto standard keystroke.
+"
+nnoremap Q  gqap
+vnoremap Q  gq
+
 " Shift+F7 joins all lines of the current paragraph or highlighted block
 " into a single line.
 "
@@ -440,6 +447,13 @@ nnoremap ,ev  :tabedit $MYGVIMRC<CR>:tabedit $MYVIMRC<CR>
 "
 inoremap <C-F>  <C-O><C-F>
 inoremap <C-B>  <C-O><C-B>
+
+" Overload Control+L to clear the search highlight as it's redrawing the screen.
+"
+nnoremap <C-L>  :nohlsearch<CR><C-L>
+inoremap <C-L>  <Esc>:nohlsearch<CR><C-L>a
+vnoremap <C-L>  <Esc>:nohlsearch<CR><C-L>gv
+
 
 " Insert spaces to match spacing on first previous non-blank line.
 "
@@ -597,6 +611,13 @@ function! ConfigureWindow()
 
     " Highlight trailing whitespace.
     " (Idea from http://daniel-werner.info/vimrc.html)
+    "
+    " XXX: This is currently disabled, since it's annoying
+    " for it to be on while I'm entering text -- the end of the
+    " current line flashes every time I enter a space -- but if
+    " I can come up with a good way to keep that from happening,
+    " I'll put it back. Perhaps a regex check against the current
+    " line number or something.
     "
     "call matchadd('NonText', '\s\+$\| \+\ze\t')
 
