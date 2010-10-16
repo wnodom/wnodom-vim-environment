@@ -34,11 +34,11 @@ augroup filetypedetect
     " PDF (Portable Document Format)
     autocmd! BufNewFile,BufRead *.pdf           setfiletype pdf
 
-    " Scalable Vector Graphics
+    " SVG (Scalable Vector Graphics)
     autocmd! BufNewFile,BufRead *.svg           setfiletype xml
 
     " Text (plain text)
-    autocmd BufReadPost *.txt                   setfiletype text
+    autocmd! BufNewFile,BufRead *.txt           setfiletype text
 
     " XHTML
     autocmd! BufNewFile,BufRead *.xhtml         setfiletype xml
