@@ -13,6 +13,7 @@ endif
 
 let g:colors_name = "wnodom"
 
+
 hi Comment              gui=NONE    guifg=Grey                                term=bold           cterm=bold      ctermfg=Cyan
 hi Constant             gui=NONE    guifg=Cyan                                term=underline      cterm=bold      ctermfg=Magenta
 hi Cursor               gui=NONE    guifg=bg        guibg=#AAFFAA
@@ -22,7 +23,7 @@ hi Directory            gui=NONE    guifg=Cyan                                te
 hi Error                gui=NONE    guifg=Black     guibg=Red                 term=reverse                        ctermfg=DarkCyan    ctermbg=Black
 hi ErrorMsg             gui=NONE    guifg=White     guibg=Red                 term=standout       cterm=bold      ctermfg=Grey        ctermbg=Blue
 hi FoldColumn           gui=NONE    guifg=Grey      guibg=Grey15
-hi Folded               gui=NONE    guifg=Cyan      guibg=#454545
+hi Folded               gui=NONE    guifg=White     guibg=DarkGreen
 hi Identifier           gui=NONE    guifg=Orange                              term=underline                      ctermfg=Brown
 hi LineNr               gui=NONE    guifg=DarkGrey  guibg=Black               term=underline      cterm=bold      ctermfg=DarkCyan
 hi MatchParen           gui=NONE                    guibg=DarkMagenta
