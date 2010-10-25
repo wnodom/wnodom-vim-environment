@@ -467,12 +467,12 @@ inoremap <expr> <S-Tab>  InsertMatchingSpaces()
 " From this message on the MacVim mailing list:
 " http://groups.google.com/group/vim_mac/browse_thread/thread/31876ef48063e487/133e06134425bda1?hl=en¿e06134425bda1
 "
-nnoremap <Leader>zz  :let &scrolloff=999-&scrolloff<CR>
+nnoremap \zz  :let &scrolloff=999-&scrolloff<CR>
 
 " Toggle wrapping the display of long lines (and display the current 'wrap'
 " state once it's been toggled).
 "
-nnoremap <Leader>w  :set invwrap<BAR>set wrap?<CR>
+nnoremap \w  :set invwrap<BAR>set wrap?<CR>
 
 " Load the functions used by the literal-search mappings below.
 "
@@ -510,11 +510,11 @@ xmap #  ?<CR>
 
 " Toggle the NERD Tree window
 "
-nnoremap ,. :NERDTreeToggle<CR>
+nnoremap ,.  :NERDTreeToggle<CR>
 
 " Toggle the Taglist window
 "
-nnoremap <Leader>l :TlistToggle
+nnoremap \l  :TlistToggle
 
 " Delete to end of line, bash-style.
 "
@@ -592,6 +592,33 @@ elseif has("win32")
 endif
 
 let Tlist_Use_Right_Window = 1
+
+
+" Accentuate.us
+"
+let AccentuateUsCommand  = 'perl -CA ~/bin/sf-client.pl'
+let AccentuateUsLanguage = 'ga'
+
+" Sample maps
+" 
+" Correct entire file:
+"   gg      :   Go to top of file
+"   \'      :   Correct motion ...
+"   G       :   ... Move to end of file
+"
+nmap <F3>   gg\'G
+
+" Correct current paragraph:
+"   \'      : Correct motion (or text object)
+"   ip      : ... Current inner parapgraph
+"
+nmap <F4>   \'ip
+
+
+" XXX: Don't like having to do this twice.
+"
+"nmap <silent> ,m  <Plug>AccentuateCorrect
+"vmap ,m  <Plug>AccentuateCorrect
 
 
 
