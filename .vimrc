@@ -596,30 +596,50 @@ let Tlist_Use_Right_Window = 1
 
 " Accentuate.us
 "
-let AccentuateUsCommand  = 'perl -CA ~/bin/sf-client.pl'
-let AccentuateUsLanguage = 'ga'
+let g:AccentuateUsCommand  = 'perl -CA ~/bin/sf-client.pl'
+let g:AccentuateUsLanguage = 'ga'
 
+"
 " Sample maps
 " 
-" Correct entire file:
+
+" Alternative keystrokes
+"
+if 0
+    nmap _  <Plug>AccentuateUsCorrectMotion
+    nmap __ <Plug>AccentuateUsCorrectRange
+    vmap _  <Plug>AccentuateUsCorrectVisual
+endif
+
+" Correct entire file using current language.
+"
 "   gg      :   Go to top of file
 "   \'      :   Correct motion ...
 "   G       :   ... Move to end of file
 "
 nmap <F3>   gg\'G
 
-" Correct current paragraph:
-"   \'      : Correct motion (or text object)
-"   ip      : ... Current inner parapgraph
+" Correct current paragraph using current language.
+"
+"   \'      :   Correct motion (or text object)
+"   ip      :   ... Current inner parapgraph
 "
 nmap <F4>   \'ip
 
-
-" XXX: Don't like having to do this twice.
+" Correct whole file using Irish.
+" (Subsequent commands continue using Irish.)
 "
-"nmap <silent> ,m  <Plug>AccentuateCorrect
-"vmap ,m  <Plug>AccentuateCorrect
+nmap <F5>   :let g:AccentuateUsLanguage='ga'<CR>gg\'G
 
+" Correct whole file using Hawaiian. 
+" (Subsequent commands continue using Hawaiian.)
+"
+nmap <F6>   :let g:AccentuateUsLanguage='haw'<CR>gg\'G
+
+" Correct whole file using Cherokee:
+" (Subsequent commands continue using Cherokee.)
+"
+nmap <F7>   :let g:AccentuateUsLanguage='chr'<CR>gg\'G
 
 
 "
