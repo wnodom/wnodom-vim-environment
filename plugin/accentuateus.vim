@@ -1,12 +1,12 @@
-" accentuateus.vim
+" accentuate.vim
 "
 " Vim plugin to access the Accentuate.us service.
 "
 
-if exists('g:loaded_accentuate_us')
+if exists('g:loaded_accentuate')
     finish
 endif
-let g:loaded_accentuate_us = 1
+let g:loaded_accentuate = 1
 
 " Use the default Vim compatibility options (mostly to allow long lines
 " to be continued with backslashes).
@@ -17,29 +17,32 @@ set cpo&vim
 
 " Define the user-customizable key maps.
 "
-if !hasmapto('<Plug>AccentuateUsCorrectMotion', 'n')
-    nmap <unique> <silent> <Leader>'   <Plug>AccentuateUsCorrectMotion
+if !hasmapto('<Plug>AccentuateMotion', 'n')
+    nmap <unique> <silent> <Leader>'   <Plug>AccentuateMotion
 endif
 
-if !hasmapto('<Plug>AccentuateUsCorrectVisual', 'v')
-    vmap <unique> <silent> <Leader>'   <Plug>AccentuateUsCorrectVisual
+if !hasmapto('<Plug>AccentuateVisual', 'v')
+    vmap <unique> <silent> <Leader>'   <Plug>AccentuateVisual
 endif
 
-if !hasmapto('<Plug>AccentuateUsCorrectRange', 'n')
-    nmap <unique> <silent> <Leader>''  <Plug>AccentuateUsCorrectRange
+if !hasmapto('<Plug>AccentuateRange', 'n')
+    nmap <unique> <silent> <Leader>''  <Plug>AccentuateRange
 endif
 
 
-" Define <Plug> maps to invoke Correct() appropriately for each key map.
+" Define <Plug> maps to invoke Accentuate() appropriately for each key map.
 "
-nnoremap <unique> <script> <Plug>AccentuateUsCorrectMotion
-    \ :set operatorfunc=<SID>Correct<CR>g@
+nnoremap <unique> <script> <Plug>AccentuateMotion
+    \ :set operatorfunc=<SID>Accentuate<CR>g@
 
-vnoremap <unique> <script> <Plug>AccentuateUsCorrectVisual
-    \ :<C-U>call <SID>Correct('visual')<CR>
+" Notice that this uses <C-U> to remove the '<,'> range specifier
+" before called Accentuate().
+"
+vnoremap <unique> <script> <Plug>AccentuateVisual
+    \ :<C-U>call <SID>Accentuate('visual')<CR>
 
-nnoremap <unique> <script> <Plug>AccentuateUsCorrectRange
-    \ :call <SID>Correct('range')<CR>
+nnoremap <unique> <script> <Plug>AccentuateRange
+    \ :call <SID>Accentuate('range')<CR>
 
 
 " Define the default command and language code to use when calling the
@@ -55,9 +58,9 @@ if !exists('g:AccentuateUsLanguage')
 endif
 
 
-function s:Correct(type) range
+function s:Accentuate(type) range
 
-    " Construct the appropriate range specifier for the way Correct()
+    " Construct the appropriate range specifier for the way Accentuate()
     " was invoked.
     "
     if a:type == 'visual'
@@ -101,4 +104,4 @@ endfunction
 "
 let &cpo = s:save_cpo
 
-" end accentuateus.vim
+" end accentuate.vim
