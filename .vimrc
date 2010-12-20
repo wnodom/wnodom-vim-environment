@@ -182,6 +182,9 @@ if &t_Co > 2 || has("gui_running")
     syntax on
 endif
 
+" Use pathogen for better plugin management.
+"
+call pathogen#runtime_append_all_bundles() 
 
 "
 " Autocommands
