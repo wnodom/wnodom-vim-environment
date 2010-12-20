@@ -594,7 +594,7 @@ endif
 let Tlist_Use_Right_Window = 1
 
 
-" Accentuate.us
+" Accentuate (Interface to Accentuate.us translation service)
 "
 let g:AccentuateUsCommand  = 'perl -CA ~/bin/sf-client.pl'
 let g:AccentuateUsLanguage = 'ga'
@@ -606,9 +606,9 @@ let g:AccentuateUsLanguage = 'ga'
 " Alternative keystrokes
 "
 if 0
-    nmap _  <Plug>AccentuateUsCorrectMotion
-    nmap __ <Plug>AccentuateUsCorrectRange
-    vmap _  <Plug>AccentuateUsCorrectVisual
+    nmap _  <Plug>AccentuateMotion
+    nmap __ <Plug>AccentuateRange
+    vmap _  <Plug>AccentuateVisual
 endif
 
 " Correct entire file using current language.
