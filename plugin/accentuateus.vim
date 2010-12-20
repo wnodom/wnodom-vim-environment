@@ -1,4 +1,4 @@
-" accentuate-us.vim
+" accentuateus.vim
 "
 " Vim plugin to access the Accentuate.us service.
 "
@@ -101,4 +101,4 @@ endfunction
 "
 let &cpo = s:save_cpo
 
-" end accentuate-us.vim
+" end accentuateus.vim
