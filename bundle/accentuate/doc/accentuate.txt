@@ -6,6 +6,7 @@
 1. Usage                                            |accentuate-usage|
 1. Mappings                                         |accentuate-mappings|
 1. Options                                          |accentuate-options|
+1. Limitations                                      |accentuate-limitations|
 1. Authors                                          |accentuate-authors|
 1. Website                                          |accentuate-website|
 1. License                                          |accentuate-license|
@@ -14,37 +15,73 @@
 
 INTRODUCTION                                        *accentuate*
 
-intro here
+Accentuate is a Vim plugin that transforms text with the Accentuate.us web
+service. You can learn more about the service at http://accentuate.us/.
+
 
 REQUIREMENTS                                        *accentuate-requirements*
 
-reqs here
+* Vim 7
+
+* Accentuate Command-line Client
+
+Accentuate requires that either the Perl or Python Accentuate clients be
+installed. You can find both at the Accentuate website
+(http://accentuate.us/).
+
+* Access to the Accentuate.us Web Service
+
+The Accentuate plugin sends text to the Accentuate.us web service. It will not
+work without an Internet connection.
+
 
 USAGE                                               *accentuate-usage*
 
-usage here
 
 MAPPINGS                                            *accentuate-mappings*
 
-maps here
+    Default Maps
 
+        Normal Mode
+            
+            <Leader>'
+
+            <Leader>''
+
+        Visual Mode
+
+            <Leader>
+
+
+    Customizing the Key Maps
+
+        <Plug>
+        
 OPTIONS                                             *accentuate-options*
 
-options here
+    Command line program
+
+    Default language
+
+
+LIMITATIONS                                         *accentuate-limitations*
+
+    Full lines
 
 AUTHORS                                             *accentuate-authors*
 
-authors here
+    Kevin, Michael, me
 
 WEBSITE                                             *accentuate-website*
 
-website here
+    http://accentuate.us/
+
+    http://tmtowtdi.com/
 
 LICENSE                                             *accentuate-license*
 
-license here
+    Same as Accentuate itself?
 
 HISTORY                                             *accentuate-history*
 
-history here
 
