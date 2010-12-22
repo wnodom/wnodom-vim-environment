@@ -597,6 +597,7 @@ endif
 let Tlist_Use_Right_Window = 1
 
 
+
 " Accentuate (Interface to Accentuate.us translation service)
 "
 let g:AccentuateUsCommand  = 'perl -CA ~/bin/sf-client.pl'

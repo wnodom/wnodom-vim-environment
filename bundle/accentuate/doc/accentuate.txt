@@ -1,0 +1,50 @@
+*accentuate.txt*  Plugin to transform text with the Accentuate.us web service
+
+1. Introduction                                     |accentuate|
+1. Requirements                                     |accentuate-requirements|
+1. Installation                                     |accentuate-installation|
+1. Usage                                            |accentuate-usage|
+1. Mappings                                         |accentuate-mappings|
+1. Options                                          |accentuate-options|
+1. Authors                                          |accentuate-authors|
+1. Website                                          |accentuate-website|
+1. License                                          |accentuate-license|
+1. History                                          |accentuate-history|
+
+
+INTRODUCTION                                        *accentuate*
+
+intro here
+
+REQUIREMENTS                                        *accentuate-requirements*
+
+reqs here
+
+USAGE                                               *accentuate-usage*
+
+usage here
+
+MAPPINGS                                            *accentuate-mappings*
+
+maps here
+
+OPTIONS                                             *accentuate-options*
+
+options here
+
+AUTHORS                                             *accentuate-authors*
+
+authors here
+
+WEBSITE                                             *accentuate-website*
+
+website here
+
+LICENSE                                             *accentuate-license*
+
+license here
+
+HISTORY                                             *accentuate-history*
+
+history here
+
