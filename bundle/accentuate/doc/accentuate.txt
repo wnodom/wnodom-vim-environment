@@ -1,15 +1,14 @@
 *accentuate.txt*  Transform text with the Accentuate.us web service
 
 1. Introduction                                     |accentuate|
-1. Requirements                                     |accentuate-requirements|
-1. Installation                                     |accentuate-installation|
-1. Usage                                            |accentuate-usage|
-1. Options                                          |accentuate-options|
-1. Limitations                                      |accentuate-limitations|
-1. Authors                                          |accentuate-authors|
-1. Website                                          |accentuate-website|
-1. License                                          |accentuate-license|
-1. History                                          |accentuate-history|
+2. Requirements                                     |accentuate-requirements|
+3. Installation                                     |accentuate-installation|
+4. Usage                                            |accentuate-usage|
+5. Options                                          |accentuate-options|
+6. Limitations                                      |accentuate-limitations|
+7. Authors                                          |accentuate-authors|
+8. Website                                          |accentuate-website|
+9. License                                          |accentuate-license|
 
 
 INTRODUCTION                                        *accentuate*
@@ -24,13 +23,12 @@ you can easily type plain text like this...
 
     Mọi người đều có quyền tự do ngôn luận và bầy tỏ quan điểm
 
-Accentuate works as an |operator|, like |yank|, |delete|, and other
-built-in Vim operators, so it can be combined with any selection,
-motion, or text object. That makes it easy to accentuate (for example)
-the current line, a range of lines, or an entire file. (See the examples
-in |accentuate-usage| below.)
+Accentuate works as an |operator|, like |yank|, |delete|, and other built-in
+Vim operators, so it can be combined with any selection, motion, or text
+object. That makes it easy to accentuate, say, the current line, a range of
+lines, or an entire file. (See |accentuate-usage| below for more examples.)
 
-You can learn more about the Accentuate.us service at http://accentuate.us/.
+You can learn more about Accentuate.us at http://accentuate.us/.
 
 
 REQUIREMENTS                                        *accentuate-requirements*
@@ -41,111 +39,148 @@ REQUIREMENTS                                        *accentuate-requirements*
 
 * Accentuate Command-line Client
 
-    Accentuate requires that either the Perl or Python Accentuate client be
-    installed. You can find both clients at http://accentuate.us/. (See
-    |accentuate-installation| and |accentuate-options| for more information.)
+    Accentuate requires that either the Perl or Python Accentuate.us client be
+    installed. See |accentuate-installation| and |accentuate-options| for more
+    information.
 
 * Access to the Accentuate.us Web Service
 
     The Accentuate plugin transforms text using the Accentuate.us web service.
-    It will not function without an Internet connection and access to the
-    Accentuate.us site.
+    It cannot function without an Internet connection and access to the
+    |accentuate-website|.
 
 
 INSTALLATION                                        *accentuate-installation*
+
+1.  Install an Accentuate.us command-line client.
+    
+    The plugin uses this client to communicate with the Accentuate.us web
+    service, and won't function properly without it. You can find Perl and
+    Python clients at the |accentuate-website|, along with installation
+    instructions.
+
+2.  Install the Accentuate Vim plugin.
+
+    The Accentuate Vim plugin installs like any other global Vim plugin. Just
+    follow the instructions under |add-global-plugin|.
+
+    (If you're reading this via the Vim online help system, then the plugin is
+    probably already installed.)
+
+3.  Set the g:AccentuateLanguage option in .vimrc.
+
+    Set g:AccentuateLanguage to the code for the language Accentuate.us should
+    use when restoring a block of text. The default value is 'gla' (Scottish
+    Gaelic).
+    
+    You can find a complete list of supported languages and their codes at the
+    |accentuate-website|.
+    
+    See |accentuate-options| for an example of changing this value in .vimrc.
+
+4.  Set the g:AccentuateCommand option in .vimrc (if necessary).
+
+    By default, the Accentuate plugin will attempt to use 'sf-client.pl' (the
+    command-line Perl client) to communicate with the Accentuate.us web
+    service. If the client is not installed somewhere in the command path, or
+    if you installed the Python client, you'll need to change this option to
+    point to the appropriate executable.
+    
+    See |accentuate-options| for an example of changing this value in .vimrc.
 
 
 USAGE                                               *accentuate-usage*
 
 By default, Accentuate defines the following key mappings:
 
-    {range}<Leader>''   : Accentuate {range} of lines
-    <Leader>'{motion}   : Accentuate {motion} lines
-    {Visual}<Leader>'   : Accentuate current Visual selection
+    {range}<Leader>''       : Accentuate {range} of lines
+    <Leader>'{motion}       : Accentuate {motion} lines
+    {Visual}<Leader>'       : Accentuate current Visual selection
 
 Assuming <Leader> is set to the default (backslash) when the plugin is
 loaded, these key mappings let you do things like the following:
 
-    \''                 : Accentuate current line
-    5\''                : Accentuate next five lines
+    \''                     : Accentuate current line
+    5\''                    : Accentuate next five lines
 
-    \'ip                : Accentuate current paragraph
-    \'G                 : Accentuate rest of buffer
-    gg\'G               : Accentuate entire buffer
+    \'ip                    : Accentuate current paragraph
+    \'G                     : Accentuate rest of buffer
+    gg\'G                   : Accentuate entire buffer
 
-    Vjj\'               : Visually highlight current line
-                        : and next two lines, then accentuate
-                        : highlighted lines.
+    Vjj\'                   : Visually highlight current line
+                            : and next two lines, then accentuate
+                            : highlighted lines.
 
 Essentially, \' works like |y|, |d|, |>|, |=|, or any other |operator|, and
 \'' behaves like |yy|, |dd|, |>>|, |==|, etc.
 
 Of course, the user can define additional maps for common cases:
 
-    nmap <F2>  \'ip
-    nmap <F3>  gg\'G
+    " F2 accentuates current paragraph
+    :nmap <F2>  \'ip
+
+    " F3 accentuates entire file
+    :nmap <F3>  gg\'G
 
 The plugin key maps are customizable, so the user can also override the
 defaults like so:
 
-    nmap _  <Plug>AccentuateMotion
-    nmap __ <Plug>AccentuateRange
-    vmap _  <Plug>AccentuateVisual
+    :nmap _  <Plug>AccentuateMotion
+    :nmap __ <Plug>AccentuateRange
+    :vmap _  <Plug>AccentuateVisual
 
 Now the examples look this instead:
 
-    __                  : Accentuate current line
-    5__                 : Accentuate next five lines
+    __                      : Accentuate current line
+    5__                     : Accentuate next five lines
 
-    _ip                 : Accentuate current paragraph
-    _G                  : Accentuate rest of buffer
-    gg_G                : Accentuate entire buffer
+    _ip                     : Accentuate current paragraph
+    _G                      : Accentuate rest of buffer
+    gg_G                    : Accentuate entire buffer
 
-    Vjj_                : Visually highlight current line
-                        : and next two lines, then accentuate
-                        : highlighted lines.
+    Vjj_                    : Visually highlight current line
+                            : and next two lines, then accentuate
+                            : highlighted lines.
 
 
 OPTIONS                                             *accentuate-options*
 
-The Accentuate plugin exposes two settings:
+The Accentuate plugin exposes two options:
 
-    g:AccentuateUsCommand   : Client program, sans options (defaults
+    g:AccentuateCommand     : Client program, sans options (defaults
                             : to 'sf-client.pl')
 
-    g:AccentuateUsLanguage  : Language code (defaults to 'ga')
+    g:AccentuateLanguage    : Language code (defaults to 'gla')
 
+Here's how a user might customize these options in .vimrc:
 
-Here's how a user might customize these settings in .vimrc:
+    :let g:AccentuateCommand  = 'perl -CA ~/bin/sf-client.pl'
+    :let g:AccentuateLanguage = 'chr'
 
-    :let g:AccentuateUsCommand  = 'perl -CA ~/bin/sf-client.pl'
-    :let g:AccentuateUsLanguage = 'chr'
+(Note that g:AccentuateCommand can actually be a partial command line, and
+that the client program doesn't have to be in the user's path.)
 
-(Note that g:AccentuateUsCommand can actually be a partial command line,
-and that the client program doesn't have to be in the user's path.)
+These can be changed at any time, and the key maps will immediately use the
+new options. They can even be combined with custom key maps, so different
+keystrokes can use different languages (or even different programs):
 
-These can be changed at any time, and the key maps will immediately use
-the new settings. They can even be combined with custom key maps, so
-different keystrokes can use different languages (or even different
-programs):
+    " Accentuate entire file using Scottish Gaelic
+    :nmap <F5>   :let g:AccentuateLanguage='gla'<CR>gg\'G
 
-    " Correct whole file using Gaelic.
-    :nmap <F5>   :let g:AccentuateUsLanguage='ga'<CR>gg\'G
+    " Accentuate entire file using Hawaiian
+    :nmap <F6>   :let g:AccentuateLanguage='haw'<CR>gg\'G
 
-    " Correct whole file using Hawaiian.
-    :nmap <F6>   :let g:AccentuateUsLanguage='haw'<CR>gg\'G
+    " Accentuate entire file using Cherokee
+    :nmap <F7>   :let g:AccentuateLanguage='chr'<CR>gg\'G
 
-    " Correct whole file using Cherokee:
-    :nmap <F7>   :let g:AccentuateUsLanguage='chr'<CR>gg\'G
-
-One interesting side effect of maps like this is that, since the
-settings are global, subsequent commands continue using the new
-settings. I choose to view this as a feature. :-)
+One side effect of maps like this is that, since the options are global,
+subsequent commands continue using the new values. I choose to view this as a
+feature. :-)
 
 
 LIMITATIONS                                         *accentuate-limitations*
 
-Since the Accentuate plugin calls the client program as a filter, it only
+Since the Accentuate plugin calls the client program as a filter, it always
 operates on whole lines, even if only part of a line is selected. No matter
 how much or how little of a line in a range is selected, Vim still provides
 the entire line to the filter command (and replaces that entire line once the
@@ -155,21 +190,20 @@ the plugin.
 
 AUTHORS                                             *accentuate-authors*
 
-    Kevin, Michael, me
+The Accentuate.us website and service were created by Kevin Scannell
+(http://borel.slu.edu/) and Michael Schade (http://www.mschade.me/).
+
+The Accentuate Vim plugin was written by Bill Odom (http://billodom.com).
 
 
 WEBSITE                                             *accentuate-website*
 
-    http://accentuate.us/
-
-    http://tmtowtdi.com/
+Accentuate.us - http://accentuate.us/
 
 
 LICENSE                                             *accentuate-license*
 
-    Same as Accentuate itself?
-
-
-HISTORY                                             *accentuate-history*
+The Vim Accentuate plugin is licensed under the same terms as Vim itself.
+See |license| for more information.
 
 
