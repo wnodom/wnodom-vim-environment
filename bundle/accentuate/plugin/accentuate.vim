@@ -49,12 +49,12 @@ nnoremap <unique> <script> <Plug>AccentuateRange
 " external client. These can also be customized by the user of the
 " plugin.
 "
-if !exists('g:AccentuateUsCommand')
-    let g:AccentuateUsCommand = 'sf-client.pl'
+if !exists('g:AccentuateCommand')
+    let g:AccentuateCommand = 'sf-client.pl'
 endif
 
-if !exists('g:AccentuateUsLanguage')
-    let g:AccentuateUsLanguage = 'ga'
+if !exists('g:AccentuateLanguage')
+    let g:AccentuateLanguage = 'gla'
 endif
 
 
@@ -95,8 +95,8 @@ function s:Accentuate(type) range
     " Filter the selected set of lines through the external command.
     "
     silent execute range_spec
-        \ . '!'       . g:AccentuateUsCommand
-        \ . ' -r -l ' . g:AccentuateUsLanguage
+        \ . '!'       . g:AccentuateCommand
+        \ . ' -r -l ' . g:AccentuateLanguage
 
 endfunction
 
