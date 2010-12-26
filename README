@@ -9,6 +9,7 @@ Welcome to Bill Odom's Vim environment. Here's how to use it:
     ln -s ~/.vim/.gvimrc ~/.gvimrc
 
 Just FYI, all this will be updated to git clone and submodule commands once I
-get everything properly converted and pushed to github.
+get everything properly converted and pushed to github (or some other public
+repo).
 
 
