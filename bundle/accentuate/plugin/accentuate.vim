@@ -35,8 +35,8 @@ endif
 nnoremap <unique> <script> <Plug>AccentuateMotion
     \ :set operatorfunc=<SID>Accentuate<CR>g@
 
-" Notice that this uses <C-U> to remove the '<,'> range specifier
-" before called Accentuate().
+" Notice that this uses <C-U> to remove the '<,'> range specifier before
+" calling Accentuate().
 "
 vnoremap <unique> <script> <Plug>AccentuateVisual
     \ :<C-U>call <SID>Accentuate('visual')<CR>
@@ -46,8 +46,7 @@ nnoremap <unique> <script> <Plug>AccentuateRange
 
 
 " Define the default command and language code to use when calling the
-" external client. These can also be customized by the user of the
-" plugin.
+" external client. These can also be customized by the user of the plugin.
 "
 if !exists('g:AccentuateCommand')
     let g:AccentuateCommand = 'sf-client.pl'
@@ -72,21 +71,19 @@ function s:Accentuate(type) range
 
     elseif a:type == 'range'
 
-        " Function was invoked with a line range, so build the range
-        " specifier from the first and last line numbers (which might be
-        " the same).
+        " Function was invoked with a line range, so build the range specifier
+        " from the first and last line numbers (which might be the same).
         "
         let range_spec = a:firstline . ',' . a:lastline
 
     else " type is 'line', 'char', or 'block'
 
-        " Function was invoked with a motion (linewise, characterwise,
-        " or blockwise-visual), so use the '[ and '] to denote the
-        " range.
+        " Function was invoked with a motion (linewise, characterwise, or
+        " blockwise-visual), so use the '[ and '] to denote the range.
         "
-        " Note: Since we're calling a line-oriented filter, it doesn't
-        " matter which type of motion was used; the external command
-        " acts on (and replaces) full lines.
+        " Note: Since we're calling a line-oriented filter, it doesn't matter
+        " which type of motion was used; the external command acts on (and
+        " replaces) full lines.
         "
         let range_spec = "'[,']"
 
