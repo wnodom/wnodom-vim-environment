@@ -101,19 +101,26 @@ if has('mouse')
     set mouse=a
 endif
 
+
 " Set 'selection', 'selectmode', 'mousemodel' and 'keymodel' to make
 " both keyboard- and mouse-based highlighting behave more like Windows
 " and OS X. (These are the same settings you get with `:behave mswin`.)
 "
-" XXX: 'selectmode' and 'keymodel' are important for some of the key mappings
+" XXX: Temporarily experimenting with using Visual mode for shifted-cursor key
+" movements, instead of Select mode. It seems like I'm always hitting <C-G>
+" immediately after selecting something to flip from Select to Visual, so I'm
+" going to see starting off in Visual mode will work better for me.
+"
+" Note: 'selectmode' and 'keymodel' are important for some of the key mappings
 " defined below. Note the specific mappings below.
 "
-" XXX: The MacVim HIG settings also set 'selectmode' and 'keymodel' (though,
-" luckily, in exactly the same way as `:behave mswin`). Even so, consider
-" breaking these out based on platform.
-"
+" Note: Under MacVim, `:let macvim_hig_shift_movement = 1` will cause MacVim
+" to set selectmode and keymodel. See `:help macvim-shift-movement` for
+" details.
+" 
 set selection=exclusive
-set selectmode=mouse,key
+" Was `set selectmode=mouse,key` -- now trying out Visual instead
+set selectmode=
 set mousemodel=popup
 set keymodel=startsel,stopsel
 
