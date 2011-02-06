@@ -80,7 +80,9 @@ if has("gui_macvim")
     "set antialias guifont=Andale_Mono:h14
     "set noantialias guifont=Fixedsys_True_Type_Font:h15
 
-    set lines=45 columns=100
+    " Make the screen as tall as possible.
+    "
+    set lines=999 columns=140
 
     " winpos doesn't (yet) work on MacVim.
     "
