@@ -7,7 +7,7 @@ function! EscapeText(text)
 
     " Map characters to named C backslash escapes. Normally, single-quoted
     " strings don't require double-backslashing, but these are necessary
-    " to make the subsitute() call below work properly.
+    " to make the substitute() call below work properly.
     "
     let l:charmap = {
     \   '"'     : '\\"',
