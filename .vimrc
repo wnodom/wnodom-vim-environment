@@ -524,11 +524,15 @@ nnoremap ,.  :NERDTreeToggle<CR>
 
 " Toggle the Taglist window
 "
-nnoremap \l  :TlistToggle
+nnoremap \l  :TlistToggle<CR>
 
 " Delete to end of line, bash-style.
 "
 imap <C-K> <C-O>D
+
+" Select just-pasted text.
+"
+nnoremap \v  `[v`]
 
 
 "
