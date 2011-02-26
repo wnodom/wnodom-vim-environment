@@ -371,6 +371,10 @@ vnoremap <S-F7>  J
 vnoremap <Tab>    >gv
 vnoremap <S-Tab>  <gv
 
+" Map Control+Up/Down to move lines and selections up and down.
+"
+runtime map_line_block_mover_keys.vim
+
 " Map arrows/home/end keys (with and without modifiers).
 "
 runtime map_movement_keys.vim
@@ -534,6 +538,9 @@ imap <C-K> <C-O>D
 "
 nnoremap \v  `[v`]
 
+" Make it easy to :Tabularize
+"
+nnoremap \<Tab> <Esc>:Tabularize /
 
 "
 " Commands

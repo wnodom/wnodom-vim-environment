@@ -1,5 +1,183 @@
 " map_movement_keys.vim
 "
+" XXX: This file is being rebuilt. Lines after `finish` are ignored.
+"
+
+"""
+""" Unshifted Up/Down, Home/End, Command+Left/Right
+"""
+
+" Normal mode
+"
+nnoremap <Up>       gk
+nnoremap <Down>     gj
+
+" Insert mode
+"
+inoremap <Up>       <C-O>gk
+inoremap <Down>     <C-O>gj
+
+" Visual mode
+"
+" Arrow keys leave Visual mode and move up/down one display line.
+"
+xnoremap <Up>       <Esc>gk
+xnoremap <Down>     <Esc>gj
+
+" Select mode
+"
+" Arrow keys leave Select mode and move up/down one display
+" line, just like Visual mode.
+"
+snoremap <Up>       <Esc>gk
+snoremap <Down>     <Esc>gj
+
+
+"" Home/End, Command+Left/Right
+
+" Normal mode
+"
+nnoremap <Home>         g0
+nnoremap <End>          g$
+nnoremap <D-Left>       g0
+nnoremap <D-Right>      g$
+
+" Insert mode
+" 
+" Piggyback on Normal-mode maps.
+"
+imap    <Home>          <C-O><Home>
+imap    <End>           <C-O><End>
+imap    <D-Left>        <C-O><D-Left>
+imap    <D-Right>       <C-O><D-Right>
+
+" Visual mode
+"
+" Unshifted Home/End leave Visual mode and trigger the Normal mode map.
+"
+xmap    <Home>          <Esc><Home>
+xmap    <End>           <Esc><End>
+xmap    <D-Left>        <Esc><D-Left>
+xmap    <D-Right>       <Esc><D-Right>
+
+" Select mode
+"
+" Unshifted Home/End leave Select mode and trigger the Normal mode map.
+"
+smap    <Home>          <Esc><Home>
+smap    <End>           <Esc><End>
+smap    <D-Left>        <Esc><D-Left>
+smap    <D-Right>       <Esc><D-Right>
+
+
+"""
+""" Shifted Up/Down, Home/End
+"""
+
+" Make shifted up/down enter Visual mode, then move
+" up/down by a display line.
+
+" Normal mode
+"
+nnoremap <S-Up>     vgk
+nnoremap <S-Down>   vgj
+
+" Insert mode
+"
+imap    <S-Up>      <C-O><S-Up>
+imap    <S-Down>    <C-O><S-Down>
+
+" Visual mode
+"
+xmap    <S-Up>      gk
+xmap    <S-Down>    gj
+
+" Select mode
+"
+" Shift+Up/Down in Select mode enter Visual mode for one command, move the
+" cursor one display line in the proper direction, then re-enter Select mode.
+"
+snoremap <S-Down>   <C-O>gj
+snoremap <S-Up>     <C-O>gk
+
+
+" Shift+Home/End, Shift+Command+Left/Right - Enter Visual mode and move
+" to the start/end of the display line.
+
+" Normal mode
+"
+nnoremap <S-Home>       vg0
+nnoremap <S-End>        vg$
+nnoremap <S-D-Left>     vg0
+nnoremap <S-D-Right>    vg$
+
+" Insert mode
+"
+" Leave Insert mode and trigger the Normal mode maps
+"
+imap <S-Home>       <Esc><S-Home>
+imap <S-End>        <Esc><S-End>
+imap <S-D-Left>     <Esc><S-Home>
+imap <S-D-Right>    <Esc><S-End>
+
+" Visual mode
+"
+xnoremap <S-Home>       g0
+xnoremap <S-End>        g$
+xnoremap <S-D-Left>     g0
+xnoremap <S-D-Right>    g$
+
+" Select mode
+"
+" Shift+Home/End in Select mode enter Visual mode for one command, move the
+" cursor within the display line in the proper direction, then re-enter
+" Select mode.
+"
+smap <S-Home>       <C-O><S-Home>
+smap <S-End>        <C-O><S-End>
+smap <S-D-Left>     <C-O><S-D-Left>
+smap <S-D-Right>    <C-O><S-D-Right>
+
+
+
+
+
+
+
+"""
+""" Control+Up/Down to move lines and selections
+"""
+
+" Control+Up/Down move lines and selections up and down.
+" Based on http://vim.wikia.com/wiki/VimTip646
+" 
+" Define maps for Normal and Visual modes, then re-use
+" them for Insert and Select.
+"
+
+" Normal mode
+nnoremap <silent>  <C-Up>    :move -2<CR>
+nnoremap <silent>  <C-Down>  :move +<CR>
+
+" Visual mode (only; does not include Select mode)
+xnoremap <silent>  <C-Up>    :move '<-2<CR>gv
+xnoremap <silent>  <C-Down>  :move '>+<CR>gv
+
+" Insert mode
+imap     <silent>  <C-Up>    <C-O><C-Up>
+imap     <silent>  <C-Down>  <C-O><C-Down>
+
+" Select mode
+smap     <silent>  <C-Up>    <C-G><C-Up><C-G>
+smap     <silent>  <C-Down>  <C-G><C-Down><C-G>
+
+
+finish
+
+"""""""""""""""""""""""""""""""""""""""
+
+" map_movement_keys.vim
+"
 " Do all the weird stuff I have to do to make arrow/home/end/etc. keys
 " (and their shifted variants) work the way that I want them to.
 "
@@ -52,6 +230,11 @@ xnoremap <Up>     gk
 xnoremap <Down>   gj
 xnoremap <Left>   h
 xnoremap <Right>  l
+
+
+
+
+
 
 " Make shifted arrows keys ignore soft-wrapping, too. This requires a little
 " more trickery.
