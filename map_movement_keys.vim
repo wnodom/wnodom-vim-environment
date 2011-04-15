@@ -27,7 +27,7 @@
 "
 
 
-" Set selectmode and keymodel appropriately, as these mappings
+" Set selectmode and keymodel appropriately, as some of these mappings
 " depend on it.
 "
 " Note: These options are also set by the :behave command,
@@ -100,7 +100,7 @@ nnoremap <D-Right>      g$
 
 " Insert mode
 "
-" Piggyback on Normal-mode maps.
+" Piggyback on Normal-mode maps, but stay in Insert mode.
 "
 imap    <Home>          <C-O><Home>
 imap    <End>           <C-O><End>
@@ -145,7 +145,6 @@ nnoremap <S-Up>         gh<C-O>gk
 "
 "   nnoremap <S-Up>         vgk<C-G>
 "   nnoremap <S-Down>       vgj<C-G>
-"
 
 " Insert mode
 "
@@ -195,16 +194,17 @@ nnoremap <S-D-Right>    gh<C-O>g$
 " Leave Insert mode for a single command, then trigger the Normal mode
 " maps.
 "
-" Note: Watch out for a possible bug. When the Normal-mode maps enter Visual
-" mode (instead of Select mode), the cursor doesn't land in the right place.
-" It stops a few characters from the beginning of the line, for example, or
-" wraps around to the next line when attempting to go to the end. When the
-" Normal-mode maps are built for Select mode, as they are now, it works fine.
+" Note: Watch out for a possible bug. When the Normal-mode maps are defined to
+" enter Visual mode (instead of Select mode, as they do now), the cursor
+" doesn't land in the right place. It stops a few characters from the
+" beginning of the line, for example, or wraps around to the next line when
+" attempting to go to the end. When the Normal-mode maps are built for Select
+" mode (again, as they are now), it works fine.
 "
-imap <S-Home>           <C-O><S-Home>
-imap <S-End>            <C-O><S-End>
-imap <S-D-Left>         <C-O><S-Home>
-imap <S-D-Right>        <C-O><S-End>
+imap     <S-Home>       <C-O><S-Home>
+imap     <S-End>        <C-O><S-End>
+imap     <S-D-Left>     <C-O><S-Home>
+imap     <S-D-Right>    <C-O><S-End>
 
 " Alternative - leave Insert mode entirely and trigger the Normal mode maps:
 "
@@ -236,17 +236,117 @@ xnoremap <S-D-Right>    g$
 " XXX: These require that the corresponding Visual mode maps all be single
 " commands.
 "
-smap <S-Home>           <C-O><S-Home>
-smap <S-End>            <C-O><S-End>
-smap <S-D-Left>         <C-O><S-D-Left>
-smap <S-D-Right>        <C-O><S-D-Right>
+smap     <S-Home>       <C-O><S-Home>
+smap     <S-End>        <C-O><S-End>
+smap     <S-D-Left>     <C-O><S-D-Left>
+smap     <S-D-Right>    <C-O><S-D-Right>
 
 
 """
-""" TODO: Shift+Option Up/Down, Home/End, Command+Left/Right
+""" Option Up/Down, Home/End, Command+Left/Right
 """
 
+" Make option up/down enter Visual mode, then move
+" up/down by a display line.
 
+" Normal mode
+"
+" Enter Visual mode then move.
+"
+nnoremap <M-Down>       vgj
+nnoremap <M-Up>         vgk
+
+" Insert mode
+"
+imap     <M-Up>         <C-O><S-Up>
+imap     <M-Down>       <C-O><S-Down>
+
+" Visual mode
+"
+" Just stay in Visual mode.
+"
+xmap     <M-Up>         gk
+xmap     <M-Down>       gj
+
+" Select mode
+"
+" Option+Up/Down in Select mode enter Visual mode for one command, move the
+" cursor one display line in the proper direction, then re-enter Select mode.
+"
+" XXX: Stay in Select mode, or switch to Visual mode?
+" 
+snoremap <M-Down>       <C-O>gj
+snoremap <M-Up>         <C-O>gk
+
+
+" Option+Home/End, Option+Command+Left/Right - Enter Visual mode and move
+" to the start/end of the display line.
+
+" Normal mode
+"
+" Enter Visual mode then move.
+"
+nnoremap <M-Home>       vg0
+nnoremap <M-End>        vg$
+nnoremap <M-D-Left>     vg0
+nnoremap <M-D-Right>    vg$
+
+" Insert mode
+"
+" Leave Insert mode for a single command, then trigger the Normal mode
+" maps.
+"
+imap     <M-Home>       <C-O><M-Home>
+imap     <M-End>        <C-O><M-End>
+imap     <M-D-Left>     <C-O><M-Home>
+imap     <M-D-Right>    <C-O><M-End>
+
+
+" Visual mode
+"
+xnoremap <M-Home>       g0
+xnoremap <M-End>        g$
+xnoremap <M-D-Left>     g0
+xnoremap <M-D-Right>    g$
+
+" Select mode
+"
+" Extend the selection to the start/end of the display line.
+"
+" Shift+Home/End in Select mode enter Visual mode for one command, move the
+" cursor within the display line in the proper direction, then re-enter
+" Select mode.
+"
+" XXX: These require that the corresponding Visual mode maps all be single
+" commands.
+"
+smap     <M-Home>       <C-O><M-Home>
+smap     <M-End>        <C-O><M-End>
+smap     <M-D-Left>     <C-O><M-D-Left>
+smap     <M-D-Right>    <C-O><M-D-Right>
+
+
+"" Option+Left/Right
+
+" Normal mode
+"
+nnoremap <M-Left>       vh
+nnoremap <M-Right>      vl
+
+" Insert mode
+"
+imap     <M-Left>       <C-O>vh
+imap     <M-Right>      <C-O>vl
+
+" Visual mode
+"
+xnoremap <M-Left>       h
+xnoremap <M-Right>      l
+
+" Select mode
+"
+smap     <M-Left>       <C-O>h
+smap     <M-Right>      <C-O>l
 
 
 " end map_movement_keys.vim
