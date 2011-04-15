@@ -618,8 +618,8 @@ let Tlist_Use_Right_Window = 1
 
 " Accentuate (Interface to Accentuate.us translation service)
 "
-let g:AccentuateUsCommand  = 'perl -CA ~/bin/sf-client.pl'
-let g:AccentuateUsLanguage = 'ga'
+let g:AccentuateCommand  = 'perl -CA ~/bin/sf-client.pl'
+let g:AccentuateLanguage = 'ht'
 
 "
 " Sample maps
@@ -651,17 +651,17 @@ nmap <F4>   \'ip
 " Correct whole file using Irish.
 " (Subsequent commands continue using Irish.)
 "
-nmap <F5>   :let g:AccentuateUsLanguage='ga'<CR>gg\'G
+nmap <F5>   :let g:AccentuateLanguage='ga'<CR>gg\'G
 
 " Correct whole file using Hawaiian. 
 " (Subsequent commands continue using Hawaiian.)
 "
-nmap <F6>   :let g:AccentuateUsLanguage='haw'<CR>gg\'G
+nmap <F6>   :let g:AccentuateLanguage='haw'<CR>gg\'G
 
 " Correct whole file using Cherokee:
 " (Subsequent commands continue using Cherokee.)
 "
-nmap <F7>   :let g:AccentuateUsLanguage='chr'<CR>gg\'G
+nmap <F7>   :let g:AccentuateLanguage='chr'<CR>gg\'G
 
 
 "
