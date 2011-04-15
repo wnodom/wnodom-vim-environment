@@ -1,49 +1,79 @@
 " map_movement_keys.vim
 "
-" XXX: This file is being rebuilt. Lines after `finish` are ignored.
+" XXX: This file is a work in progress, and is midway through being rebuilt.
+" Lines after the `finish` statement below are ignored.
 "
+" Do all the weird stuff I have to do to make arrow/home/end/etc. keys
+" (and their shifted variants) work the way that I want them to.
+"
+" Note: The 'standard' movement keys (h j k l ^ 0 $) are left as-is,
+" so it's always possible to use them to do what they should do.
+"
+
+" Set selectmode and keymodel appropriately, as these mappings
+" depend on it.
+"
+" Note: These options are also set by the :behave command,
+" and within the MacVim internal gvimrc depending on the
+" values of flag variables (see below).
+" 
+set selectmode=
+set keymodel=startsel,stopsel
+
+" Don't allow the MacVim internal gvimrc to create the HIG
+" Command and Option movement mappings.
+"
+let macvim_skip_cmd_opt_movement = 1
+
+" Don't have MacVim enable the HIG Shift movement-related
+" settings, either.
+"
+unlet! macvim_hig_shift_movement
+
 
 """
 """ Unshifted Up/Down, Home/End, Command+Left/Right
 """
 
+"" Up/Down
+
 " Normal mode
-"
-nnoremap <Up>       gk
-nnoremap <Down>     gj
+" [tested]
+nnoremap <Up>           gk
+nnoremap <Down>         gj
 
 " Insert mode
-"
-inoremap <Up>       <C-O>gk
-inoremap <Down>     <C-O>gj
+" [tested]
+inoremap <Up>           <C-O>gk
+inoremap <Down>         <C-O>gj
 
 " Visual mode
-"
+" [tested]
 " Arrow keys leave Visual mode and move up/down one display line.
 "
-xnoremap <Up>       <Esc>gk
-xnoremap <Down>     <Esc>gj
+xnoremap <Up>           <Esc>gk
+xnoremap <Down>         <Esc>gj
 
 " Select mode
-"
+" [tested]
 " Arrow keys leave Select mode and move up/down one display
 " line, just like Visual mode.
 "
-snoremap <Up>       <Esc>gk
-snoremap <Down>     <Esc>gj
+snoremap <Up>           <Esc>gk
+snoremap <Down>         <Esc>gj
 
 
-"" Home/End, Command+Left/Right
+"" Unshifted Home/End, Command+Left/Right
 
 " Normal mode
-"
+" [tested]
 nnoremap <Home>         g0
 nnoremap <End>          g$
 nnoremap <D-Left>       g0
 nnoremap <D-Right>      g$
 
 " Insert mode
-" 
+" [tested]
 " Piggyback on Normal-mode maps.
 "
 imap    <Home>          <C-O><Home>
@@ -52,7 +82,7 @@ imap    <D-Left>        <C-O><D-Left>
 imap    <D-Right>       <C-O><D-Right>
 
 " Visual mode
-"
+" [tested]
 " Unshifted Home/End leave Visual mode and trigger the Normal mode map.
 "
 xmap    <Home>          <Esc><Home>
@@ -61,7 +91,7 @@ xmap    <D-Left>        <Esc><D-Left>
 xmap    <D-Right>       <Esc><D-Right>
 
 " Select mode
-"
+" [tested]
 " Unshifted Home/End leave Select mode and trigger the Normal mode map.
 "
 smap    <Home>          <Esc><Home>
@@ -71,41 +101,41 @@ smap    <D-Right>       <Esc><D-Right>
 
 
 """
-""" Shifted Up/Down, Home/End
+""" Shifted Up/Down, Home/End, Command+Left/Right
 """
 
 " Make shifted up/down enter Visual mode, then move
 " up/down by a display line.
 
 " Normal mode
-"
-nnoremap <S-Up>     vgk
-nnoremap <S-Down>   vgj
+" [tested]
+nnoremap <S-Up>         vgk
+nnoremap <S-Down>       vgj
 
 " Insert mode
-"
-imap    <S-Up>      <C-O><S-Up>
-imap    <S-Down>    <C-O><S-Down>
+" [tested]
+imap    <S-Up>          <C-O><S-Up>
+imap    <S-Down>        <C-O><S-Down>
 
 " Visual mode
-"
-xmap    <S-Up>      gk
-xmap    <S-Down>    gj
+" [tested]
+xmap    <S-Up>          gk
+xmap    <S-Down>        gj
 
 " Select mode
-"
+" [tested]
 " Shift+Up/Down in Select mode enter Visual mode for one command, move the
 " cursor one display line in the proper direction, then re-enter Select mode.
 "
-snoremap <S-Down>   <C-O>gj
-snoremap <S-Up>     <C-O>gk
+snoremap <S-Down>       <C-O>gj
+snoremap <S-Up>         <C-O>gk
 
 
 " Shift+Home/End, Shift+Command+Left/Right - Enter Visual mode and move
 " to the start/end of the display line.
 
 " Normal mode
-"
+" [tested]
 nnoremap <S-Home>       vg0
 nnoremap <S-End>        vg$
 nnoremap <S-D-Left>     vg0
@@ -115,65 +145,55 @@ nnoremap <S-D-Right>    vg$
 "
 " Leave Insert mode and trigger the Normal mode maps
 "
-imap <S-Home>       <Esc><S-Home>
-imap <S-End>        <Esc><S-End>
-imap <S-D-Left>     <Esc><S-Home>
-imap <S-D-Right>    <Esc><S-End>
+" FIXME - Everything works except this one.
+"
+if 0
+
+    " This version works, but doesn't properly leave us in [ (insert) Visual ]
+    " mode, which means it doesn't return to Insert mode when leaving Visual
+    " mode. This may not be a big deal, but it feels weird in practice.
+    "
+    imap <S-Home>           <Esc><S-Home>
+    imap <S-End>            <Esc><S-End>
+    imap <S-D-Left>         <Esc><S-Home>
+    imap <S-D-Right>        <Esc><S-End>
+
+else
+
+    " -- BUG -- This properly stays in [ (insert) Visual ] mode, but
+    " doesn't seem to land in the right place. It stops a few characters from
+    " the beginning of the line, for example, or wraps around to the next line
+    " when attempting to go to the end.
+    "
+    imap <S-Home>           <C-O><S-Home>  
+    imap <S-End>            <C-O><S-End>   
+    imap <S-D-Left>         <C-O><S-Home>  
+    imap <S-D-Right>        <C-O><S-End>   
+
+endif
 
 " Visual mode
-"
+" [tested]
 xnoremap <S-Home>       g0
 xnoremap <S-End>        g$
 xnoremap <S-D-Left>     g0
 xnoremap <S-D-Right>    g$
 
 " Select mode
-"
+" [tested]
 " Shift+Home/End in Select mode enter Visual mode for one command, move the
 " cursor within the display line in the proper direction, then re-enter
 " Select mode.
 "
-smap <S-Home>       <C-O><S-Home>
-smap <S-End>        <C-O><S-End>
-smap <S-D-Left>     <C-O><S-D-Left>
-smap <S-D-Right>    <C-O><S-D-Right>
+smap <S-Home>           <C-O><S-Home>
+smap <S-End>            <C-O><S-End>
+smap <S-D-Left>         <C-O><S-D-Left>
+smap <S-D-Right>        <C-O><S-D-Right>
 
 
 finish
 
 """""""""""""""""""""""""""""""""""""""
-
-" map_movement_keys.vim
-"
-" Do all the weird stuff I have to do to make arrow/home/end/etc. keys
-" (and their shifted variants) work the way that I want them to.
-"
-" XXX: Much of this is still a work in progress.
-"
-" Note: The 'standard' movement keys (h j k l ^ 0 $) are left as-is,
-" so it's always possible to use them to do what they should do.
-"
-
-" Note: These options are also set by the :behave command.
-" 
-set selectmode+=key
-set keymodel=startsel,stopsel
-
-
-" Control+Up/Down move lines and selections up and down.
-" Based on http://vim.wikia.com/wiki/VimTip646
-" 
-" Define maps for Normal and Visual modes, then re-use
-" them for Insert and Select.
-"
-nnoremap <silent>  <C-Up>    :move -2<CR>
-nnoremap <silent>  <C-Down>  :move +<CR>
-xnoremap <silent>  <C-Up>    :move '<-2<CR>gv
-xnoremap <silent>  <C-Down>  :move '>+<CR>gv
-imap     <silent>  <C-Up>    <C-O><C-Up>
-imap     <silent>  <C-Down>  <C-O><C-Down>
-smap     <silent>  <C-Up>    <C-G><C-Up><C-G>
-smap     <silent>  <C-Down>  <C-G><C-Down><C-G>
 
 
 " Make arrow keys and Home/End (and their Select-mode-triggering
