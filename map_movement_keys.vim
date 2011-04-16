@@ -11,8 +11,11 @@
 " start/end of line), so I don't do it.
 "
 " TODO:
-" 
-" - Add Shift+Option maps (possibly as a way to activate Visual mode).
+"
+" - Unshifted Command+Up/Down
+"
+" - Consider Shift+Option maps. Not sure what they'd do, but they're
+"   sort of available.
 "
 " - Behavior on long lines under `:set nowrap` is strange. May want to
 "   activate some or all of these only when 'wrap' is set.
@@ -258,8 +261,8 @@ nnoremap <M-Up>         vgk
 
 " Insert mode
 "
-imap     <M-Up>         <C-O><S-Up>
-imap     <M-Down>       <C-O><S-Down>
+imap     <M-Up>         <C-O><M-Up>
+imap     <M-Down>       <C-O><M-Down>
 
 " Visual mode
 "
