@@ -12,13 +12,16 @@
 "
 " TODO:
 "
+" - Change colors for Visual vs. Select mode.
+"
 " - Unshifted Command+Up/Down
 "
 " - Consider Shift+Option maps. Not sure what they'd do, but they're
 "   sort of available.
 "
-" - Behavior on long lines under `:set nowrap` is strange. May want to
-"   activate some or all of these only when 'wrap' is set.
+" - Home/End mappings use g0 and g$ for movement, which works great when
+"   `wrap` is set, but feels strange when it's not. May want to adjust
+"   the behavior based on the `wrap` setting.
 " 
 " - Consider what PgUp/PgDn (with shift, control, etc.) should do.
 " 
@@ -27,6 +30,10 @@
 " 
 " - Home/End maps need to be tested on systems that, unlike my laptop,
 "   actually have those keys.
+"
+" - Consider whether or not movement keys should exit Visual mode (like they
+"   do for Select mode). They do now, but I don't know if I like it.
+"
 "
 
 
@@ -68,65 +75,65 @@ unlet! macvim_hig_shift_movement
 
 " Normal mode
 "
-nnoremap <Up>           gk
-nnoremap <Down>         gj
+nnoremap    <Up>            gk
+nnoremap    <Down>          gj
 
 " Insert mode
 "
-inoremap <Up>           <C-O>gk
-inoremap <Down>         <C-O>gj
+inoremap    <Up>            <C-O>gk
+inoremap    <Down>          <C-O>gj
 
 " Visual mode
 "
 " Arrow keys leave Visual mode and move up/down one display line.
 "
-xnoremap <Up>           <Esc>gk
-xnoremap <Down>         <Esc>gj
+xnoremap    <Up>            <Esc>gk
+xnoremap    <Down>          <Esc>gj
 
 " Select mode
 "
 " Arrow keys leave Select mode and move up/down one display
 " line, just like Visual mode.
 "
-snoremap <Up>           <Esc>gk
-snoremap <Down>         <Esc>gj
+snoremap    <Up>            <Esc>gk
+snoremap    <Down>          <Esc>gj
 
 
 "" Unshifted Home/End, Command+Left/Right
 
 " Normal mode
 "
-nnoremap <Home>         g0
-nnoremap <End>          g$
-nnoremap <D-Left>       g0
-nnoremap <D-Right>      g$
+nnoremap    <expr> <Home>   &wrap ? "g0" : "0"
+nnoremap    <expr> <End>    &wrap ? "g$" : "$"
+nmap        <D-Left>        <Home>
+nmap        <D-Right>       <End>
 
 " Insert mode
 "
 " Piggyback on Normal-mode maps, but stay in Insert mode.
 "
-imap    <Home>          <C-O><Home>
-imap    <End>           <C-O><End>
-imap    <D-Left>        <C-O><D-Left>
-imap    <D-Right>       <C-O><D-Right>
+imap        <Home>          <C-O><Home>
+imap        <End>           <C-O><End>
+imap        <D-Left>        <C-O><D-Left>
+imap        <D-Right>       <C-O><D-Right>
 
 " Visual mode
 "
 " Unshifted Home/End leave Visual mode and trigger the Normal mode map.
 "
-xmap    <Home>          <Esc><Home>
-xmap    <End>           <Esc><End>
-xmap    <D-Left>        <Esc><D-Left>
-xmap    <D-Right>       <Esc><D-Right>
+xmap        <Home>          <Esc><Home>
+xmap        <End>           <Esc><End>
+xmap        <D-Left>        <Esc><D-Left>
+xmap        <D-Right>       <Esc><D-Right>
 
 " Select mode
 "
 " Unshifted Home/End leave Select mode and trigger the Normal mode map.
 "
-smap    <Home>          <Esc><Home>
-smap    <End>           <Esc><End>
-smap    <D-Left>        <Esc><D-Left>
-smap    <D-Right>       <Esc><D-Right>
+smap        <Home>          <Esc><Home>
+smap        <End>           <Esc><End>
+smap        <D-Left>        <Esc><D-Left>
+smap        <D-Right>       <Esc><D-Right>
 
 
 """
@@ -141,8 +148,8 @@ smap    <D-Right>       <Esc><D-Right>
 " Enter Select mode, switch to Visual mode for a single
 " command, then move.
 "
-nnoremap <S-Down>       gh<C-O>gj
-nnoremap <S-Up>         gh<C-O>gk
+nnoremap    <S-Down>        gh<C-O>gj
+nnoremap    <S-Up>          gh<C-O>gk
 
 " Alternative - enter Visual mode, move, then switch to Select mode:
 "
@@ -151,24 +158,24 @@ nnoremap <S-Up>         gh<C-O>gk
 
 " Insert mode
 "
-imap    <S-Up>          <C-O><S-Up>
-imap    <S-Down>        <C-O><S-Down>
+imap        <S-Up>          <C-O><S-Up>
+imap        <S-Down>        <C-O><S-Down>
 
 " Visual mode
 "
 " XXX: Should shifted keys switch from Visual mode to Select mode, or stay in
 " Visual mode? For now, they stay in Visual mode.
 "
-xmap    <S-Up>          gk
-xmap    <S-Down>        gj
+xmap        <S-Up>          gk
+xmap        <S-Down>        gj
 
 " Select mode
 "
 " Shift+Up/Down in Select mode enter Visual mode for one command, move the
 " cursor one display line in the proper direction, then re-enter Select mode.
 "
-snoremap <S-Down>       <C-O>gj
-snoremap <S-Up>         <C-O>gk
+snoremap    <S-Down>        <C-O>gj
+snoremap    <S-Up>          <C-O>gk
 
 
 " Shift+Home/End, Shift+Command+Left/Right - Enter Visual mode and move
@@ -179,10 +186,10 @@ snoremap <S-Up>         <C-O>gk
 " Enter Select mode, switch to Visual mode for a single
 " command, then move.
 "
-nnoremap <S-Home>       gh<C-O>g0
-nnoremap <S-End>        gh<C-O>g$
-nnoremap <S-D-Left>     gh<C-O>g0
-nnoremap <S-D-Right>    gh<C-O>g$
+nnoremap    <expr> <S-Home>     "gh<C-O>" . (&wrap ? "g0" : "0")
+nnoremap    <expr> <S-End>      "gh<C-O>" . (&wrap ? "g$" : "$")
+nmap        <S-D-Left>          <S-Home>
+nmap        <S-D-Right>         <S-End>
 
 " Alternative - enter Visual mode, move, then switch to Select mode:
 "
@@ -223,10 +230,10 @@ imap     <S-D-Right>    <C-O><S-End>
 
 " Visual mode
 "
-xnoremap <S-Home>       g0
-xnoremap <S-End>        g$
-xnoremap <S-D-Left>     g0
-xnoremap <S-D-Right>    g$
+xnoremap    <expr> <S-Home>     &wrap ? "g0" : "0"
+xnoremap    <expr> <S-End>      &wrap ? "g$" : "$"
+xmap        <S-D-Left>          <S-Home>
+xmap        <S-D-Right>         <S-End>
 
 " Select mode
 "
@@ -289,10 +296,10 @@ snoremap <M-Up>         <C-O>gk
 "
 " Enter Visual mode then move.
 "
-nnoremap <M-Home>       vg0
-nnoremap <M-End>        vg$
-nnoremap <M-D-Left>     vg0
-nnoremap <M-D-Right>    vg$
+nnoremap    <expr> <M-Home>     "v" . (&wrap ? "g0" : "0")
+nnoremap    <expr> <M-End>      "v" . (&wrap ? "g$" : "$")
+nmap        <M-D-Left>          <M-Home>
+nmap        <M-D-Right>         <M-End>
 
 " Insert mode
 "
@@ -304,13 +311,12 @@ imap     <M-End>        <C-O><M-End>
 imap     <M-D-Left>     <C-O><M-Home>
 imap     <M-D-Right>    <C-O><M-End>
 
-
 " Visual mode
 "
-xnoremap <M-Home>       g0
-xnoremap <M-End>        g$
-xnoremap <M-D-Left>     g0
-xnoremap <M-D-Right>    g$
+xnoremap    <expr> <M-Home>     &wrap ? "g0" : "0"
+xnoremap    <expr> <M-End>      &wrap ? "g$" : "$"
+xmap        <M-D-Left>          <M-Home>
+xmap        <M-D-Right>         <M-End>
 
 " Select mode
 "
@@ -321,7 +327,7 @@ xnoremap <M-D-Right>    g$
 " Select mode.
 "
 " XXX: These require that the corresponding Visual mode maps all be single
-" commands.
+" commands. Might be better to not depend on the Normal mode maps.
 "
 smap     <M-Home>       <C-O><M-Home>
 smap     <M-End>        <C-O><M-End>
