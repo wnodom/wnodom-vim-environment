@@ -8,6 +8,25 @@
 "
 " TODO:
 "
+" - XXX BUG: 
+"
+"   The | represents the left edge of the window, and the _ is the cursor:
+"
+"       |Text_
+"
+"   Pressing Shift+Command+Left, then typing a new character, X, to replace
+"   the highlighted text, results in this:
+"
+"       |t_
+"
+"   It looks like the way I'm selecting the text doesn't grab the last
+"   character of the line.
+"
+" - In the MacVim gvimrc, Bjorn Winckler (maintainer of MacVim) says:
+"
+"     This is a work in progress.  If you feel so inclined, please help me
+"     improve this file.
+"
 " - Control+Option+movement should work analogous to Control+Shift+movement.
 "
 " - Change colors for Visual vs. Select mode.
