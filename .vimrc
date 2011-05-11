@@ -355,7 +355,7 @@ vnoremap <F7>   gq
 " of a de facto standard keystroke.
 "
 nnoremap Q  gqap
-vnoremap Q  gq
+xnoremap Q  gq
 
 " Shift+F7 joins all lines of the current paragraph or highlighted block
 " into a single line.
