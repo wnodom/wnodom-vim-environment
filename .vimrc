@@ -106,24 +106,17 @@ endif
 " both keyboard- and mouse-based highlighting behave more like Windows
 " and OS X. (These are the same settings you get with `:behave mswin`.)
 "
-" XXX: Temporarily experimenting with using Visual mode for shifted-cursor key
-" movements, instead of Select mode. It seems like I'm always hitting <C-G>
-" immediately after selecting something to flip from Select to Visual, so I'm
-" going to see starting off in Visual mode will work better for me.
-"
-" Note: 'selectmode' and 'keymodel' are important for some of the key mappings
-" defined below. Note the specific mappings below.
+" Note: 'selectmode' and 'keymodel' are now set within map_movement_keys.vim,
+" since they're critical to the behavior of those mappings.
 "
 " Note: Under MacVim, `:let macvim_hig_shift_movement = 1` will cause MacVim
 " to set selectmode and keymodel. See `:help macvim-shift-movement` for
 " details.
 " 
+" set selectmode=mouse,key
+" set keymodel=startsel,stopsel
 set selection=exclusive
-" Was `set selectmode=mouse,key` -- now trying out Visual instead
-set selectmode=
 set mousemodel=popup
-set keymodel=startsel,stopsel
-
 
 "
 " Backup files and directories
@@ -375,9 +368,10 @@ vnoremap <S-Tab>  <gv
 "
 runtime map_line_block_mover_keys.vim
 
-" Map arrows/home/end keys (with and without modifiers).
+" Map arrows/home/end/pgup/pgdn keys (with and without modifiers).
 "
 runtime map_movement_keys.vim
+
 
 " Disable paste-on-middle-click.
 "
@@ -512,15 +506,15 @@ cnoremap <C-G>  <C-R><C-R>=GetLiteralPattern()<CR>
 "
 " Note: This overwrites the @v register.
 "
-xnoremap /  "vy/<C-R><C-R>=StringToPattern(@v)<CR>
-xnoremap ?  "vy?<C-R><C-R>=StringToPattern(@v)<CR>
+xnoremap \/  "vy/<C-R><C-R>=StringToPattern(@v)<CR>
+xnoremap \?  "vy?<C-R><C-R>=StringToPattern(@v)<CR>
 
 " Make * and # act similar to their normal-mode versions, but for the
-" visually-highlighted text. Note that these two mappings build on the / and ?
-" mappings above.
+" visually-highlighted text. Note that these build on the mappings
+" immediately above.
 "
-xmap *  /<CR>
-xmap #  ?<CR>
+xmap *  \/<CR>
+xmap #  \?<CR>
 
 " Toggle the NERD Tree window
 "
