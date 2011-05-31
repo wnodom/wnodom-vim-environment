@@ -74,6 +74,7 @@ if has("gui_macvim")
     " but it's just more convenient to keep them together like this.)
     "
     set antialias linespace=0 guifont=Inconsolata:h15
+    "set antialias linespace=1 guifont=Menlo:h14
     "set antialias linespace=0 guifont=Droid_Sans_Mono:h13
     "set antialias linespace=0 guifont=Consolas:h15
     "set antialias linespace=2 guifont=Monaco:h13
