@@ -82,13 +82,13 @@ if has("gui_macvim")
     "set noantialias guifont=Fixedsys_True_Type_Font:h15
 
     " XXX: Temporary maps to restore the predefined font settings, just as an
-    " experiment. These need to be replaced with something more comprehesive
+    " experiment. These need to be replaced with something more comprehensive
     " and robust.
     "
     nnoremap    <D-0>   :set antialias linespace=0 guifont=Inconsolata:h15<CR>
     imap        <D-0>   <C-O><D-0>
 
-    " Make the screen as tall as possible.
+    " Make the Vim window as tall as possible.
     "
     set lines=999 columns=140
 
