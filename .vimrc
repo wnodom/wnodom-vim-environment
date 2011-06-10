@@ -226,6 +226,11 @@ if has("autocmd") && !exists("autocommands_loaded")
     "
     autocmd WinEnter,VimEnter * call ConfigureWindow()
 
+    " Resize Vim windows to equal heights and widths when Vim itself
+    " is resized.
+    "
+    autocmd VimResized * wincmd =
+
 endif " has("autocmd")
 
 
