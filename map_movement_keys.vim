@@ -8,20 +8,6 @@
 "
 " TODO:
 "
-" - XXX BUG: 
-"
-"   The | represents the left edge of the window, and the _ is the cursor:
-"
-"       |Text_
-"
-"   Pressing Shift+Command+Left, then typing a new character, X, to replace
-"   the highlighted text, results in this:
-"
-"       |t_
-"
-"   It looks like the way I'm selecting the text doesn't grab the last
-"   character of the line.
-"
 " - In the MacVim gvimrc, Bjorn Winckler (maintainer of MacVim) says:
 "
 "     This is a work in progress.  If you feel so inclined, please help me
@@ -49,14 +35,15 @@
 "
 
 
-" Set selectmode and keymodel appropriately, as some of these mappings
-" depend on it.
+" Set selectmode, selection, and keymodel appropriately, as some of these
+" mappings depend on it.
 "
-" Note: These options are also set by the :behave command,
-" and within the MacVim internal gvimrc depending on the
-" values of flag variables (see below).
+" Note: These options are also set by the :behave command, and within the
+" MacVim internal gvimrc depending on the values of flag variables (see
+" below).
 "
 set selectmode=key,mouse
+set selection=inclusive
 set keymodel=startsel,stopsel
 
 " Configure HIG-related options for MacVim.
