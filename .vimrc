@@ -8,7 +8,7 @@
 """ Basic Settings
 """
 
-" Use Vim settings instead of Vi settings. Set this early,
+" Use Vim settings instead of vi settings. Set this early,
 " as it changes many other options as a side effect.
 "
 set nocompatible
@@ -102,25 +102,9 @@ if has('mouse')
 endif
 
 
-" Set 'selection', 'selectmode', 'mousemodel' and 'keymodel' to make
-" both keyboard- and mouse-based highlighting behave more like Windows
-" and OS X. (These are the same settings you get with `:behave mswin`.)
-"
-" Note: 'selectmode' and 'keymodel' are now set within map_movement_keys.vim,
-" since they're critical to the behavior of those mappings.
-"
-" Note: Under MacVim, `:let macvim_hig_shift_movement = 1` will cause MacVim
-" to set selectmode and keymodel. See `:help macvim-shift-movement` for
-" details.
-" 
-" set selectmode=mouse,key
-" set keymodel=startsel,stopsel
-set selection=exclusive
-set mousemodel=popup
-
-"
-" Backup files and directories
-"
+"""
+""" Backup files and directories
+"""
 
 " Keep a backup file for all platforms except VMS. (VMS supports automatic
 " versioning.)
@@ -238,6 +222,24 @@ endif " has("autocmd")
 """
 """ Key mappings
 """
+
+" Set 'selection', 'selectmode', 'mousemodel' and 'keymodel' to make
+" both keyboard- and mouse-based highlighting behave more like Windows
+" and OS X. (These are the same settings you get with `:behave mswin`.)
+"
+" Note: 'selectmode', 'keymodel', and 'selection' are also set within
+" map_movement_keys.vim, since they're critical to the behavior of those
+" mappings (although they should be set to the same values there as here.)
+"
+" Note: Under MacVim, `:let macvim_hig_shift_movement = 1` will cause MacVim
+" to set selectmode and keymodel. See `:help macvim-shift-movement` for
+" details.
+" 
+set selectmode=mouse,key
+set keymodel=startsel,stopsel
+set selection=exclusive
+set mousemodel=popup
+
 
 " These settings are taken from the $VIMRUNTIME/mswin.vim file, which is
 " normally used to make Vim behave more like a native MS-Windows
