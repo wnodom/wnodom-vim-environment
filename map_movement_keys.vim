@@ -43,7 +43,7 @@
 " below).
 "
 set selectmode=key,mouse
-set selection=inclusive
+set selection=exclusive
 set keymodel=startsel,stopsel
 
 " Configure HIG-related options for MacVim.
@@ -217,6 +217,12 @@ snoremap    <S-Up>              <C-O>gk
 "
 " Enter Select mode, switch to Visual mode for a single
 " command, then move.
+"
+" XXX: BUG - This doesn't work properly when starting a selection from
+" the last character on a line. The last character isn't selected. This
+" can be fixed by changing the `selection` setting from `exclusive` to
+" `inclusive`, but that has annoying side effects. I haven't come up
+" with a great approach for solving this one yet.
 "
 nnoremap    <expr> <S-Home>     "gh<C-O>" . (&wrap ? "g0" : "0")
 nnoremap    <expr> <S-End>      "gh<C-O>" . (&wrap ? "g$" : "$")
