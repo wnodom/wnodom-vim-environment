@@ -4,9 +4,9 @@
 " (See .gvimrc for GUI-specific configuration.)
 "
 
-"
-" Settings
-"
+"""
+""" Basic Settings
+"""
 
 " Use Vim settings instead of Vi settings. Set this early,
 " as it changes many other options as a side effect.
@@ -186,9 +186,10 @@ endif
 "
 call pathogen#runtime_append_all_bundles() 
 
-"
-" Autocommands
-"
+
+"""
+""" Autocommands
+"""
 
 if has("autocmd") && !exists("autocommands_loaded")
 
@@ -234,9 +235,9 @@ if has("autocmd") && !exists("autocommands_loaded")
 endif " has("autocmd")
 
 
-"
-" Key mappings
-"
+"""
+""" Key mappings
+"""
 
 " These settings are taken from the $VIMRUNTIME/mswin.vim file, which is
 " normally used to make Vim behave more like a native MS-Windows
@@ -541,9 +542,10 @@ nnoremap \v  `[v`]
 "
 nnoremap \<Tab> <Esc>:Tabularize /
 
-"
-" Commands
-"
+
+"""
+""" Commands
+"""
 
 " View differences between the current buffer and the original file.
 " (Based on code from $VIMRUNTIME/vimrc_example.vim.)
@@ -567,16 +569,16 @@ runtime redir_messages.vim
 runtime search_with_skip.vim
 
 
-"
-" Abbreviations
-"
+"""
+""" Abbreviations
+"""
 
 runtime set_abbreviations.vim
 
 
-"
-" Extension settings (plugins, syntax files, etc.)
-"
+"""
+""" Extension settings (plugins, syntax files, etc.)
+"""
 
 " Perl syntax
 "
@@ -615,57 +617,9 @@ let Tlist_Use_Right_Window = 1
 
 
 
-" Accentuate (Interface to Accentuate.us translation service)
-"
-let g:AccentuateCommand  = 'perl -CA ~/bin/sf-client.pl'
-let g:AccentuateLanguage = 'ht'
-
-"
-" Sample maps
-" 
-
-" Alternative keystrokes
-"
-if 0
-    nmap _  <Plug>AccentuateMotion
-    nmap __ <Plug>AccentuateRange
-    vmap _  <Plug>AccentuateVisual
-endif
-
-" Correct entire file using current language.
-"
-"   gg      :   Go to top of file
-"   \'      :   Correct motion ...
-"   G       :   ... Move to end of file
-"
-nmap <F3>   gg\'G
-
-" Correct current paragraph using current language.
-"
-"   \'      :   Correct motion (or text object)
-"   ip      :   ... Current inner parapgraph
-"
-nmap <F4>   \'ip
-
-" Correct whole file using Irish.
-" (Subsequent commands continue using Irish.)
-"
-nmap <F5>   :let g:AccentuateLanguage='ga'<CR>gg\'G
-
-" Correct whole file using Hawaiian. 
-" (Subsequent commands continue using Hawaiian.)
-"
-nmap <F6>   :let g:AccentuateLanguage='haw'<CR>gg\'G
-
-" Correct whole file using Cherokee:
-" (Subsequent commands continue using Cherokee.)
-"
-nmap <F7>   :let g:AccentuateLanguage='chr'<CR>gg\'G
-
-
-"
-" Local Functions
-"
+"""
+""" Local Functions
+"""
 
 function! ConfigureWindow()
 
