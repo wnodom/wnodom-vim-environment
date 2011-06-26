@@ -19,6 +19,7 @@ hi Constant             gui=NONE    guifg=Cyan                                te
 hi Cursor               gui=NONE    guifg=bg        guibg=#AAFFAA
 hi CursorLine           gui=NONE                    guibg=Grey30
 hi CursorColumn         gui=NONE                    guibg=Grey30
+hi ColorColumn          gui=NONE                    guibg=DarkRed
 hi Directory            gui=NONE    guifg=Cyan                                term=bold           cterm=bold      ctermfg=Cyan
 hi Error                gui=NONE    guifg=Black     guibg=Red                 term=reverse                        ctermfg=DarkCyan    ctermbg=Black
 hi ErrorMsg             gui=NONE    guifg=White     guibg=Red                 term=standout       cterm=bold      ctermfg=Grey        ctermbg=Blue
