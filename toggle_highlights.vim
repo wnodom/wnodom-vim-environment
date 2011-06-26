@@ -4,7 +4,7 @@
 function! ToggleHighlights()
 "
 " Toggles visibility of search highlighting, 'list' characters (tabs, trailing
-" spaces, newlines, etc.), and the cursor line.
+" spaces, newlines, etc.), cursor line/column, and the color column.
 "
 " Note: Search highlighting is a little odd, since (as far as I can tell)
 " there's no way to determine if search highlighting is actually visible or
@@ -29,17 +29,16 @@ function! ToggleHighlights()
 " (Yes, this is hackish and weird, but I haven't yet come up with anything
 " better.)
 "
-" XXX: This is still broken (or not-quite-unbroken-enough) to make me happy.
-" It doesn't even quite work the way I've described it above.
+" XXX: This is still broken, or not-quite-unbroken-enough to make me happy.
+" It doesn't even quite work the way I've described it above. :-/
 "
 "
     " Flip the flag, or set it if it doesn't yet exist.
     "
-    " Note that the flag starts off true (highlights are visible),
-    " since most of the time that this function is first called,
-    " it will be because the user wants to to turn *off* highlighting.
-    " Pretending it's already on when first run does a halfway-decent job of
-    " this.
+    " Note that the flag starts off true (highlights are visible), since most
+    " of the time that this function is first called, it will be because the
+    " user wants to to turn *off* highlighting. Pretending it's already on
+    " when first run does a halfway-decent job of this.
     "
     let w:highlights_visible =
     \   exists('w:highlights_visible') ? !w:highlights_visible : 1
@@ -59,6 +58,7 @@ function! ToggleHighlights()
         set nolist
         set nocursorline
         set nocursorcolumn
+        set colorcolumn=
 
     else " ...turn the highlights on
 
@@ -71,6 +71,7 @@ function! ToggleHighlights()
         set list
         set cursorline
         set cursorcolumn
+        set colorcolumn=80,96,132
 
     endif
 
@@ -81,4 +82,4 @@ function! ToggleHighlights()
 
 endfunction
 
-" end highlights_visible.vim
+" end toggle_highlights.vim

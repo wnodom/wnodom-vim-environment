@@ -57,7 +57,8 @@ set smartcase           " Override 'ignorecase' if pattern contains uppercase.
 set nowrapscan          " Don't allow searches to wrap around EOF.
 
 set nocursorline        " Don't highlight the current screen line...
-set nocursorcolumn      " ...or column.
+set nocursorcolumn      " ...or screen column...
+set colorcolumn=        " ...or margins (but see toggle_highlights.vim).
 
 set virtualedit=block   " Allow virtual editing when in Visual Block mode.
 
