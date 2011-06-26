@@ -38,7 +38,7 @@ function! UpdateVisualHighlightColor(xm)
     " Don't contribute anything to the statusline. This
     " is all about the side effects.
     "
-    return l:m
+    return ""
 
 endfunction
 
