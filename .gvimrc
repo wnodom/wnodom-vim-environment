@@ -6,7 +6,8 @@
 set guioptions+=b           " Activate the bottom horizontal scrollbar
 set guioptions-=T           " Turn off the toolbar
 
-set guicursor=a:blinkon0    " Turn off cursor blink in all modes
+set guicursor+=a:blinkon0   " Turn off cursor blink in all modes
+set guicursor+=v:ver35      " Keep the cursor from obscuring visual selections
 
 set guitablabel=%t\ %m      " GUI tab labels show filename and modified flag
 set guitabtooltip=%F        " GUI tab tooltips show the full pathname
