@@ -393,9 +393,9 @@ imap <2-MiddleMouse>  <Nop>
 imap <3-MiddleMouse>  <Nop>
 imap <4-MiddleMouse>  <Nop>
 
-" Control+Backslash toggles search/match highlighting, 'list', and
-" 'cursorline'. Note the :execute (vs. :call); see ToggleHighlight()
-" for details.
+" Control+Backslash toggles a lot of useful, but visually-noisy, features
+" (like search/match highlighting, 'list', and 'cursorline', etc.). Note the
+" :execute (vs. :call); see ToggleHighlight() for details.
 "
 runtime toggle_highlights.vim
 nnoremap <silent> <C-Bslash>  :execute ToggleHighlights()<CR>
