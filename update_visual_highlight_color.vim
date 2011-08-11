@@ -8,6 +8,24 @@
 "   runtime update_visual_highlight_color.vim
 "   set statusline+=%{UpdateVisualHighlightColor(mode(0))}
 "
+" Notes:
+" 
+" This uses a 'statusline' function to set highlighting as a side efffect, so
+" it only works if there's a status line visible in the current window.
+" `:set laststatus=2` to make sure.
+"
+" Also, if you don't already customize 'statusline', you'll want to do
+" something like this beforehand to keep the status line from being blank:
+"
+"    set statusline=%<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
+"
+" Here's why: If you leave 'statusline' at its default empty value, Vim
+" displays a reasonable default status line. Once UpdateVisualHighlightColor()
+" is added, however, 'statusline' is no longer empty, so Vim uses the value it
+" returns -- that is, the empty string -- as the text of the status line.
+" Setting 'statusline' to the value above (a reasonable approximation of Vim's
+" default) before appending UpdateVisualHighlightColor() solves the problem.
+"
 " TODO:
 " - Link to existing highlight groups (possibly predefined by the user)
 "   instead of hard-coding guifg and guibg.
