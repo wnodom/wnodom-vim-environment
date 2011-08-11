@@ -28,3 +28,6 @@
 [submodule "bundle/unimpaired"]
 	path = bundle/unimpaired
 	url = https://github.com/tpope/vim-unimpaired.git
+[submodule "bundle/accentuate"]
+	path = bundle/accentuate
+	url = https://github.com/wnodom/vim-accentuate.git
