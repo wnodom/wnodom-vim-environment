@@ -9,26 +9,33 @@
 "   set statusline+=%{UpdateVisualHighlightColor(mode(0))}
 "
 " Notes:
+"
+" At the moment, this script uses a 'statusline' function to work its magic,
+" but that may not always be the case. A statusline function is executed after
+" nearly every user-visible Vim action, and I'm only using it because I
+" haven't yet found a great combination of autocommands to provide the same
+" capability. It has a few annoying drawbacks:
+"
+" - A statusline function is only executed when there's a status line visible
+"   in the current window. `:set laststatus=2` to make sure.
+"
+" - If you don't already customize 'statusline', you'll have to do
+"   something like this beforehand to avoid ending up with a blank status line:
+"
+"       set statusline=%<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P0
+"
+"   Here's why: If you leave 'statusline' at its default empty value, Vim
+"   displays a reasonable default status line. Once
+"   UpdateVisualHighlightColor() is added, however, 'statusline' is no longer
+"   empty, so Vim uses the value the function returns -- that is, the empty string -- as
+"   the status line text. Setting 'statusline' to the value above (a
+"   reasonable approximation of Vim's default) before appending
+"   UpdateVisualHighlightColor() solves the problem.
+"
 " 
-" This uses a 'statusline' function to set highlighting as a side efffect, so
-" it only works if there's a status line visible in the current window.
-" `:set laststatus=2` to make sure.
-"
-" Also, if you don't already customize 'statusline', you'll want to do
-" something like this beforehand to keep the status line from being blank:
-"
-"    set statusline=%<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
-"
-" Here's why: If you leave 'statusline' at its default empty value, Vim
-" displays a reasonable default status line. Once UpdateVisualHighlightColor()
-" is added, however, 'statusline' is no longer empty, so Vim uses the value it
-" returns -- that is, the empty string -- as the text of the status line.
-" Setting 'statusline' to the value above (a reasonable approximation of Vim's
-" default) before appending UpdateVisualHighlightColor() solves the problem.
-"
 " TODO:
-" - Link to existing highlight groups (possibly predefined by the user)
-"   instead of hard-coding guifg and guibg.
+" - Build the default highlighting groups from the the existing Visual
+"   highlighting group.
 " - Consider converting to a plugin, with real documentation.
 " - Handle Visual Block mode.
 " - Complete the definitions of the default highlighting groups.
