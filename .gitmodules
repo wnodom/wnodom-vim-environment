@@ -1,33 +1,45 @@
 [submodule "bundle/fugitive"]
 	path = bundle/fugitive
 	url = http://github.com/tpope/vim-fugitive.git
+	ignore = dirty
 [submodule "bundle/NERD_tree"]
 	path = bundle/NERD_tree
 	url = http://github.com/scrooloose/nerdtree.git
+	ignore = dirty
 [submodule "bundle/NERD_commenter"]
 	path = bundle/NERD_commenter
 	url = https://github.com/scrooloose/nerdcommenter.git
+	ignore = dirty
 [submodule "bundle/ack"]
 	path = bundle/ack
 	url = https://github.com/mileszs/ack.vim.git
+	ignore = dirty
 [submodule "bundle/bufexplorer"]
 	path = bundle/bufexplorer
 	url = https://github.com/vim-scripts/bufexplorer.zip.git
+	ignore = dirty
 [submodule "bundle/command-t"]
 	path = bundle/command-t
 	url = git://git.wincent.com/command-t.git
+	ignore = dirty
 [submodule "bundle/taglist"]
 	path = bundle/taglist
 	url = https://github.com/vim-scripts/taglist.vim.git
+	ignore = dirty
 [submodule "bundle/matchit"]
 	path = bundle/matchit
 	url = https://github.com/vim-scripts/matchit.zip.git
+	ignore = dirty
 [submodule "bundle/tabular"]
 	path = bundle/tabular
 	url = https://github.com/godlygeek/tabular.git
+	ignore = dirty
 [submodule "bundle/unimpaired"]
 	path = bundle/unimpaired
 	url = https://github.com/tpope/vim-unimpaired.git
+	ignore = dirty
 [submodule "bundle/accentuate"]
 	path = bundle/accentuate
 	url = https://github.com/wnodom/vim-accentuate.git
+	ignore = dirty
+
