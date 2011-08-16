@@ -48,6 +48,13 @@ highlight default Select            guifg=#3c6182   guibg=White
 highlight default VisualOriginal    guifg=White     guibg=#3c6182
 
 
+if hlexists('Visual')
+
+    " XXX: Left off here
+
+endif
+
+
 function! UpdateVisualHighlightColor(xm)
 
     " Grab the short version of the current mode,
