@@ -3,34 +3,19 @@
 " Experimental script to change the 'Visual' highlight group to different
 " values depending on whether we're in 'Select' mode or not.
 "
-" To use, copy this script to ~/.vim and add these lines to your .vimrc:
+" To use, copy this script to ~/.vim and add this line to your .vimrc:
 "
 "   runtime update_visual_highlight_color.vim
-"   set statusline+=%{UpdateVisualHighlightColor(mode(0))}
 "
 " Notes:
 "
 " At the moment, this script uses a 'statusline' function to work its magic,
-" but that may not always be the case. A statusline function is executed after
-" nearly every user-visible Vim action, and I'm only using it because I
+" but that may not always be the case. A status line function is executed
+" after nearly every user-visible Vim action, and I'm only using it because I
 " haven't yet found a great combination of autocommands to provide the same
-" capability. It has a few annoying drawbacks:
-"
-" - A statusline function is only executed when there's a status line visible
-"   in the current window. `:set laststatus=2` to make sure.
-"
-" - If you don't already customize 'statusline', you'll have to do
-"   something like this beforehand to avoid ending up with a blank status line:
-"
-"       set statusline=%<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P0
-"
-"   Here's why: If you leave 'statusline' at its default empty value, Vim
-"   displays a reasonable default status line. Once
-"   UpdateVisualHighlightColor() is added, however, 'statusline' is no longer
-"   empty, so Vim uses the value the function returns -- that is, the empty string -- as
-"   the status line text. Setting 'statusline' to the value above (a
-"   reasonable approximation of Vim's default) before appending
-"   UpdateVisualHighlightColor() solves the problem.
+" capability. It has a few annoying drawbacks, one of which is that a
+" status line function is only executed when there's a status line visible in
+" the current window. `:set laststatus=2` to make sure.
 "
 " 
 " TODO:
@@ -44,13 +29,14 @@
 " Define default highlighting groups used for specific Visual sub-modes.
 " (These can be overridden within a colorscheme.)
 "
-highlight default Select            guifg=#3c6182   guibg=White
-highlight default VisualOriginal    guifg=White     guibg=#3c6182
+highlight default VisualOriginal    guifg=#3c6182   guibg=White
+highlight default Select            guifg=White     guibg=#3c6182
 
 
 if hlexists('Visual')
 
-    " XXX: Left off here
+    " XXX: Left off here, working out how best to copy
+    " the Visual highlight definition into VisualOriginal.
 
 endif
 
@@ -82,5 +68,31 @@ function! UpdateVisualHighlightColor(xm)
     return ""
 
 endfunction
+
+
+""
+"" Initialization and Setup
+""
+
+" If 'statusline' isn't defined, define one that's reasonably close to the Vim
+" default, to avoid displaying a blank status line.
+"
+" Here's why this is necessary: If you leave 'statusline' at its default empty
+" value, Vim displays a reasonable default status line. Once
+" UpdateVisualHighlightColor() is added, however, 'statusline' is no longer
+" empty, so Vim uses the value the function returns -- that is, the empty
+" string -- as the status line text. Setting 'statusline' to the value below
+" (a reasonable approximation of Vim's default) before appending
+" UpdateVisualHighlightColor() solves the problem.
+"
+if &statusline == ''
+    set statusline=%<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P0
+endif
+
+" Add the function to 'statusline', so the highlight color
+" can (potentially) be updated whenever the status line changes.
+" 
+set statusline+=%{UpdateVisualHighlightColor(mode(0))}
+
 
 " end update_visual_highlight_color.vim
