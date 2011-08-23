@@ -41,7 +41,7 @@ if hlexists('Visual')
 endif
 
 
-function! UpdateVisualHighlightColor(xm)
+function! UpdateVisualHighlightColor()
 
     " Grab the short version of the current mode,
     " and convert it to uppercase so we don't have to
@@ -49,7 +49,7 @@ function! UpdateVisualHighlightColor(xm)
     "
     " XXX: This doesn't (yet) handle Visual Block mode.
     "
-    let l:m = toupper(a:xm)
+    let l:m = toupper(mode(0))
 
     " Link the Visual highlighting to the appropriate highlighting group
     " based on the current mode.
@@ -92,7 +92,7 @@ endif
 " Add the function to 'statusline', so the highlight color
 " can (potentially) be updated whenever the status line changes.
 " 
-set statusline+=%{UpdateVisualHighlightColor(mode(0))}
+set statusline+=%{UpdateVisualHighlightColor()}
 
 
 " end update_visual_highlight_color.vim
