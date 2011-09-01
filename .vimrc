@@ -545,6 +545,9 @@ nnoremap \v  `[v`]
 "
 nnoremap \<Tab> <Esc>:Tabularize /
 
+" Open a quickfix window with the most recent search
+"
+nnoremap <silent> ,/ :execute 'vimgrep /'.@/.'/g %'<CR>:copen<CR>
 
 """
 """ Commands
