@@ -249,9 +249,39 @@ nmap        <S-D-Right>         <S-End>
 " attempting to go to the end. When the Normal-mode maps are built for Select
 " mode (again, as they are now), it works fine.
 "
-imap        <S-Home>            <C-O><S-Home>
+"
+" Okay, so this is a little complicated. Here's what I'm doing to get around
+" the missing last character when selecting from the end of the line in Insert
+" mode:
+"
+" imap <expr> <S-Home>      --  Define an Insert-mode expression map for Shift+Home
+"   "<C-O>"                 --  Enter Normal mode for a single command
+"   (&wrap ? "g0" : "0")    --  Go to the start of the (screen/physical) line
+"   "<C-O>v"                --  Start characterwise Visual mode
+"   virtcol('.') . "\|"     --  Move to the display column where we started
+"   "o<C-G>"                --  Switch the cursor to the other end of the
+"                               Visual selection, then change from Visual to
+"                               Select mode
+"
+" This has NOT been extensively tested, certainly not against all the possible
+" combinations of 'wrap', 'virtualedit', 'selection', etc., but it already
+" works better than anything else I've tried.
+"
+" XXX: Improve this documentation.
+"
+imap        <expr> <S-Home>     "<C-O>" . (&wrap ? "g0" : "0")
+                                \ . "<C-O>v"
+                                \ . virtcol('.') . "\|"
+                                \ . "o<C-G>"
+
+" Here's the simple version that doesn't work properly, since it just falls
+" through to the Normal-mode map (which can't select the last character on the
+" line under the usual 'selection' and 'virtualedit' settings).
+"
+" imap        <S-Home>            <C-O><S-Home>
+
 imap        <S-End>             <C-O><S-End>
-imap        <S-D-Left>          <C-O><S-Home>
+imap        <S-D-Left>          <S-Home>
 imap        <S-D-Right>         <C-O><S-End>
 
 " Alternative - leave Insert mode entirely and trigger the Normal mode maps:
