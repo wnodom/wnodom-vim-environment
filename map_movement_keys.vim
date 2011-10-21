@@ -421,7 +421,22 @@ nmap        <M-D-Right>         <M-End>
 " Leave Insert mode for a single command, then trigger the Normal mode
 " maps.
 "
-imap        <M-Home>            <C-O><M-Home>
+
+" This is essentially the same map as Insert-mode Shift+Home; it just leaves
+" off the Control+G at the end, so we stay in Visual mode instead of returning
+" to Select mode. See the notes above imap Shift+Home for an explanation of
+" how it works.
+"
+" XXX: Factor out common code between this map and imap Shift+Home.
+" 
+imap        <expr> <M-Home>     "<C-O>" . (&wrap ? "g0" : "0")
+                                \ . "<C-O>v"
+                                \ . virtcol('.') . "\|"
+                                \ . "o"
+
+" Broken Option+Home map that leaves behind the last character.
+" imap        <M-Home>            <C-O><M-Home>
+
 imap        <M-End>             <C-O><M-End>
 imap        <M-D-Left>          <C-O><M-Home>
 imap        <M-D-Right>         <C-O><M-End>
