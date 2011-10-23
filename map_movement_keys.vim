@@ -139,6 +139,9 @@ snoremap    <Down>              <Esc>gj
 
 " Normal mode
 "
+" Move to the start or end of the display/physical line, depending on the
+" `wrap` setting.
+"
 nnoremap    <expr> <Home>       &wrap ? "g0" : "0"
 nnoremap    <expr> <End>        &wrap ? "g$" : "$"
 nmap        <D-Left>            <Home>
