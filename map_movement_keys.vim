@@ -33,6 +33,11 @@
 "   do for Select mode). They do now, but I don't know if I like it. It means
 "   you can't use the arrow keys for Visual Block highlighting, for example.
 "
+"   Update: Tried to fix this, but it didn't work out as I thought it would.
+"   The `keymodel` setting seems to cause the arrows to exit Visual mode;
+"   the mappings don't matter. I'll experiment with this more later.
+"
+"
 
 
 " Set selectmode, selection, and keymodel appropriately, as some of these
@@ -54,6 +59,11 @@ set keymodel=startsel,stopsel
 " MacVim's system gvimrc, which runs before the user's gvimrc. If they're not
 " set before the MacVim gvimrc is processed, they don't affect MacVim's
 " behavior.
+"
+" XXX: If this becomes a plugin, then these settings will have to happen
+" elsewhere. Plugins run after .vimrc, which is too late for them to make
+" a difference. (Of course, if I'm remapping everything that's normally
+" affected my the MacVim HIG-related options, it might not matter.)
 
 " Don't allow the MacVim internal gvimrc to create the HIG
 " Command and Option movement mappings.
@@ -181,8 +191,8 @@ smap        <D-Down>            <Esc><D-Down>
 " Enter Select mode, switch to Visual mode for a single
 " command, then move.
 "
-nnoremap    <S-Down>            gh<C-O>gj
 nnoremap    <S-Up>              gh<C-O>gk
+nnoremap    <S-Down>            gh<C-O>gj
 
 " Alternative - enter Visual mode, move, then switch to Select mode:
 "
@@ -190,6 +200,9 @@ nnoremap    <S-Up>              gh<C-O>gk
 "   nnoremap <S-Down>       vgj<C-G>
 
 " Insert mode
+"
+" XXX: This has the missing-last-character bug, but I'm guessing it can
+" be fixed the same as with Insert-mode Shift+Home.
 "
 imap        <S-Up>              <C-O><S-Up>
 imap        <S-Down>            <C-O><S-Down>
@@ -207,8 +220,8 @@ xmap        <S-Down>            gj
 " Shift+Up/Down in Select mode enter Visual mode for one command, move the
 " cursor one display line in the proper direction, then re-enter Select mode.
 "
-snoremap    <S-Down>            <C-O>gj
 snoremap    <S-Up>              <C-O>gk
+snoremap    <S-Down>            <C-O>gj
 
 
 "" Shift+Home/End, Shift+Command+Left/Right
@@ -216,13 +229,8 @@ snoremap    <S-Up>              <C-O>gk
 " Normal mode
 "
 " Enter Select mode, switch to Visual mode for a single
-" command, then move.
-"
-" XXX: BUG - This doesn't work properly when starting a selection from
-" the last character on a line. The last character isn't selected. This
-" can be fixed by changing the `selection` setting from `exclusive` to
-" `inclusive`, but that has annoying side effects. I haven't come up
-" with a great approach for solving this one yet.
+" command, then move (and automatically return to Select
+" mode once the move is complete).
 "
 nnoremap    <expr> <S-Home>     "gh<C-O>" . (&wrap ? "g0" : "0")
 nnoremap    <expr> <S-End>      "gh<C-O>" . (&wrap ? "g$" : "$")
@@ -249,36 +257,42 @@ nmap        <S-D-Right>         <S-End>
 " attempting to go to the end. When the Normal-mode maps are built for Select
 " mode (again, as they are now), it works fine.
 "
+
+" You might think the Insert-mode mapping for Shift+Home would be easy:
+" just pop into Normal mode with Control+O and issue the Normal-mode
+" Shift+Home map:
 "
-" Okay, so this is a little complicated. Here's what I'm doing to get around
-" the missing last character when selecting from the end of the line in Insert
-" mode:
+"   imap <S-Home>  <C-O><S-Home>
 "
-" imap <expr> <S-Home>      --  Define an Insert-mode expression map for Shift+Home
+" Nope, sorry -- changing to Normal mode moves the cursor immediately before
+" the last character, which leaves the last character out of the selection.
+" (Yes, this can be "fixed" by changing `selection` from `exclusive` to
+" `inclusive`, or `virtualedit` to `all`, but both have annoying side
+" effects.)
+"
+" Here's the crazy workaround: Start the selection at the beginning of the
+" line, extend the selection to the cursor's original position, then
+" switch the cursor back to the other end of the selection. It looks like
+" this:
+"
+" imap <expr> <S-Home>      --  Define an Insert-mode expression map for
+"                               Shift+Home
 "   "<C-O>"                 --  Enter Normal mode for a single command
 "   (&wrap ? "g0" : "0")    --  Go to the start of the (screen/physical) line
 "   "<C-O>v"                --  Start characterwise Visual mode
-"   virtcol('.') . "\|"     --  Move to the display column where we started
+"   virtcol('.') . "\|"     --  Move to the original display column
 "   "o<C-G>"                --  Switch the cursor to the other end of the
 "                               Visual selection, then change from Visual to
 "                               Select mode
 "
 " This has NOT been extensively tested, certainly not against all the possible
-" combinations of 'wrap', 'virtualedit', 'selection', etc., but it already
+" combinations of `wrap`, `virtualedit`, `selection`, etc., but it already
 " works better than anything else I've tried.
-"
-" XXX: Improve this documentation.
 "
 imap        <expr> <S-Home>     "<C-O>" . (&wrap ? "g0" : "0")
                                 \ . "<C-O>v"
                                 \ . virtcol('.') . "\|"
                                 \ . "o<C-G>"
-
-" Here's the simple version that doesn't work properly, since it just falls
-" through to the Normal-mode map (which can't select the last character on the
-" line under the usual 'selection' and 'virtualedit' settings).
-"
-" imap        <S-Home>            <C-O><S-Home>
 
 imap        <S-End>             <C-O><S-End>
 imap        <S-D-Left>          <S-Home>
@@ -294,7 +308,9 @@ imap        <S-D-Right>         <C-O><S-End>
 " Note: This works, but doesn't properly remain in [ (insert) Visual ] mode,
 " which means it doesn't return to Insert mode when leaving Visual mode. This
 " may not be a big deal, but it feels weird in practice.
-
+"
+" (The Shift+Home map also has the missing-last-character problem as before.)
+"
 
 " Visual mode
 "
@@ -328,6 +344,9 @@ nnoremap    <S-D-Up>            gh<C-O>gg
 nnoremap    <S-D-Down>          gh<C-O>G
 
 " Insert mode
+"
+" XXX: This has the missing-last-character bug, but I'm guessing it can
+" be fixed the same as with Insert-mode Shift+Home.
 "
 imap        <S-D-Up>            <C-O><S-D-Up>
 imap        <S-D-Down>          <C-O><S-D-Down>
@@ -433,9 +452,6 @@ imap        <expr> <M-Home>     "<C-O>" . (&wrap ? "g0" : "0")
                                 \ . "<C-O>v"
                                 \ . virtcol('.') . "\|"
                                 \ . "o"
-
-" Broken Option+Home map that leaves behind the last character.
-" imap        <M-Home>            <C-O><M-Home>
 
 imap        <M-End>             <C-O><M-End>
 imap        <M-D-Left>          <C-O><M-Home>
