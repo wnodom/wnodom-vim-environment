@@ -377,11 +377,6 @@ vnoremap <S-Tab>  <gv
 "
 runtime map_line_block_mover_keys.vim
 
-" Map arrows/home/end/pgup/pgdn keys (with and without modifiers).
-"
-runtime map_movement_keys.vim
-
-
 " Disable paste-on-middle-click.
 "
 map  <MiddleMouse>    <Nop>
