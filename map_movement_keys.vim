@@ -3,10 +3,25 @@
 " Do all the weird stuff I have to do to make arrow/home/end/etc. keys (and
 " their shifted variants) move by display lines instead of physical lines.
 "
-" Note: The 'standard' movement keys (h j k l ^ 0 $) are left as-is,
-" so it's always possible to use them to do what they should do.
+" Notes:
 "
-" TODO:
+" - The 'standard' movement keys (h j k l ^ 0 $) are left as-is, so it's
+"   always possible to use them to do what they should do.
+"
+" - Many of these mappings use Control+O (often multiple times) to temporarily
+"   change from Insert to Normal mode, or from Select to Visual mode, when it
+"   might seem easier to just use Escape instead. The problem with the Escape
+"   versions of the maps is that they can't respect submodes, so when the user
+"   finishes highlighting, they don't return to the mode they started in. This
+"   might not seem like a big deal, but it's jarring in practice.
+"
+" - Several of the Insert-mode maps might seem overly-complicated. Trust me,
+"   there's a reason for all the complexity. I'll place a general explanation
+"   here soon, but for now, see the notes above the Insert-mode map for
+"   Shift+Home.
+"
+"
+" TODO (or To-Consider):
 "
 " - In the MacVim gvimrc, Bjorn Winckler (maintainer of MacVim) says:
 "
@@ -15,14 +30,13 @@
 "
 " - Control+Option+movement should work analogous to Control+Shift+movement.
 "
-" - Consider Shift+Option maps. Not sure what they'd do, but they're
-"   sort of available.
+" - Consider Shift+Option maps. Not sure what they'd do, but they're sort of
+"   available.
 "
-" - Consider what PgUp/PgDn (with shift, control, etc.) should do.
-"   (The shifted versions already work as expected.)
+" - Consider what PgUp/PgDn (with shift, control, etc.) should do. (The
+"   shifted versions already work as expected.)
 " 
-" - Command-key maps are Mac-specific, and should probably be
-"   set off as such.
+" - Command-key maps are Mac-specific, and should probably be set off as such.
 " 
 " - Home/End maps need to be tested on systems that, unlike my laptop,
 "   actually have those keys.
@@ -32,11 +46,21 @@
 "   you can't use the arrow keys for Visual Block highlighting, for example.
 "
 "   Update: Tried to fix this, but it didn't work out as I thought it would.
-"   The `keymodel` setting seems to cause the arrows to exit Visual mode;
-"   the mappings don't matter. I'll experiment with this more later.
+"   The `keymodel` setting seems to cause the arrows to exit Visual mode; the
+"   mappings don't matter. I'll experiment with this more later.
 "
+" - Review all the Option maps for the missing-last-character bug.
+"
+" - Consider making these maps adjust to the `selectmode` setting, so all the
+"   fancy keystroke maps work for both Visual and Select modes (depending on
+"   which one the user prefers).
+"
+" - Improve documentation.
 "
 
+"""
+""" Settings
+"""
 
 " Set selectmode, selection, and keymodel appropriately, as some of these
 " mappings depend on it.
@@ -59,9 +83,9 @@ set keymodel=startsel,stopsel
 " behavior.
 "
 " XXX: If this becomes a plugin, then these settings will have to happen
-" elsewhere. Plugins run after .vimrc, which is too late for them to make
-" a difference. (Of course, if I'm remapping everything that's normally
-" affected my the MacVim HIG-related options, it might not matter.)
+" elsewhere. Plugins run after .vimrc, which is too late for them to make a
+" difference. (Of course, if I'm remapping everything that's normally affected
+" my the MacVim HIG-related options, it might not matter.)
 
 " Don't allow the MacVim internal gvimrc to create the HIG
 " Command and Option movement mappings.
@@ -192,21 +216,11 @@ smap        <D-Down>            <Esc><D-Down>
 nnoremap    <S-Up>              gh<C-O>gk
 nnoremap    <S-Down>            gh<C-O>gj
 
-" Alternative - enter Visual mode, move, then switch to Select mode:
-"
-"   nnoremap <S-Up>         vgk<C-G>
-"   nnoremap <S-Down>       vgj<C-G>
-
 " Insert mode
 "
 " Note that this uses a technique similar to the Insert-mode Shift+Home
 " mapping to avoid the missing-last-character bug.
 "
-" Broken mappings:
-" imap        <S-Up>              <C-O><S-Up>
-" imap        <S-Down>            <C-O><S-Down>
-"
-
 inoremap    <S-Up>              <C-O>gk<C-O>vgjo<C-G>
 inoremap    <S-Down>            <C-O>gj<C-O>vgko<C-G>
 
@@ -215,8 +229,8 @@ inoremap    <S-Down>            <C-O>gj<C-O>vgko<C-G>
 " XXX: Should shifted keys switch from Visual mode to Select mode, or stay in
 " Visual mode? For now, they stay in Visual mode.
 "
-xmap        <S-Up>              gk
-xmap        <S-Down>            gj
+xnoremap    <S-Up>              gk
+xnoremap    <S-Down>            gj
 
 " Select mode
 "
@@ -231,40 +245,28 @@ snoremap    <S-Down>            <C-O>gj
 
 " Normal mode
 "
-" Enter Select mode, switch to Visual mode for a single
-" command, then move (and automatically return to Select
-" mode once the move is complete).
+" Enter Select mode, switch to Visual mode for a single command, then move
+" (and automatically return to Select mode once the move is complete).
 "
-nnoremap    <expr> <S-Home>     "gh<C-O>" . (&wrap ? "g0" : "0")
-nnoremap    <expr> <S-End>      "gh<C-O>" . (&wrap ? "g$" : "$")
-nmap        <S-D-Left>          <S-Home>
-nmap        <S-D-Right>         <S-End>
-
-" Alternative - enter Visual mode, move, then switch to Select mode:
-"
-"   nnoremap <S-Home>       vg0<C-G>
-"   nnoremap <S-End>        vg$<C-G>
-"   nnoremap <S-D-Left>     vg0<C-G>
-"   nnoremap <S-D-Right>    vg$<C-G>
-
-
-" Insert mode
-"
-" Leave Insert mode for a single command, then trigger the Normal mode maps.
-"
-" Note: Watch out for a possible bug. When the Normal-mode maps are defined to
-" enter Visual mode (instead of Select mode, as they do now), the cursor
-" doesn't land in the right place. It stops a few characters from the
+" Note: Watch out for a possible Vim bug. When the Normal-mode maps are
+" defined to enter Visual mode (instead of Select mode, as they do now), the
+" cursor doesn't land in the right place. It stops a few characters from the
 " beginning of the line, for example, or wraps around to the next line when
 " attempting to go to the end. When the Normal-mode maps are built for Select
 " mode (again, as they are now), it works fine. (This might make it difficult,
 " if not impossible, to make these maps dynamically adjust to the value of
 " `selectmode`, though I haven't tried it yet.)
 "
+nnoremap    <expr> <S-Home>     "gh<C-O>" . (&wrap ? "g0" : "0")
+nnoremap    <expr> <S-End>      "gh<C-O>" . (&wrap ? "g$" : "$")
+nmap        <S-D-Left>          <S-Home>
+nmap        <S-D-Right>         <S-End>
 
-" You might think the Insert-mode mapping for Shift+Home would be easy:
-" just pop into Normal mode with Control+O and issue the Normal-mode
-" Shift+Home map:
+" Insert mode
+"
+" You might think the Insert-mode mapping for Shift+Home would be easy: just
+" pop into Normal mode with Control+O and issue the Normal-mode Shift+Home
+" map:
 "
 "   imap <S-Home>  <C-O><S-Home>
 "
@@ -298,23 +300,12 @@ inoremap    <expr> <S-Home>     "<C-O>" . (&wrap ? "g0" : "0")
                                 \ . virtcol('.') . "\|"
                                 \ . "o<C-G>"
 
+" The remaining three shifted Insert-mode maps can piggyback on the
+" Normal-mode maps.
+"
 imap        <S-End>             <C-O><S-End>
 imap        <S-D-Left>          <S-Home>
 imap        <S-D-Right>         <C-O><S-End>
-
-" Alternative - leave Insert mode entirely and trigger the Normal mode maps:
-"
-"   imap <S-Home>           <Esc><S-Home>
-"   imap <S-End>            <Esc><S-End>
-"   imap <S-D-Left>         <Esc><S-Home>
-"   imap <S-D-Right>        <Esc><S-End>
-"
-" Note: This works, but doesn't properly remain in [ (insert) Visual ] mode,
-" which means it doesn't return to Insert mode when leaving Visual mode. This
-" may not be a big deal, but it feels weird in practice.
-"
-" (The Shift+Home map also has the missing-last-character problem as before.)
-"
 
 " Visual mode
 "
@@ -352,12 +343,8 @@ nnoremap    <S-D-Down>          gh<C-O>G
 " XXX: This has the missing-last-character bug, but I'm guessing it can
 " be fixed the same as with Insert-mode Shift+Home.
 "
-" Note: Can't use `` mark, since it ends up one character off. Have to use ''
-" mark and then jump to the proper virtual column.
-"
-" Broken mappings:
-" imap        <S-D-Up>            <C-O><S-D-Up>
-" imap        <S-D-Down>          <C-O><S-D-Down>
+" Note: Can't use the `` mark, since it ends up one character off. Have to use
+" the '' mark and then jump to the proper virtual column.
 "
 inoremap    <expr> <S-D-Up>     "<C-O>gg" . "<C-O>v''" . virtcol('.') . "\|" . "o<C-G>"
 inoremap    <expr> <S-D-Down>   "<C-O>G"  . "<C-O>v''" . virtcol('.') . "\|" . "o<C-G>"
@@ -376,7 +363,7 @@ smap        <S-D-Down>          <C-O><S-D-Down>
 """
 """ Option movement keys
 """
-""" XXX: All the Insert-mode Option maps need to be reviewed for the
+""" XXX: All the Option maps need to be reviewed for the
 """ missing-last-character bug.
 """
 
@@ -390,8 +377,8 @@ nnoremap    <M-Right>           vl
 
 " Insert mode
 "
-imap        <M-Left>            <C-O>vh
-imap        <M-Right>           <C-O>vl
+inoremap    <M-Left>            <C-O>vh
+inoremap    <M-Right>           <C-O>vl
 
 " Visual mode
 "
@@ -400,8 +387,8 @@ xnoremap    <M-Right>           l
 
 " Select mode
 "
-smap        <M-Left>            <C-O>h
-smap        <M-Right>           <C-O>l
+snoremap    <M-Left>            <C-O>h
+snoremap    <M-Right>           <C-O>l
 
 
 "" Option+Up/Down
@@ -425,8 +412,8 @@ imap        <M-Down>            <C-O><M-Down>
 "
 " Just stay in Visual mode.
 "
-xmap        <M-Up>              gk
-xmap        <M-Down>            gj
+xnoremap    <M-Up>              gk
+xnoremap    <M-Down>            gj
 
 " Select mode
 "
@@ -463,7 +450,7 @@ nmap        <M-D-Right>         <M-End>
 "
 " XXX: Factor out common code between this map and imap Shift+Home.
 " 
-imap        <expr> <M-Home>     "<C-O>" . (&wrap ? "g0" : "0")
+inoremap    <expr> <M-Home>     "<C-O>" . (&wrap ? "g0" : "0")
                                 \ . "<C-O>v"
                                 \ . virtcol('.') . "\|"
                                 \ . "o"
