@@ -59,6 +59,19 @@
 " - Improve documentation.
 "
 
+if exists('g:loaded_selective')
+    finish
+endif
+let g:loaded_selective = 1
+
+" Use the default Vim compatibility options (mostly to allow long lines
+" to be continued with backslashes).
+"
+let s:save_cpo = &cpo
+set cpo&vim
+
+
+
 """
 """ Settings
 """
@@ -363,5 +376,9 @@ xnoremap    <S-D-Down>          G
 smap        <S-D-Up>            <C-O><S-D-Up>
 smap        <S-D-Down>          <C-O><S-D-Down>
 
+
+" Restore the previous Vim compatibility options.
+"
+let &cpo = s:save_cpo
 
 " end selective.vim
