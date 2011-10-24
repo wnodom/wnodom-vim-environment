@@ -1,0 +1,7 @@
+selective.vim
+
+Selective is a plugin that enhances Vim's shift+arrow/home/end/etc. text
+highlighting to better handle wrapped text.
+
+See doc/selective.txt for documentation and installation instructions.
+
