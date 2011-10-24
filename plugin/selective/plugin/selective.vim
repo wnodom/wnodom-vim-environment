@@ -1,7 +1,8 @@
-" map_movement_keys.vim
+" selective.vim
 "
-" Do all the weird stuff I have to do to make arrow/home/end/etc. keys (and
-" their shifted variants) move by display lines instead of physical lines.
+" Vim plugin to do all the weird stuff I have to do to make movement keys
+" (arrow/home/end/etc.) and their shifted variants move by display lines
+" instead of physical lines.
 "
 " Notes:
 "
@@ -363,4 +364,4 @@ smap        <S-D-Up>            <C-O><S-D-Up>
 smap        <S-D-Down>          <C-O><S-D-Down>
 
 
-" end map_movement_keys.vim
+" end selective.vim
