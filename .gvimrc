@@ -74,28 +74,24 @@ if has("gui_macvim")
     " fonts look better with different settings. (These can be set separately,
     " but it's just more convenient to keep them together like this.)
     "
-    set antialias linespace=0 guifont=Inconsolata:h15
-    "set antialias linespace=1 guifont=Menlo:h14
+    "set antialias linespace=0 guifont=Inconsolata:h15
+     set antialias linespace=2 guifont=Menlo:h15
     "set antialias linespace=0 guifont=Droid_Sans_Mono:h13
     "set antialias linespace=0 guifont=Consolas:h15
     "set antialias linespace=2 guifont=Monaco:h13
-    "set antialias guifont=Andale_Mono:h14
+    "set antialias linespace=1 guifont=Andale_Mono:h15
     "set noantialias guifont=Fixedsys_True_Type_Font:h15
 
     " XXX: Temporary maps to restore the predefined font settings, just as an
     " experiment. These need to be replaced with something more comprehensive
     " and robust.
     "
-    nnoremap    <D-0>   :set antialias linespace=0 guifont=Inconsolata:h15<CR>
+    nnoremap    <D-0>   :set antialias linespace=2 guifont=Menlo:h15<CR>
     imap        <D-0>   <C-O><D-0>
 
     " Make the Vim window as tall as possible.
     "
     set lines=999 columns=140
-
-    " winpos doesn't (yet) work on MacVim.
-    "
-    "winpos 330 44
 
     " Maximize both horizontally and vertically when entering
     " fullscreen mode.
