@@ -27,10 +27,11 @@
 "   most every keystroke that's affected by these options anyway.
 "
 "   (See MacVim.app/Contents/Resources/vim/gvimrc for more details.)
-
-
+"
 "
 " TODO (or To-Consider):
+"
+" - Expand installation and usage docs.
 "
 " - Handle remaining bugs, noted in comments below.
 "

@@ -1,0 +1,65 @@
+*selective.txt*  Enhance Vim's text-selection capabilities
+
+1. Introduction                                     |selective|
+2. Requirements                                     |selective-requirements|
+3. Installation                                     |selective-installation|
+4. Usage                                            |selective-usage|
+5. Options                                          |selective-options|
+6. Limitations                                      |selective-limitations|
+7. Authors                                          |selective-author|
+9. License                                          |selective-license|
+
+
+INTRODUCTION                                        *selective*
+
+Selective is a Vim plugin that improves Vim's text-highlighting capabilities.
+
+
+REQUIREMENTS                                        *selective-requirements*
+
+This plugin was developed and tested under the GUI version of MacVim 7.3. It
+will probably work under other versions of Vim, but has not been yet been
+tested on them.
+
+
+INSTALLATION                                        *selective-installation*
+
+Selective installs like any other global Vim plugin. Just follow the
+instructions under |add-global-plugin|.
+
+(If you're reading this via the Vim online help system, then the plugin is
+probably already installed.)
+
+
+USAGE                                               *selective-usage*
+
+Selective enhances the shifted movement keys, like Shift+Up or Shift+Home, to
+work more intelligently with wrapped text. Just use Vim as you normally would,
+and text selection should be more intuitive.
+
+
+
+OPTIONS                                             *selective-options*
+
+The Selective plugin does not yet expose any configuration options, other than
+the usual g:loaded_selective variable for controlling whether the plugin
+should be loaded or not.
+
+
+LIMITATIONS                                         *selective-limitations*
+
+
+There are a few edge-case bugs that haven't yet been squashed, mostly around
+the selection of the last character on a line when moving up and down.
+
+
+AUTHOR                                              *selective-author*
+
+The Selective Vim plugin was written by Bill Odom (http://billodom.com).
+
+
+LICENSE                                             *selective-license*
+
+The Vim Selective plugin is licensed under the same terms as Vim itself.
+See |license| for more information.
+
