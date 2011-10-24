@@ -21,8 +21,18 @@
 "   here soon, but for now, see the notes above the Insert-mode map for
 "   Shift+Home.
 "
+" - Now that this is a plugin, it no longer bothers to set the MacVim
+"   HIG-related options, since plugins are loaded too late for it to make a
+"   difference. However, it doesn't really matter, since the plugin defines
+"   most every keystroke that's affected by these options anyway.
+"
+"   (See MacVim.app/Contents/Resources/vim/gvimrc for more details.)
+
+
 "
 " TODO (or To-Consider):
+"
+" - Handle remaining bugs, noted in comments below.
 "
 " - In the MacVim gvimrc, Bjorn Winckler (maintainer of MacVim) says:
 "
@@ -80,36 +90,13 @@ set cpo&vim
 " mappings depend on it.
 "
 " Note: These options are also set by the :behave command, and within the
-" MacVim internal gvimrc depending on the values of flag variables (see
-" below).
+" MacVim internal gvimrc depending on the values of the HIG flag variables. If
+" the keys don't do what you think they should, make sure you're not setting
+" these values to unexpected values elsewhere in your configuration.
 "
 set selectmode=key,mouse
 set selection=exclusive
 set keymodel=startsel,stopsel
-
-" Configure HIG-related options for MacVim.
-" (See MacVim.app/Contents/Resources/vim/gvimrc for details.)
-"
-" Note: It might seem like these flags should go in the user's gvimrc, since
-" they're related to the GUI, but that's not correct. They're checked by
-" MacVim's system gvimrc, which runs before the user's .gvimrc. If they're not
-" set before the MacVim gvimrc is processed, they don't affect MacVim's
-" behavior.
-"
-" XXX: If this becomes a plugin, then these settings will have to happen
-" elsewhere. Plugins run after .vimrc, which is too late for them to make a
-" difference. (Of course, if I'm remapping everything that's normally affected
-" my the MacVim HIG-related options, it might not matter.)
-
-" Don't allow the MacVim internal gvimrc to create the HIG
-" Command and Option movement mappings.
-"
-let macvim_skip_cmd_opt_movement = 1
-
-" Don't have MacVim enable the HIG Shift movement-related
-" settings, either.
-"
-unlet! macvim_hig_shift_movement
 
 
 """
@@ -237,6 +224,10 @@ nnoremap    <S-Down>            gh<C-O>gj
 "
 " Note that this uses a technique similar to the Insert-mode Shift+Home
 " mapping to avoid the missing-last-character bug.
+"
+" BUG: This still doesn't quite work as I'd like. Extra characters sometimes
+" get selected when they shouldn't, especially when dealing with uneven line
+" lengths.
 "
 inoremap    <S-Up>              <C-O>gk<C-O>vgjo<C-G>
 inoremap    <S-Down>            <C-O>gj<C-O>vgko<C-G>
