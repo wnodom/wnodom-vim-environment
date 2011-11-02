@@ -220,6 +220,11 @@ if has("autocmd") && !exists("autocommands_loaded")
     "
     autocmd VimResized * wincmd =
 
+    " Experiment to force a script to run as late as possible. This is close,
+    " but a few scripts still run after it.
+    "
+    autocmd VimEnter * :source ~/.vim/run-last.vim
+
 endif " has("autocmd")
 
 
