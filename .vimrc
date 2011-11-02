@@ -152,6 +152,9 @@ elseif has("win32")
 
 endif
 
+" Update the swap file every 20 characters. I don't like to lose stuff.
+"
+set updatecount=20
 
 " Switch on syntax highlighting when the terminal has colors, or when running
 " in the GUI. Set the do_syntax_sel_menu flag to tell $VIMRUNTIME/menu.vim
