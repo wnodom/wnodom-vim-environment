@@ -43,3 +43,6 @@
 	url = https://github.com/wnodom/vim-accentuate.git
 	ignore = dirty
 
+[submodule "bundle/surround"]
+	path = bundle/surround
+	url = https://github.com/tpope/vim-surround.git
