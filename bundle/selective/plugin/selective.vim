@@ -360,14 +360,18 @@ nnoremap    <S-D-Down>          gh<C-O>G
 
 " Insert mode
 "
-" XXX: This has the missing-last-character bug, but I'm guessing it can
-" be fixed the same as with Insert-mode Shift+Home.
-"
 " Note: Can't use the `` mark, since it ends up one character off. Have to use
 " the '' mark and then jump to the proper virtual column.
 "
-inoremap    <expr> <S-D-Up>     "<C-O>gg" . "<C-O>v''" . virtcol('.') . "\|" . "o<C-G>"
-inoremap    <expr> <S-D-Down>   "<C-O>G"  . "<C-O>v''" . virtcol('.') . "\|" . "o<C-G>"
+inoremap    <expr> <S-D-Up>     "<C-O>gg"
+                                \ . "<C-O>v''"
+                                \ . virtcol('.') . "\|"
+                                \ . "o<C-G>"
+
+inoremap    <expr> <S-D-Down>   "<C-O>G"
+                                \ . "<C-O>v''"
+                                \ . virtcol('.') . "\|"
+                                \ . "o<C-G>"
 
 " Visual mode
 "
