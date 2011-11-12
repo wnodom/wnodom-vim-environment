@@ -239,7 +239,9 @@ nnoremap    <S-Down>            gh<C-O>gj
 "
 " BUG: This still doesn't quite work as I'd like. Extra characters sometimes
 " get selected when they shouldn't, especially when dealing with uneven line
-" lengths.
+" lengths. Specifically, if the cursor moves from a longer line to a shorter
+" line, then is moved back to the original line, the cursor isn't restored to
+" its original position.
 "
 inoremap    <S-Up>              <C-O>gk<C-O>vgjo<C-G>
 inoremap    <S-Down>            <C-O>gj<C-O>vgko<C-G>
@@ -342,7 +344,7 @@ xmap        <S-D-Right>         <S-End>
 " cursor within the display line in the proper direction, then re-enter
 " Select mode.
 "
-" XXX: These require that the corresponding Visual mode maps all be single
+" Note: These require that the corresponding Visual mode maps all be single
 " commands.
 "
 smap        <S-Home>            <C-O><S-Home>
