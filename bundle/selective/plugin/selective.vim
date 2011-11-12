@@ -21,17 +21,12 @@
 "   here soon, but for now, see the notes above the Insert-mode map for
 "   Shift+Home.
 "
-" - Now that this is a plugin, it no longer bothers to set the MacVim
-"   HIG-related options, since plugins are loaded too late for it to make a
-"   difference. However, it doesn't really matter, since the plugin defines
-"   most every keystroke that's affected by these options anyway.
-"
-"   (See MacVim.app/Contents/Resources/vim/gvimrc for more details.)
-"
 "
 " TODO (or To-Consider):
 "
 " - Expand installation and usage docs.
+"
+" - Improve internal documentation.
 "
 " - Handle remaining bugs, noted in comments below.
 "
@@ -67,7 +62,8 @@
 "   fancy keystroke maps work for both Visual and Select modes (depending on
 "   which one the user prefers).
 "
-" - Improve documentation.
+" - Review the MacVim internal gvimrc for additional maps that may
+"   need to be included in this plugin.
 "
 
 if exists('g:loaded_selective')
@@ -75,12 +71,26 @@ if exists('g:loaded_selective')
 endif
 let g:loaded_selective = 1
 
+
 " Use the default Vim compatibility options (mostly to allow long lines
 " to be continued with backslashes).
 "
 let s:save_cpo = &cpo
 set cpo&vim
 
+
+" Keep the MacVim internal gvimrc from mapping any of these keys by
+" defining the HIG flag variables appropriately. (See
+" MacVim.app/Contents/Resources/vim/gvimrc for more details.)
+"
+" Note: In previous versions of MacVim, plugins were loaded *after* the
+" MacVim gvimrc, so this wasn't necessary. The system gvimrc mapped the
+" keys, and this plugin just mapped them again. Apparently now plugins
+" execute before the system gvimrc, which means that the gvimrc has the
+" chance to overwrite our mapped keys -- unless it's told not to.
+"
+let g:macvim_skip_cmd_opt_movement = 1
+unlet! g:macvim_hig_shift_movement
 
 
 """
@@ -90,10 +100,11 @@ set cpo&vim
 " Set selectmode, selection, and keymodel appropriately, as some of these
 " mappings depend on it.
 "
-" Note: These options are also set by the :behave command, and within the
-" MacVim internal gvimrc depending on the values of the HIG flag variables. If
-" the keys don't do what you think they should, make sure you're not setting
-" these values to unexpected values elsewhere in your configuration.
+" Note: These options are also set by the `:behave` command, and within
+" the MacVim internal gvimrc depending on the values of the HIG flag
+" variables. If the keys don't do what you think they should, make sure
+" you're not setting these values to unexpected values elsewhere in your
+" configuration. XXX: Note this in the user documentation.
 "
 set selectmode=key,mouse
 set selection=exclusive
@@ -130,8 +141,8 @@ xnoremap    <Down>              <Esc>gj
 
 " Select mode
 "
-" Arrow keys leave Select mode and move up/down one display
-" line, just like Visual mode.
+" Arrow keys leave Select mode and move up/down one display line, just
+" like Visual mode.
 "
 snoremap    <Up>                <Esc>gk
 snoremap    <Down>              <Esc>gj
@@ -141,8 +152,8 @@ snoremap    <Down>              <Esc>gj
 
 " Normal mode
 "
-" Move to the start or end of the display/physical line, depending on the
-" `wrap` setting.
+" Move to the start or end of the display/physical line, depending on
+" the `wrap` setting.
 "
 nnoremap    <expr> <Home>       &wrap ? "g0" : "0"
 nnoremap    <expr> <End>        &wrap ? "g$" : "$"
@@ -155,8 +166,8 @@ nmap        <D-Right>           <End>
 "
 imap        <Home>              <C-O><Home>
 imap        <End>               <C-O><End>
-imap        <D-Left>            <C-O><D-Left>
-imap        <D-Right>           <C-O><D-Right>
+imap        <D-Left>            <C-O><Home>
+imap        <D-Right>           <C-O><End>
 
 " Visual mode
 "
