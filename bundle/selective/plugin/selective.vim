@@ -56,8 +56,6 @@
 "   The `keymodel` setting seems to cause the arrows to exit Visual mode; the
 "   mappings don't matter. I'll experiment with this more later.
 "
-" - Review all the Option maps for the missing-last-character bug.
-"
 " - Consider making these maps adjust to the `selectmode` setting, so all the
 "   fancy keystroke maps work for both Visual and Select modes (depending on
 "   which one the user prefers).
