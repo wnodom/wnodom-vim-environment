@@ -35,11 +35,6 @@
 "     This is a work in progress.  If you feel so inclined, please help me
 "     improve this file.
 "
-" - Control+Option+movement should work analogous to Control+Shift+movement.
-"
-" - Consider Shift+Option maps. Not sure what they'd do, but they're sort of
-"   available.
-"
 " - Consider what PgUp/PgDn (with shift, control, etc.) should do. (The
 "   shifted versions already work as expected.)
 " 
