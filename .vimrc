@@ -625,6 +625,12 @@ endif
 let Tlist_Use_Right_Window = 1
 
 
+" Netrw
+"
+" Use the tree style listing by default.
+"
+let g:netrw_liststyle=3
+
 
 """
 """ Local Functions
