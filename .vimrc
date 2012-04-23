@@ -658,8 +658,10 @@ function! ConfigureWindow()
     "
     "call matchadd('NonText', '\s\+$\| \+\ze\t')
 
-    " Highlight my initials and Michele's initials as to-do markers.
+    " Highlight the usual to-do markers (including my initials and Michele's
+    " initials), even if the current syntax highlighting doesn't include them.
     "
+    call matchadd('Todo', 'XXX:')
     call matchadd('Todo', 'WNO:')
     call matchadd('Todo', 'MRB:')
 
