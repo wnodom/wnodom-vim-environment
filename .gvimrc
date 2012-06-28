@@ -110,7 +110,7 @@ colorscheme wnodom
 " (This probably won't stay here, since it's not just for GUI Vim, but
 " in its current state, this is the best place for it.)
 "
-runtime update_visual_highlight_color.vim
+" runtime update_visual_highlight_color.vim
 
 
 " end .gvimrc
