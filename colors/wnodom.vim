@@ -46,8 +46,7 @@ hi StatusLineNC         gui=NONE    guifg=Grey50    guibg=Grey15              te
 hi Title                gui=NONE    guifg=#ffff60                             term=bold           cterm=bold      ctermfg=DarkMagenta
 hi Todo                 gui=NONE    guifg=Black     guibg=Yellow              term=standout                       ctermfg=Black       ctermbg=DarkCyan
 hi Type                 gui=NONE    guifg=#60ff60                             term=underline      cterm=bold      ctermfg=LightGreen
-hi VertSplit            gui=NONE    guifg=White     guibg=DarkGrey
-"hi Visual              gui=NONE    guifg=White     guibg=DarkCyan            term=reverse        cterm=reverse
+hi VertSplit            gui=NONE    guifg=Grey50    guibg=Grey15
 hi Visual               gui=NONE    guifg=White     guibg=#3c6182             term=reverse        cterm=reverse
 hi WarningMsg           gui=NONE    guifg=Red                                 term=standout       cterm=bold      ctermfg=Darkblue
 
