@@ -662,6 +662,7 @@ function! ConfigureWindow()
     " initials), even if the current syntax highlighting doesn't include them.
     "
     call matchadd('Todo', 'XXX:')
+    call matchadd('Todo', 'BUG:')
     call matchadd('Todo', 'WNO:')
     call matchadd('Todo', 'MRB:')
 
