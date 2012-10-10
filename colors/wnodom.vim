@@ -36,7 +36,7 @@ hi Normal               gui=NONE    guifg=White     guibg=Black
 hi PreProc              gui=NONE    guifg=#ff80ff                             term=underline                      ctermfg=DarkBlue
 hi Question             gui=NONE    guifg=Green                               term=standout       cterm=bold      ctermfg=DarkGreen
 hi Scrollbar            gui=NONE    guifg=DarkCyan  guibg=Cyan
-hi Search               gui=NONE    guifg=White     guibg=DarkGreen           term=reverse                        ctermfg=White       ctermbg=Red
+hi Search               gui=NONE    guifg=White     guibg=Red                 term=reverse                        ctermfg=White       ctermbg=Red
 hi SignColumn           gui=NONE                    guibg=Grey20
 hi Special              gui=NONE    guifg=Orange                              term=bold           cterm=bold      ctermfg=Red
 hi SpecialKey           gui=NONE    guifg=Black     guibg=Orange              term=bold           cterm=bold      ctermfg=DarkRed
