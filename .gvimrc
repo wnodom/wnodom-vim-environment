@@ -3,7 +3,7 @@
 " GUI-only Vim settings.
 "
 
-function! SetDefaultFontOptions()
+function! <SID>SetDefaultFontOptions()
 "
 " Defines several font and font-related options in one place, so they
 " can be easily reset just by calling the function again.
@@ -25,7 +25,6 @@ function! SetDefaultFontOptions()
     "   set antialias linespace=0 guifont=Consolas:h15
     "   set antialias linespace=2 guifont=Monaco:h13
     "   set antialias linespace=1 guifont=Andale_Mono:h15
-    "   set noantialias guifont=Fixedsys_True_Type_Font:h15
     endif
 
 endfunction
@@ -52,7 +51,6 @@ set tabpagemax=100          " Allow many more files to be opened in tabs
 "
 " The values are in pixels. Adjust as necessary for your environment.
 
-
 " Avoid all beeping and flashing by turning on the visual bell, and then
 " setting the visual bell to nothing.
 "
@@ -61,16 +59,15 @@ set tabpagemax=100          " Allow many more files to be opened in tabs
 "
 set visualbell t_vb=
 
-
 " Windows settings
 " 
 if has("win32")
 
-    call SetDefaultFontOptions()
+    call <SID>SetDefaultFontOptions()
 
     " Maps to restore default font settings.
     "
-    nnoremap    <C-0>   :call SetDefaultFontOptions()<CR>
+    nnoremap    <C-0>   :call <SID>SetDefaultFontOptions()<CR>
     imap        <C-0>   <C-O><C-0>
 
     " Maximize the Win32 GUI window.
@@ -85,11 +82,11 @@ endif
 "
 if has("gui_macvim")
 
-    call SetDefaultFontOptions()
+    call <SID>SetDefaultFontOptions()
 
     " Maps to restore default font settings.
     "
-    nnoremap    <D-0>   :call SetDefaultFontOptions()<CR>
+    nnoremap    <D-0>   :call <SID>SetDefaultFontOptions()<CR>
     imap        <D-0>   <C-O><D-0>
 
     " Make the Vim window as tall and wide as possible.
