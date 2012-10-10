@@ -646,17 +646,10 @@ function! s:ConfigureWindow()
 
     let w:windowConfigured = 1
 
-    " Highlight trailing whitespace.
-    " (Idea from http://daniel-werner.info/vimrc.html)
+    " Highlight trailing whitespace, except when typing at the end of a line.
+    " More info: http://vim.wikia.com/wiki/Highlight_unwanted_spaces
     "
-    " XXX: This is currently disabled, since it's annoying
-    " for it to be on while I'm entering text -- the end of the
-    " current line flashes every time I enter a space -- but if
-    " I can come up with a good way to keep that from happening,
-    " I'll put it back. Perhaps a regex check against the current
-    " line number or something.
-    "
-    "call matchadd('NonText', '\s\+$\| \+\ze\t')
+    call matchadd('Todo', '\s\+\%#\@<!$')
 
     " Highlight the usual to-do markers (including my initials and Michele's
     " initials), even if the current syntax highlighting doesn't include them.
