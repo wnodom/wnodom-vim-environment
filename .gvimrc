@@ -62,10 +62,6 @@ set tabpagemax=100          " Allow many more files to be opened in tabs
 set visualbell t_vb=
 
 
-"
-" Fonts, window size and position
-"
-
 " Windows settings
 " 
 if has("win32")
@@ -81,19 +77,6 @@ if has("win32")
     "
     if has("autocmd")
         autocmd GUIEnter * simalt ~x
-    endif
-
-endif
-
-" Carbon Vim settings
-" 
-if has("gui_mac")
-
-    " Workaround to improve text drawing under OS X. (Applicable to Carbon
-    " gVim, but not MacVim.) See :h macatsui for details.
-    "
-    if exists('&macatsui')
-        set nomacatsui
     endif
 
 endif
