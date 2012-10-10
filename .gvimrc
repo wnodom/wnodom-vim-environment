@@ -92,9 +92,9 @@ if has("gui_macvim")
     nnoremap    <D-0>   :call SetDefaultFontOptions()<CR>
     imap        <D-0>   <C-O><D-0>
 
-    " Make the Vim window as tall as possible.
+    " Make the Vim window as tall and wide as possible.
     "
-    set lines=999 columns=140
+    set lines=999 columns=9999
 
     " Maximize both horizontally and vertically when entering
     " fullscreen mode.
