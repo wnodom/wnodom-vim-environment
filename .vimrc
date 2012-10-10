@@ -213,7 +213,7 @@ if has("autocmd") && !exists("autocommands_loaded")
     " Based on ideas from here:
     " http://vim.wikia.com/wiki/Detect_window_creation_with_WinEnter
     "
-    autocmd WinEnter,VimEnter * call ConfigureWindow()
+    autocmd WinEnter,VimEnter * call s:ConfigureWindow()
 
     " Resize Vim windows to equal heights and widths when Vim itself
     " is resized.
@@ -636,7 +636,7 @@ let g:netrw_liststyle=3
 """ Local Functions
 """
 
-function! ConfigureWindow()
+function! s:ConfigureWindow()
 
     " Only do this once per window.
     "
