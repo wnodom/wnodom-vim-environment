@@ -3,6 +3,34 @@
 " GUI-only Vim settings.
 "
 
+function! SetDefaultFontOptions()
+"
+" Defines several font and font-related options in one place, so they
+" can be easily reset just by calling the function again.
+"
+" Note that each combination of antialias, linespace, and guifont
+" options is bundled into an individual `set` statement, since different
+" fonts look better with different settings. (They can also be set
+" separately, but it's just more convenient to keep them together like
+" this.)
+"
+    if has("win32")
+        set guifont=Consolas:h11
+    elseif has("gui_macvim")
+        set antialias linespace=2 guifont=Source_Code_Pro_Light:h15
+    "   set antialias linespace=2 guifont=Source_Code_Pro:h15
+    "   set antialias linespace=0 guifont=Inconsolata:h15
+    "   set antialias linespace=2 guifont=Menlo:h15
+    "   set antialias linespace=0 guifont=Droid_Sans_Mono:h13
+    "   set antialias linespace=0 guifont=Consolas:h15
+    "   set antialias linespace=2 guifont=Monaco:h13
+    "   set antialias linespace=1 guifont=Andale_Mono:h15
+    "   set noantialias guifont=Fixedsys_True_Type_Font:h15
+    endif
+
+endfunction
+
+
 set guioptions+=b           " Activate the bottom horizontal scrollbar
 set guioptions-=T           " Turn off the toolbar
 
@@ -42,8 +70,12 @@ set visualbell t_vb=
 " 
 if has("win32")
 
-    set guifont=Consolas:h11
-    " set guifont=Fixedsys
+    call SetDefaultFontOptions()
+
+    " Maps to restore default font settings.
+    "
+    nnoremap    <C-0>   :call SetDefaultFontOptions()<CR>
+    imap        <C-0>   <C-O><C-0>
 
     " Maximize the Win32 GUI window.
     "
@@ -70,23 +102,11 @@ endif
 "
 if has("gui_macvim")
 
-    " Set the antialias, linespace, and guifont together, since different
-    " fonts look better with different settings. (These can be set separately,
-    " but it's just more convenient to keep them together like this.)
-    "
-    "set antialias linespace=0 guifont=Inconsolata:h15
-     set antialias linespace=2 guifont=Menlo:h15
-    "set antialias linespace=0 guifont=Droid_Sans_Mono:h13
-    "set antialias linespace=0 guifont=Consolas:h15
-    "set antialias linespace=2 guifont=Monaco:h13
-    "set antialias linespace=1 guifont=Andale_Mono:h15
-    "set noantialias guifont=Fixedsys_True_Type_Font:h15
+    call SetDefaultFontOptions()
 
-    " XXX: Temporary maps to restore the predefined font settings, just as an
-    " experiment. These need to be replaced with something more comprehensive
-    " and robust.
+    " Maps to restore default font settings.
     "
-    nnoremap    <D-0>   :set antialias linespace=2 guifont=Menlo:h15<CR>
+    nnoremap    <D-0>   :call SetDefaultFontOptions()<CR>
     imap        <D-0>   <C-O><D-0>
 
     " Make the Vim window as tall as possible.
@@ -111,6 +131,5 @@ colorscheme wnodom
 " in its current state, this is the best place for it.)
 "
 " runtime update_visual_highlight_color.vim
-
 
 " end .gvimrc
