@@ -37,9 +37,7 @@ augroup filetypedetect
     autocmd! BufNewFile,BufRead *.svg                   setfiletype xml
 
     " Text (plain text)
-    " WNO: Trying out Markdown as the default
-    " text format for a while
-    autocmd! BufNewFile,BufRead *.txt                   setfiletype mkd
+    autocmd! BufNewFile,BufRead *.txt                   setfiletype text
 
     " XHTML
     autocmd! BufNewFile,BufRead *.xhtml                 setfiletype xml
