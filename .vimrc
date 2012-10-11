@@ -87,7 +87,7 @@ set backspace=indent,eol,start  " Backspace over everything in Insert mode
 
 set noshowmatch                 " Don't jump to matching characters
 set matchpairs=(:),[:],{:},<:>  " Character pairs for use with %, 'showmatch'
-set matchtime=1                 " In milliseconds, when showmatch is on
+set matchtime=1                 " In tenths of seconds, when showmatch is on
 
 set wildmenu                    " Use menu for completions
 set wildmode=full
