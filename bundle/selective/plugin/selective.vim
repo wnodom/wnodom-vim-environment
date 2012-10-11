@@ -37,9 +37,9 @@
 "
 " - Consider what PgUp/PgDn (with shift, control, etc.) should do. (The
 "   shifted versions already work as expected.)
-" 
+"
 " - Command-key maps are Mac-specific, and should probably be set off as such.
-" 
+"
 " - Home/End maps need to be tested on systems that, unlike my laptop,
 "   actually have those keys.
 "
@@ -251,7 +251,9 @@ nnoremap    <S-Down>            gh<C-O>gj
 "
 " BUG: Argh. If the cursor starts at EOF, then we end up in the wrong mode.
 " Same thing happens with Shift+Up (but not Shift+Down) at BOF. This really
-" makes me think I'm running into a Vim bug.
+" makes me think I'm running into a Vim bug. It's probably possible to
+" work around this with some code that detects EOF/BOF and then does the
+" right thing (whatever that might be).
 "
 "inoremap    <S-Up>              <S-Right><S-Left>gk<C-G>
 "inoremap    <S-Down>            <S-Right><S-Left>gj<C-G>
