@@ -225,19 +225,84 @@ smap        <D-Down>            <Esc><D-Down>
 nnoremap    <S-Up>              gh<C-O>gk
 nnoremap    <S-Down>            gh<C-O>gj
 
+
 " Insert mode
 "
-" Note that this uses a technique similar to the Insert-mode Shift+Home
-" mapping to avoid the missing-last-character bug.
+" Okay... I don't feel good about this technique, but it almost works.
 "
-" BUG: This still doesn't quite work as I'd like. Extra characters sometimes
-" get selected when they shouldn't, especially when dealing with uneven line
-" lengths. Specifically, if the cursor moves from a longer line to a shorter
-" line, then is moved back to the original line, the cursor isn't restored to
-" its original position.
+" These maps start Visual mode with Shift+Up immediately followed by
+" Shift+Down. This leaves the cursor in its original starting position, even
+" if that's after the last character on a line, but with Visual mode active.
+" (See note below about shifted arrow keys starting Visual instead of Select
+" mode.)
 "
-inoremap    <S-Up>              <C-O>gk<C-O>vgjo<C-G>
-inoremap    <S-Down>            <C-O>gj<C-O>vgko<C-G>
+" Now that Visual mode is active, the cursor is moved up or down by one
+" display line (using gk or gj). Once the cursor has been moved, Vim is
+" switched from Visual to Select mode with Control+G.
+"
+" Note: I expected the initial Shift+Right to place Vim in Select mode, but it
+" ends up in Visual mode instead. I don't know if this is a Vim bug, or if my
+" expectations are just incorrect. Probably needs to be tested on different
+" versions to be sure.
+"
+" Anyway, now that I've crafted this little trick, I'm wondering if it might
+" be useful in some of the other mappings. It's ugly, but arguably simpler
+" than several of the stunts I have to pull elsewhere in this plugin.
+"
+" BUG: Argh. If the cursor starts at EOF, then we end up in the wrong mode.
+" Same thing happens with Shift+Up (but not Shift+Down) at BOF. This really
+" makes me think I'm running into a Vim bug.
+"
+"inoremap    <S-Up>              <S-Right><S-Left>gk<C-G>
+"inoremap    <S-Down>            <S-Right><S-Left>gj<C-G>
+inoremap    <S-Up>              <S-Up><S-Down>gk<C-G>
+inoremap    <S-Down>            <S-Up><S-Down>gj<C-G>
+
+" Here are the original Insert-mode Shift+Up/Down maps. Note the technique
+" similar to the Insert-mode Shift+Home mapping to avoid the
+" missing-last-character bug. Even with this technique, however, the maps
+" still didn't quite work properly. Extra characters were sometimes selected
+" when they shouldn't be, especially when dealing with uneven line lengths.
+" Specifically, if the cursor moved from a longer line to a shorter line, then
+" moved back to the original line, the cursor wasn't restored to its original
+" position.
+"
+"inoremap    <S-Up>              <C-O>gk<C-O>vgjo<C-G>
+
+" This works well, except when the selection starts at the very end of a
+" physical line. When that happens, the previous character is also
+" selected. I'm noting it here, at least for now, because it's simple and
+" clean.
+"
+"inoremap    <S-Down>            <C-O>vgj<C-G>
+
+
+" This is a technique I was experimenting with when trying to solve some
+" of them problems listed above. This code is inactive and will probably
+" be removed.
+"
+if 0
+    function! CursWant()
+
+        let wsv = winsaveview()
+
+        return wsv['curswant']
+
+    endfunction
+
+    set statusline=%{CursWant()}
+
+    inoremap    <expr> <S-Up>       "<C-O>gk"
+                                    \ . "<C-O>vgj"
+                                    \ . CursWant() . "\|"
+                                    \ . "o<C-G>"
+
+    inoremap    <expr> <S-Down>     "<C-O>gj"
+                                    \ . "<C-O>vgk"
+                                    \ . CursWant() . "\|"
+                                    \ . "o<C-G>"
+
+endif
 
 " Visual mode
 "
