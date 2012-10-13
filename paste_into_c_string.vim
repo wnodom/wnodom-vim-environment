@@ -65,19 +65,19 @@ function! PasteEscapedRegister(where)
     " Replace the contents of the register with the escaped text, and set the
     " type to characterwise (so pasting into an existing double-quoted string,
     " for example, will work as expected).
-    " 
+    "
     call setreg(l:save_reg_name, EscapeText(getreg(l:save_reg_name)), "c")
 
-    " Build the appropriate normal-mode paste command.
-    " 
-    let l:cmd = 'normal "' . l:save_reg_name . (a:where == "before" ? "P" : "p")
+    " Build the appropriate Normal-mode paste command.
+    "
+    let l:cmd = 'normal! "' . l:save_reg_name . (a:where == "before" ? "P" : "p")
 
     " Insert the escaped register contents.
     "
     exec l:cmd
 
     " Restore the register to its original value and type.
-    " 
+    "
     call setreg(l:save_reg_name, l:save_reg_contents, l:save_reg_type)
 
 endfunction
