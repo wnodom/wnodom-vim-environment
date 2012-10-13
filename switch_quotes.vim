@@ -7,7 +7,7 @@
 " quotes, like 'this " string' for example.  (I'm working on it,
 " but I'm not done yet.) It does work pretty well with multi-line
 " strings, however, which was a pleasant surprise.
-" 
+"
 "
 
 "" Some early alternatives that worked reasonably well, but
@@ -36,7 +36,7 @@ function! SwitchQuotesOnCurrentString()
     " restored at the end.
     "
     let l:save_cursor = getpos('.')
-    
+
     " Search backward for the first quote (single or double)
     "
     let l:quote_found = search("['\"]", 'b')
@@ -50,15 +50,15 @@ function! SwitchQuotesOnCurrentString()
     let l:quote_char = getline(".")[col(".") - 1]
 
     let l:other_quote_char = tr(l:quote_char, "'\"", "\"'")
-    
+
     " Replace the current quote character with its opposite.
-    execute "normal r" . l:other_quote_char
+    execute "normal! r" . l:other_quote_char
 
     " Search forward to the ending quote character.
     let l:quote_found = search(l:quote_char)
 
     " Replace the current quote character with its opposite.
-    execute "normal r" . l:other_quote_char
+    execute "normal! r" . l:other_quote_char
 
     " Restore the original cursor position.
     call setpos('.', l:save_cursor)
