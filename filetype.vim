@@ -25,6 +25,9 @@ augroup filetypedetect
     autocmd! BufNewFile,BufRead *.json                  setfiletype javascript
 
     " Markdown / MultiMarkdown
+    "
+    " XXX: Would be nice to auto-detect Markdown for *.txt files.
+    "
     autocmd! BufNewFile,BufRead *.mkd,*.md              setfiletype mkd
 
     " MXML (Flex UI markup)
@@ -35,6 +38,9 @@ augroup filetypedetect
 
     " SVG (Scalable Vector Graphics)
     autocmd! BufNewFile,BufRead *.svg                   setfiletype xml
+
+    " Template Toolkit 2
+    autocmd! BufNewFile,BufRead *.tt2                   setfiletype tt2
 
     " Text (plain text)
     autocmd! BufNewFile,BufRead *.txt                   setfiletype text
