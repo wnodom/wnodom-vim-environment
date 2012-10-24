@@ -72,6 +72,8 @@ set nomodeline          " Ignore modelines.
 set nojoinspaces        " Don't get fancy with the spaces when joining lines.
 set textwidth=0         " Don't auto-wrap lines except for specific filetypes.
 
+set background=dark     " Try to use colors suitable for a dark background.
+
 " Turn 'list' off by default, since it interferes with 'linebreak' and
 " 'breakat' formatting (and it's ugly and noisy), but define characters to use
 " when it's turned on.
