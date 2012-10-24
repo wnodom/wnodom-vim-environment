@@ -17,7 +17,7 @@ function! <SID>SetDefaultFontOptions()
     if has("win32")
         set guifont=Consolas:h11
     elseif has("gui_macvim")
-        set antialias linespace=2 guifont=Source_Code_Pro:h15
+        set antialias linespace=2 guifont=Source_Code_Pro:h13
     "   set antialias linespace=2 guifont=Source_Code_Pro_Light:h15
     "   set antialias linespace=0 guifont=Inconsolata:h15
     "   set antialias linespace=2 guifont=Menlo:h15
@@ -60,7 +60,7 @@ set tabpagemax=100          " Allow many more files to be opened in tabs
 set visualbell t_vb=
 
 " Windows settings
-" 
+"
 if has("win32")
 
     call <SID>SetDefaultFontOptions()
