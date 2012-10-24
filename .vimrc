@@ -649,7 +649,7 @@ function! s:ConfigureWindow()
     " Highlight trailing whitespace, except when typing at the end of a line.
     " More info: http://vim.wikia.com/wiki/Highlight_unwanted_spaces
     "
-    call matchadd('Todo', '\s\+\%#\@<!$')
+    call matchadd('NonText', '\s\+\%#\@<!$')
 
     " Highlight the usual to-do markers (including my initials and Michele's
     " initials), even if the current syntax highlighting doesn't include them.
