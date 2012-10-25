@@ -20,7 +20,7 @@ set nosmartindent       " 'smartindent' breaks right-shifting of # lines.
 
 set hidden              " Keep changed buffers without requiring saves.
 
-set history=500         " Remember this many command lines.
+set history=5000        " Remember this many command lines.
 
 set ruler               " Always show the cursor position.
 set showcmd             " Display incomplete commands.
