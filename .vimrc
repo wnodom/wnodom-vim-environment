@@ -651,8 +651,11 @@ function! s:ConfigureWindow()
     " Highlight the usual to-do markers (including my initials and Michele's
     " initials), even if the current syntax highlighting doesn't include them.
     "
-    call matchadd('Todo', 'XXX:')
-    call matchadd('Todo', 'BUG:')
+    call matchadd('Todo', 'XXX')
+    call matchadd('Todo', 'BUG')
+    call matchadd('Todo', 'HACK')
+    call matchadd('Todo', 'FIXME')
+    call matchadd('Todo', 'TODO')
     call matchadd('Todo', 'WNO:')
     call matchadd('Todo', 'MRB:')
 
