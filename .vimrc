@@ -465,6 +465,15 @@ nnoremap ,ev  :tabedit $MYGVIMRC<CR>:tabedit $MYVIMRC<CR>
 inoremap <C-F>  <C-O><C-F>
 inoremap <C-B>  <C-O><C-B>
 
+" Make Option+Up/Down work as PageUp and PageDown
+"
+nnoremap    <M-Up>      <PageUp>
+inoremap    <M-Up>      <PageUp>
+vnoremap    <M-Up>      <PageUp>
+nnoremap    <M-Down>    <PageDown>
+inoremap    <M-Down>    <PageDown>
+vnoremap    <M-Down>    <PageDown>
+
 " Overload Control+L to clear the search highlight as it's redrawing the screen.
 "
 nnoremap <C-L>  :nohlsearch<CR><C-L>
