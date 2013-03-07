@@ -245,7 +245,7 @@ endif " has("autocmd")
 " Note: Under MacVim, `:let macvim_hig_shift_movement = 1` will cause MacVim
 " to set selectmode and keymodel. See `:help macvim-shift-movement` for
 " details.
-" 
+"
 set selectmode=mouse,key
 set keymodel=startsel,stopsel
 set selection=exclusive
@@ -548,6 +548,12 @@ nnoremap \<Tab> <Esc>:Tabularize /
 " Open a quickfix window with the most recent search
 "
 nnoremap <silent> ,/ :execute 'vimgrep /'.@/.'/g %'<CR>:copen<CR>
+
+" Make the dot command operate over a Visual range.
+" (Excellent tip from Drew Neil's Vim Masterclass.)
+"
+xnoremap .  :normal .<CR>
+
 
 """
 """ Commands
