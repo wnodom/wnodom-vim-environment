@@ -46,3 +46,6 @@
 [submodule "bundle/surround"]
 	path = bundle/surround
 	url = https://github.com/tpope/vim-surround.git
+[submodule "bundle/jshint"]
+	path = bundle/jshint
+	url = git://github.com/walm/jshint.vim.git

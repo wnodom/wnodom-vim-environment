@@ -17,7 +17,7 @@ function! <SID>SetDefaultFontOptions()
     if has("win32")
         set guifont=Consolas:h11
     elseif has("gui_macvim")
-        set antialias linespace=2 guifont=Source_Code_Pro:h13
+        set antialias linespace=2 guifont=Source_Code_Pro:h16
     "   set antialias linespace=2 guifont=Source_Code_Pro_Light:h15
     "   set antialias linespace=0 guifont=Inconsolata:h15
     "   set antialias linespace=2 guifont=Menlo:h15
