@@ -563,6 +563,11 @@ nnoremap <silent> ,/ :execute 'vimgrep /'.@/.'/g %'<CR>:copen<CR>
 "
 xnoremap .  :normal .<CR>
 
+" Shortcuts to commonly-used fugitive.vim features
+"
+nnoremap \gs  :Gstatus<CR>
+nnoremap \gd  :Gdiff<CR>
+
 
 """
 """ Commands
