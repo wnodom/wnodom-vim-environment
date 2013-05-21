@@ -21,8 +21,9 @@ augroup filetypedetect
     " AppleScript
     autocmd! BufNewFile,BufRead *.applescript,*.scpt    setfiletype applescript
 
-    " JSON (JavaScript Object Notation)
-    autocmd! BufNewFile,BufRead *.json                  setfiletype javascript
+    " JSON (JavaScript Object Notation) and JSHint configuration files
+    "
+    autocmd! BufNewFile,BufRead *.json,.jshintrc        setfiletype javascript
 
     " Markdown / MultiMarkdown
     "
