@@ -36,7 +36,7 @@ set guioptions-=T           " Turn off the toolbar
 set guicursor+=a:blinkon0   " Turn off cursor blink in all modes
 set guicursor+=v:ver35      " Keep the cursor from obscuring visual selections
 
-set guitablabel=%t\ %m      " GUI tab labels show filename and modified flag
+set guitablabel=%N:\ %t\ %m " GUI tab labels show tab#, file, & modified flag
 set guitabtooltip=%F        " GUI tab tooltips show the full pathname
 
 set showtabline=1           " Show the tab line if there's more than one tab
@@ -88,6 +88,20 @@ if has("gui_macvim")
     "
     nnoremap    <D-0>   :call <SID>SetDefaultFontOptions()<CR>
     imap        <D-0>   <C-O><D-0>
+
+    " Provide OSX-style access to individual tabs.
+    "
+    " XXX: DRY these up with a loop, and make them available from all modes.
+    "
+    nnoremap <D-1> 1gt
+    nnoremap <D-2> 2gt
+    nnoremap <D-3> 3gt
+    nnoremap <D-4> 4gt
+    nnoremap <D-5> 5gt
+    nnoremap <D-6> 6gt
+    nnoremap <D-7> 7gt
+    nnoremap <D-8> 8gt
+    nnoremap <D-9> 9gt
 
     " Make the Vim window as tall and wide as possible.
     "
