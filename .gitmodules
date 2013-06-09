@@ -52,3 +52,6 @@
 [submodule "bundle/javascript"]
 	path = bundle/javascript
 	url = https://github.com/pangloss/vim-javascript.git
+[submodule "bundle/less"]
+	path = bundle/less
+	url = https://github.com/groenewege/vim-less
