@@ -47,9 +47,9 @@ set winminwidth=0       " Allow windows to shrink to vertical separator.
 
 set expandtab           " Insert spaces for <Tab> press; use spaces to indent.
 set smarttab            " Tab respects 'shiftwidth', 'tabstop', 'softtabstop'.
-set tabstop=4           " Set the visible width of tabs.
-set softtabstop=4       " Edit as if tabs are 4 characters wide.
-set shiftwidth=4        " Number of spaces to use for indent and unindent.
+set tabstop=2           " Set the visible width of tabs.
+set softtabstop=2       " Edit as if tabs are 2 characters wide.
+set shiftwidth=2        " Number of spaces to use for indent and unindent.
 set shiftround          " Round indent to a multiple of 'shiftwidth'.
 
 set ignorecase          " Ignore case for pattern matches (\C overrides).
