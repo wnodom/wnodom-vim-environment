@@ -25,6 +25,9 @@ augroup filetypedetect
     "
     autocmd! BufNewFile,BufRead *.json,.jshintrc        setfiletype javascript
 
+    " LESS
+    autocmd! BufNewFile,BufRead *.less                  setfiletype less
+
     " Markdown / MultiMarkdown
     "
     " XXX: Would be nice to auto-detect Markdown for *.txt files.
