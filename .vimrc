@@ -222,6 +222,11 @@ if has("autocmd") && !exists("autocommands_loaded")
     "
     autocmd VimResized * wincmd =
 
+    " Open quickfix and fugitive's git commit windows at full horizontal
+    " width. Via http://nosubstance.me/articles/2013-09-21-my-vim-gems/
+    "
+    autocmd FileType qf,gitcommit wincmd J
+
     " Experiment to force a script to run as late as possible. This is close,
     " but a few scripts still run after it.
     "
