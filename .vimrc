@@ -451,10 +451,8 @@ nnoremap <silent> ,'  :call SwitchQuotesOnCurrentString()<CR>
 " For visual mode, just format without setting the filetype. (This allows
 " for easy formatting of JSON included in a non-JSON file.)
 "
-" Note: Requires ~/bin/format-json.pl filter.
-"
-nnoremap ,j  :set filetype=javascript<CR>:%!~/bin/format-json.pl<CR>
-xnoremap ,j  :!~/bin/format-json.pl<CR>
+nnoremap ,j  :set filetype=javascript<CR>:%!python -m json.tool<CR>
+xnoremap ,j  :!python -m json.tool<CR>
 
 " Edit user's vimrc and gvimrc in new tabs.
 "
