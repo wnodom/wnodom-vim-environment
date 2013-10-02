@@ -17,10 +17,10 @@ function! <SID>SetDefaultFontOptions()
     if has("win32")
         set guifont=Consolas:h11
     elseif has("gui_macvim")
-        set antialias linespace=2 guifont=Source_Code_Pro_Light:h17
+    "   set antialias linespace=2 guifont=Source_Code_Pro_Light:h17
     "   set antialias linespace=2 guifont=Source_Code_Pro:h13
     "   set antialias linespace=0 guifont=Inconsolata:h15
-    "   set antialias linespace=2 guifont=Menlo:h15
+        set antialias linespace=2 guifont=Menlo:h12
     "   set antialias linespace=0 guifont=Droid_Sans_Mono:h13
     "   set antialias linespace=0 guifont=Consolas:h15
     "   set antialias linespace=2 guifont=Monaco:h13
@@ -107,8 +107,16 @@ if has("gui_macvim")
     "
     set lines=999 columns=9999
 
-    " Maximize both horizontally and vertically when entering
-    " fullscreen mode.
+    " Maximize both horizontally and vertically when entering fullscreen mode.
+    "
+    " Note: I've started avoiding fullscreen mode, since it seems to make
+    " MacVim crashy. Instead, I've set the Window->Zoom command
+    " (Command+Control+Z) to zoom both horizontally and vertically with this
+    " OS X defaults command:
+    "
+    "   defaults write org.vim.MacVim MMZoomBoth 1
+    "
+    " See :help macvim-user-defaults for more information.
     "
     set fuoptions=maxvert,maxhorz
 
