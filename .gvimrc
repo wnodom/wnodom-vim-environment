@@ -8,23 +8,24 @@ function! <SID>SetDefaultFontOptions()
 " Defines several font and font-related options in one place, so they
 " can be easily reset just by calling the function again.
 "
-" Note that each combination of antialias, linespace, and guifont
-" options is bundled into an individual `set` statement, since different
-" fonts look better with different settings. (They can also be set
-" separately, but it's just more convenient to keep them together like
-" this.)
+" Note that linespace and guifont are combined into individual `set`
+" statements, since different fonts look better with different line spacing.
+" (They can also be set separately, but it's just more convenient to keep them
+" together like this.)
 "
     if has("win32")
         set guifont=Consolas:h11
     elseif has("gui_macvim")
-    "   set antialias linespace=2 guifont=Source_Code_Pro_Light:h17
-    "   set antialias linespace=2 guifont=Source_Code_Pro:h13
-    "   set antialias linespace=0 guifont=Inconsolata:h15
-        set antialias linespace=2 guifont=Menlo:h12
-    "   set antialias linespace=0 guifont=Droid_Sans_Mono:h13
-    "   set antialias linespace=0 guifont=Consolas:h15
-    "   set antialias linespace=2 guifont=Monaco:h13
-    "   set antialias linespace=1 guifont=Andale_Mono:h15
+        set antialias
+    "   set linespace=2 guifont=Source_Code_Pro_Light:h17
+    "   set linespace=2 guifont=Source_Code_Pro:h13
+    "   set linespace=0 guifont=Inconsolata:h15
+    "   set linespace=2 guifont=Menlo:h12
+        set linespace=2 guifont=Menlo:h19
+    "   set linespace=0 guifont=Droid_Sans_Mono:h13
+    "   set linespace=0 guifont=Consolas:h15
+    "   set linespace=2 guifont=Monaco:h13
+    "   set linespace=1 guifont=Andale_Mono:h15
     endif
 
 endfunction
