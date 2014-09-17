@@ -227,6 +227,10 @@ if has("autocmd") && !exists("autocommands_loaded")
     "
     autocmd FileType qf,gitcommit wincmd J
 
+    " Treat buffers from stdin (e.g.: echo foo | vim -) as scratch buffers.
+    "
+    autocmd StdinReadPost * :set buftype=nofile
+
     " Experiment to force a script to run as late as possible. This is close,
     " but a few scripts still run after it.
     "
@@ -669,7 +673,9 @@ function! s:ConfigureWindow()
     " Highlight trailing whitespace, except when typing at the end of a line.
     " More info: http://vim.wikia.com/wiki/Highlight_unwanted_spaces
     "
-    call matchadd('NonText', '\s\+\%#\@<!$')
+    " XXX: Disabled for now, since it's distracting during demos and classes.
+    "
+    "call matchadd('NonText', '\s\+\%#\@<!$')
 
     " Highlight the usual to-do markers (including my initials and Michele's
     " initials), even if the current syntax highlighting doesn't include them.

@@ -9,7 +9,9 @@ setlocal shiftwidth=2   " Number of spaces to use for indent and unindent.
 " Wrap text at 78 columns, and show the colorcolumn at 79 characters.
 "
 setlocal textwidth=78
-setlocal colorcolumn=+1
+
+" Temporarily disable for presentations.
+"setlocal colorcolumn=+1
 
 " If this JavaScript file is a JSON file, then set the formatter
 " appropriately.
