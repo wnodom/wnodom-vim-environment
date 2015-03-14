@@ -26,7 +26,7 @@ hi ErrorMsg             gui=NONE    guifg=White     guibg=Red                 te
 hi FoldColumn           gui=NONE    guifg=Grey      guibg=Grey15
 hi Folded               gui=NONE    guifg=White     guibg=DarkGreen
 hi Identifier           gui=NONE    guifg=Orange                              term=underline                      ctermfg=Brown
-hi LineNr               gui=NONE    guifg=DarkGrey  guibg=Black               term=underline      cterm=bold      ctermfg=DarkCyan
+hi LineNr               gui=NONE    guifg=Grey25    guibg=Black               term=underline      cterm=bold      ctermfg=DarkCyan
 hi MatchParen           gui=NONE                    guibg=DarkMagenta
 hi Menu                 gui=NONE    guifg=Black     guibg=Cyan
 hi ModeMsg              gui=NONE    guifg=White     guibg=Blue                term=bold           cterm=bold
