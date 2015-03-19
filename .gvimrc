@@ -17,11 +17,13 @@ function! <SID>SetDefaultFontOptions()
         set guifont=Consolas:h11
     elseif has("gui_macvim")
         set antialias
-    "   set linespace=2 guifont=Source_Code_Pro_Light:h17
+    "   set linespace=2 guifont=Source_Code_Pro:h31
+    "   set linespace=2 guifont=Menlo:h25
+        set linespace=2 guifont=Source_Code_Pro_Light:h17
     "   set linespace=2 guifont=Source_Code_Pro:h13
     "   set linespace=0 guifont=Inconsolata:h15
     "   set linespace=2 guifont=Menlo:h12
-        set linespace=2 guifont=Menlo:h19
+    "   set linespace=2 guifont=Menlo:h19
     "   set linespace=0 guifont=Droid_Sans_Mono:h13
     "   set linespace=0 guifont=Consolas:h15
     "   set linespace=2 guifont=Monaco:h13
