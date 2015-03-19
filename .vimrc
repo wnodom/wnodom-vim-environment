@@ -104,6 +104,12 @@ if has('mouse')
     set mouse=a
 endif
 
+" Add a dictionary for i_CTRL-X_CTRL-K word completion.
+"
+if has("unix")
+    set dictionary+=/usr/share/dict/words
+endif
+
 
 """
 """ Backup files and directories
@@ -573,7 +579,7 @@ xnoremap .  :normal .<CR>
 " Shortcuts to commonly-used fugitive.vim features
 "
 nnoremap \gs  :Gstatus<CR>
-nnoremap \gd  :Gdiff<CR>
+nnoremap \gd  :Gvdiff<CR>
 
 
 """
@@ -633,7 +639,7 @@ let perl_fold_blocks = 1
 let NERDChristmasTree=0
 let NERDTreeHighlightCursorline=1
 let NERDTreeShowHidden=1
-let NERDTreeWinSize=40
+let NERDTreeWinSize=30
 
 
 " Taglist
