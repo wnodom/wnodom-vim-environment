@@ -32,7 +32,7 @@ augroup filetypedetect
     "
     " XXX: Would be nice to auto-detect Markdown for *.txt files.
     "
-    autocmd! BufNewFile,BufRead *.mkd,*.md              setfiletype mkd
+    autocmd! BufNewFile,BufRead *.mkd,*.md              setfiletype markdown
 
     " MXML (Flex UI markup)
     autocmd! BufNewFile,BufRead *.mxml                  setfiletype mxml
