@@ -51,3 +51,6 @@
 [submodule "bundle/less"]
 	path = bundle/less
 	url = https://github.com/groenewege/vim-less
+[submodule "bundle/ultisnips"]
+	path = bundle/ultisnips
+	url = git://github.com/SirVer/ultisnips.git

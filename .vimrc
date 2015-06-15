@@ -333,31 +333,31 @@ if has("win32")
         cnoremap <M-Space> <C-C>:simalt ~<CR>
     endif
 
+    " Control+A is Select All.
+    "
+    noremap  <C-A>  gggH<C-O>G
+    inoremap <C-A>  <C-O>gg<C-O>gH<C-O>G
+    cnoremap <C-A>  <C-C>gggH<C-O>G
+    onoremap <C-A>  <C-C>gggH<C-O>G
+    snoremap <C-A>  <C-C>gggH<C-O>G
+    xnoremap <C-A>  <C-C>ggVG
+
+    " Control+S saves the current file (if it's been changed).
+    "
+    noremap  <C-S>  :update<CR>
+    vnoremap <C-S>  <C-C>:update<CR>
+    inoremap <C-S>  <C-O>:update<CR>
+
+    " Control+Z is Undo, in Normal and Insert mode.
+    "
+    noremap  <C-Z>  u
+    inoremap <C-Z>  <C-O>u
+
 endif " has("win32")
 
 " Backspace in Visual mode deletes selection.
 "
 vnoremap <BS> d
-
-" Control+A is Select All.
-"
-noremap  <C-A>  gggH<C-O>G
-inoremap <C-A>  <C-O>gg<C-O>gH<C-O>G
-cnoremap <C-A>  <C-C>gggH<C-O>G
-onoremap <C-A>  <C-C>gggH<C-O>G
-snoremap <C-A>  <C-C>gggH<C-O>G
-xnoremap <C-A>  <C-C>ggVG
-
-" Control+S saves the current file (if it's been changed).
-"
-noremap  <C-S>  :update<CR>
-vnoremap <C-S>  <C-C>:update<CR>
-inoremap <C-S>  <C-O>:update<CR>
-
-" Control+Z is Undo, in Normal and Insert mode.
-"
-noremap  <C-Z>  u
-inoremap <C-Z>  <C-O>u
 
 " F2 inserts the date and time at the cursor.
 "
