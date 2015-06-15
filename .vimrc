@@ -683,8 +683,8 @@ function! s:ConfigureWindow()
     "
     "call matchadd('NonText', '\s\+\%#\@<!$')
 
-    " Highlight the usual to-do markers (including my initials and Michele's
-    " initials), even if the current syntax highlighting doesn't include them.
+    " Highlight the usual to-do markers (including my initials followed by a
+    " colon), even if the current syntax highlighting doesn't include them.
     "
     call matchadd('Todo', 'XXX')
     call matchadd('Todo', 'BUG')
@@ -692,7 +692,6 @@ function! s:ConfigureWindow()
     call matchadd('Todo', 'FIXME')
     call matchadd('Todo', 'TODO')
     call matchadd('Todo', 'WNO:')
-    call matchadd('Todo', 'MRB:')
 
 endfunction
 
