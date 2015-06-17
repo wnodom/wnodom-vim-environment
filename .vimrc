@@ -662,6 +662,13 @@ let Tlist_Use_Right_Window = 1
 let g:netrw_liststyle=3
 
 
+" UltiSnips
+"
+let g:UltiSnipsExpandTrigger       = '<tab>'
+let g:UltiSnipsJumpForwardTrigger  = '<tab>'
+let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
+
+
 """
 """ Local Functions
 """
