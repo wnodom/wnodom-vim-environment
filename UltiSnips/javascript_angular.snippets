@@ -1,0 +1,54 @@
+## Angular
+
+extends javascript
+
+
+snippet ngm "Angular .module()"
+angular.module('${1:moduleName}', [])
+  $0
+;
+endsnippet
+
+
+snippet ngc "Angular .controller()"
+.controller('$1Controller', function () {
+  var vm = this;
+
+  $0
+})
+endsnippet
+
+
+snippet ngd "Angular .directive()"
+.directive('${1:directiveName}', function $1() {
+  $0
+})
+endsnippet
+
+
+snippet ngf "Angular .factory()"
+.factory('${1:factoryName}', function () {
+  $0
+})
+endsnippet
+
+
+snippet ngs "Angular .service()"
+.service('${1:serviceName}', function $1() {
+  $0
+})
+endsnippet
+
+
+snippet ngl "Angular $log statement"
+$log.${1:log}('$2');
+endsnippet
+
+
+snippet vmfn "Angular viewmodel method within a controller"
+vm.$1 = function () {
+	$0
+};
+endsnippet
+
+

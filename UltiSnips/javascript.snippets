@@ -1,0 +1,22 @@
+## JavaScript snippets
+
+snippet fn "JavaScript function"
+function $1($2) {
+  $0
+}
+endsnippet
+
+snippet jsf "Javascript file with IIFE wrapper"
+;(function () {
+
+  'use strict';
+
+  ${VISUAL}$0
+
+})();
+endsnippet
+
+snippet clog "JavaScript console.log() statement"
+console.log('$1');
+endsnippet
+
