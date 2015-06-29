@@ -1,8 +1,3 @@
-" (after/ftplugin) mkd.vim
-"
-" Markdown settings
-"
-
 setlocal autoindent
 
 setlocal formatoptions&vim  " reset to Vim default (tcq)
