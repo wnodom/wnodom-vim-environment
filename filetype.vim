@@ -21,9 +21,11 @@ augroup filetypedetect
     " AppleScript
     autocmd! BufNewFile,BufRead *.applescript,*.scpt    setfiletype applescript
 
-    " JSON (JavaScript Object Notation) and JSHint configuration files
+    " JSON (JavaScript Object Notation) and various JSON-format config files
     "
-    autocmd! BufNewFile,BufRead *.json,.jshintrc        setfiletype javascript
+    autocmd! BufNewFile,BufRead
+        \ *.json,.jshintrc,.bowerrc
+        \ setfiletype javascript
 
     " LESS
     autocmd! BufNewFile,BufRead *.less                  setfiletype less
@@ -51,6 +53,9 @@ augroup filetypedetect
 
     " XHTML
     autocmd! BufNewFile,BufRead *.xhtml                 setfiletype xml
+
+    " YAML
+    autocmd! BufNewFile,BufRead .eslintrc               setfiletype yaml
 
 augroup END
 
