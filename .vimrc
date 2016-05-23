@@ -94,6 +94,13 @@ set matchtime=1                 " In tenths of seconds, when showmatch is on
 set wildmenu                    " Use menu for completions
 set wildmode=full
 
+" Create a status line that's close to what's displayed when
+" 'statusline' is empty. (This is mostly so commands that append to the
+" statusline, like Syntastic, will have something to append to.)
+"
+set statusline=%<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
+
+
 if has("win32")
     set grepprg=internal        " Windows findstr.exe just isn't good enough.
 endif
@@ -667,6 +674,11 @@ let g:netrw_liststyle=3
 let g:UltiSnipsExpandTrigger       = '<tab>'
 let g:UltiSnipsJumpForwardTrigger  = '<tab>'
 let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
+
+
+" Syntastic
+"
+runtime configure_syntastic.vim
 
 
 """
