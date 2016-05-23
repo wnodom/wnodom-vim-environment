@@ -45,6 +45,9 @@ augroup filetypedetect
     " SVG (Scalable Vector Graphics)
     autocmd! BufNewFile,BufRead *.svg                   setfiletype xml
 
+    " TypeScript
+    autocmd! BufNewFile,BufRead *.ts                    setfiletype typescript
+
     " Template Toolkit 2
     autocmd! BufNewFile,BufRead *.tt2                   setfiletype tt2
 
