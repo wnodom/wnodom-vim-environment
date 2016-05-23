@@ -1,5 +1,6 @@
+" configure_syntastic.vim
 
-" Add the Syntastic-specific pieces of the status line.
+" Append the Syntastic-specific pieces of the status line.
 "
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
@@ -10,29 +11,47 @@ let g:syntastic_mode_map = {
 \ 'passive_filetypes':  ['typescript'],
 \ }
 
-let g:syntastic_always_populate_loc_list  = 1
-let g:syntastic_auto_loc_list             = 1
-let g:syntastic_check_on_open             = 1
-let g:syntastic_check_on_wq               = 0
-
-" Syntastic TypeScript
+" Always stick any detected errors into the location list.
 "
-"let g:syntastic_typescript_tsc_fname = ''
+let g:syntastic_always_populate_loc_list  = 1
 
-" Tsuquyomi TypeScript + Syntastic
+" Automatically open the error window when errors are detected,
+" and close it when none are detected.
+"
+let g:syntastic_auto_loc_list = 1
+
+" In active mode, run syntax checks when buffers are first
+" loaded, as well as on save.
+"
+let g:syntastic_check_on_open = 1
+
+" In active mode, run syntax checks before quitting.
+"
+let g:syntastic_check_on_wq = 1
+
+
+""
+"" Configuration for specific syntax checkers
+""
+
+" TypeScript (using Tsuquyomi)
 "
 let g:tsuquyomi_disable_quickfix = 1
 let g:syntastic_typescript_checkers = ['tsuquyomi'] " instead of 'tsc'
 
-" Syntastic Angular HTML
+
+" HTML with Angular syntax
 
 " let g:syntastic_html_tidy_blocklevel_tags = ['myCustomTag']
 " let g:syntastic_html_tidy_inline_tags = []
 
-" 's:qmr' stands for 'list of HTML Tidy quiet message regexes';
-" I just didn't want to repeat a long variable name several
-" times. We're going to build it with several calls to add()
-" and extend(), so each block of regexes can be documented.
+" Build the list of regexes for HTML Tidy error messages we want
+" Syntastic to ignore. ('s:qmr' stands for 'list of HTML Tidy
+" quiet message regexes'; I just didn't want to repeat a long
+" variable name several times.)
+"
+" We're going to build it with several calls to add() and
+" extend(), so each block of regexes can be documented.
 "
 let s:qmr = []
 
@@ -61,10 +80,10 @@ call extend(s:qmr, [
 
 " Allow all unrecognized element and attribute names.
 "
-" I'd prefer to be much more surgical about this, but that
+" TODO: I'd prefer to be much more surgical about this, but that
 " would require calling Angular's own template parser, and I
-" haven't gotten that far just yet. Not even sure it's
-" possible yet.
+" haven't gotten that far just yet. Not even sure it's possible
+" yet.
 "
 " When it *is* possible, explicitly allow attribute names
 " that start with these prefixes:
@@ -82,17 +101,17 @@ call extend(s:qmr, [
 "
 call add(s:qmr, 'trimming empty <')
 
-" Allow #whatever attributes without values.
+" Allow #templateReferenceVariable attributes without values.
 "
 call add(s:qmr, '> attribute "#\w\+" lacks value')
 
-" Allow ngSwitchDefault without a value.
+" Allow *ngSwitchDefault without a value.
 "
 " TODO: Add any others that make sense here.
 "
 call add(s:qmr, 'attribute "\*ngswitchdefault" lacks value')
 
-" Allow input, select, etc., without an explicit form element.
+" Allow <input>, <select>, etc., without an explicit <form>.
 "
 call extend(s:qmr, [
 \ 'inserting implicit <form>',
@@ -112,3 +131,4 @@ call map(s:qmr, ' ''\m\c'' . v:val ')
 
 let g:syntastic_html_tidy_quiet_messages = { 'regex': s:qmr }
 
+" end configure_syntastic.vim
