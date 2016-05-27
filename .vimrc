@@ -31,7 +31,7 @@ set numberwidth=4       " Minimum number of columns to show for line numbers.
 set laststatus=2        " Always show a status line.
 set visualbell t_vb=    " Use null visual bell (no beeps or flashes).
 
-set scrolloff=3         " Context lines at top and bottom of display.
+set scrolloff=1         " Context lines at top and bottom of display.
 set sidescrolloff=5     " Context columns at left and right.
 set sidescroll=1        " Number of chars to scroll when scrolling sideways.
 
