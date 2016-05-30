@@ -44,6 +44,10 @@ let g:syntastic_warning_symbol        = ' »'
 let g:syntastic_style_error_symbol    = ' ›'
 let g:syntastic_style_warning_symbol  = ' ›'
 
+" Dial back the size of the error window.
+" 
+let g:syntastic_loc_list_height = 5
+
 
 ""
 "" Configuration for specific syntax checkers
