@@ -685,6 +685,8 @@ let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
 
 " Syntastic
 "
+" let g:loaded_syntastic_plugin = 1
+"
 runtime configure_syntastic.vim
 
 
