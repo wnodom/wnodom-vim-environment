@@ -33,6 +33,7 @@ hi ModeMsg              gui=NONE    guifg=White     guibg=Blue
 hi MoreMsg              gui=NONE    guifg=SeaGreen
 hi NonText              gui=NONE    guifg=Grey50    guibg=Grey20
 hi Normal               gui=NONE    guifg=White     guibg=Black
+hi Pmenu                gui=NONE    guifg=White     guibg=DarkMagenta
 hi PreProc              gui=NONE    guifg=#ff80ff
 hi Question             gui=NONE    guifg=Green
 hi Scrollbar            gui=NONE    guifg=DarkCyan  guibg=Cyan
