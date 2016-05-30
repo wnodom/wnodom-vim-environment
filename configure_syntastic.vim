@@ -56,6 +56,17 @@ let g:syntastic_loc_list_height = 5
 " TypeScript (using Tsuquyomi)
 "
 let g:tsuquyomi_disable_quickfix = 1
+
+" Don't use the default Tsuquyomi key mappings, since they break
+" Control+6 and that's maddening.
+"
+" XXX: This doesn't really belong in this file, since it's
+" specific to Tsuquyomi and doesn't affect Syntastic.
+"
+let g:tsuquyomi_disable_default_mappings = 1
+
+
+" Use this for tsuquyomi:
 let g:syntastic_typescript_checkers = ['tsuquyomi'] " instead of 'tsc'
 
 
