@@ -37,7 +37,7 @@ hi PreProc              gui=NONE    guifg=#ff80ff
 hi Question             gui=NONE    guifg=Green
 hi Scrollbar            gui=NONE    guifg=DarkCyan  guibg=Cyan
 hi Search               gui=NONE    guifg=White     guibg=Red
-hi SignColumn           gui=NONE                    guibg=Grey20
+hi SignColumn           gui=NONE    guifg=White     guibg=Black
 hi Special              gui=NONE    guifg=Orange
 hi SpecialKey           gui=NONE    guifg=Black     guibg=Orange
 hi Statement            gui=NONE    guifg=#ffff60
@@ -60,12 +60,14 @@ hi perlHereDoc          gui=NONE    guifg=White     guibg=#404040
 hi perlDATA             gui=NONE    guifg=White     guibg=#002040
 hi perlSpecial          gui=NONE    guifg=LightRed
 
+
 " Taglist highlight groups
 "
 " hi TagListTagName
 " hi TagListTagScope
 " hi TagListTitle
 " hi TagListComment
+"
 hi TagListFileName      gui=NONE    guifg=Cyan      guibg=Black
 
 
@@ -84,6 +86,7 @@ hi ShowMarksHLl         gui=NONE    guifg=White     guibg=Grey20
 hi ShowMarksHLm         gui=NONE    guifg=Red       guibg=Grey20
 hi ShowMarksHLo         gui=NONE    guifg=Green     guibg=Grey20
 hi ShowMarksHLu         gui=NONE    guifg=White     guibg=Grey20
+
 
 " NERDTree highlight groups (temporarily here for reference)
 "
@@ -111,6 +114,22 @@ hi ShowMarksHLu         gui=NONE    guifg=White     guibg=Grey20
 " hi treeBookmarksHeader
 " hi treeBookmarksName
 " hi NERDTreeCurrentNode
+
+
+" Syntastic highlight groups
+"
+" SyntasticErrorSign          - For syntax errors, links to "error" by default
+" SyntasticWarningSign        - For syntax warnings, links to "todo" by default
+" SyntasticStyleErrorSign     - For style errors, links to "SyntasticErrorSign" by default
+" SyntasticStyleWarningSign   - For style warnings, links to "SyntasticWarningSign" by default
+" 
+" SyntasticError              - Links to "SpellBad" by default (see |hl-SpellBad|)
+" SyntasticWarning            - Links to "SpellCap" by default (see |hl-SpellCap|)
+" SyntasticStyleError         - Links to "SyntasticError" by default
+" SyntasticStyleWarning       - Links to "SyntasticWarning" by default
+"
+hi SyntasticErrorSign   gui=NONE guifg=Red
+hi SyntasticWarningSign gui=NONE guifg=Yellow
 
 
 
