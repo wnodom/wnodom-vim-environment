@@ -597,7 +597,7 @@ nnoremap \gd  :Gvdiff<CR>
 " (Based on code from $VIMRUNTIME/vimrc_example.vim.)
 "
 if !exists(":DiffOrig")
-    command DiffOrig vertical new | set buftype=nofile | read # | 0d_ | diffthis
+    command DiffOrig vertical leftabove new | set buftype=nofile | read # | 0d_ | diffthis
         \ | wincmd p | diffthis
 endif
 
