@@ -1,0 +1,18 @@
+version: '{build}'
+environment:
+  matrix:
+  - arch: 32
+    python: 35
+  # We only test Python 2.7 on 64 bits.
+  - arch: 64
+    python: 27
+  - arch: 64
+    python: 35
+install:
+  - ci\appveyor\appveyor_install.bat
+build_script:
+  - python run_tests.py
+# Disable automatic tests
+test: off
+cache:
+  - '%LOCALAPPDATA%\pip\cache'  # Python packages from pip

@@ -688,6 +688,15 @@ let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
 runtime configure_syntastic.vim
 
 
+
+" YouCompleteMe
+"
+" let g:loaded_youcompleteme = 1
+"
+runtime configure_youcompleteme.vim
+
+
+
 """
 """ Local Functions
 """
