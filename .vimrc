@@ -623,6 +623,13 @@ runtime set_abbreviations.vim
 
 
 """
+""" Signs
+"""
+
+runtime configure_signs.vim
+
+
+"""
 """ Extension settings (plugins, syntax files, etc.)
 """
 
