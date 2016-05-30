@@ -29,6 +29,21 @@ let g:syntastic_check_on_open = 1
 "
 let g:syntastic_check_on_wq = 1
 
+" Experiment with some better error and warning markers.
+"
+" syntastic_error_symbol - For syntax errors, defaults to ">>"
+" syntastic_style_error_symbol - For style errors, defaults to "S>"
+" syntastic_warning_symbol - For syntax warnings, defaults to ">>"
+" syntastic_style_warning_symbol - For style warnings, defaults to "S>"
+"
+" NOTE: The leading spaces below are non-breaking spaces (ASCII
+" 160 vs ASCII 32). Normal spaces cause errors.
+"
+let g:syntastic_error_symbol          = ' »'
+let g:syntastic_warning_symbol        = ' »'
+let g:syntastic_style_error_symbol    = ' ›'
+let g:syntastic_style_warning_symbol  = ' ›'
+
 
 ""
 "" Configuration for specific syntax checkers
