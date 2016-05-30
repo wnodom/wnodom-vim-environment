@@ -6,10 +6,7 @@ set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
-let g:syntastic_mode_map = {
-\ 'mode':               'active',
-\ 'passive_filetypes':  ['typescript'],
-\ }
+let g:syntastic_mode_map = { 'mode': 'active' }
 
 " Always stick any detected errors into the location list.
 "
@@ -68,6 +65,10 @@ let g:tsuquyomi_disable_default_mappings = 1
 
 " Use this for tsuquyomi:
 let g:syntastic_typescript_checkers = ['tsuquyomi'] " instead of 'tsc'
+
+" Use these for tsc:
+"let g:syntastic_typescript_checkers = ['tsc']
+"let g:syntastic_typescript_tsc_fname = ''
 
 
 " HTML with Angular syntax
@@ -153,6 +154,13 @@ call extend(s:qmr, [
 " values for alt and src might be specified programmatically.
 "
 call add(s:qmr, '<img> lacks "\(alt\|src\)" attribute')
+
+" XXX: A couple more I might add later, as mentioned in
+" <https://github.com/scrooloose/syntastic/issues/612>:
+"
+"   'unescaped &'
+"   'lacks "action'
+"
 
 " Prepend all regexes with the 'magic' and 'case insensitive'
 " markers.
