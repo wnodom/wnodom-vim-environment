@@ -10,7 +10,7 @@ sign define dummy_sign_to_keep_sign_column_visible
 " Build a lookup table of the filetypes that shouldn't have an always-visible
 " sign column.
 "
-let s:filetypes_to_avoid_string = 'help qf nerdtree text'
+let s:filetypes_to_avoid_string = 'help qf nerdtree text markdown mkd'
 let s:filetypes_to_avoid = {}
 for s:ft in split(s:filetypes_to_avoid_string)
   let s:filetypes_to_avoid[s:ft] = 1
