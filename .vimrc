@@ -650,10 +650,15 @@ let perl_fold_blocks = 1
 
 " NERD Tree
 "
+" See also ~/.vim/after/NERD_Tree.vim
+"
 let NERDChristmasTree=0
+let NERDTreeChDirMode=2
+let NERDTreeDirArrows=1
 let NERDTreeHighlightCursorline=1
+let NERDTreeMinimalUI=1
 let NERDTreeShowHidden=1
-let NERDTreeWinSize=30
+let NERDTreeWinSize=38
 
 
 " Taglist
