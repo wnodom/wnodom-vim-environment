@@ -41,6 +41,7 @@ hi Search               gui=NONE    guifg=White     guibg=Red
 hi SignColumn           gui=NONE    guifg=White     guibg=Black
 hi Special              gui=NONE    guifg=Orange
 hi SpecialKey           gui=NONE    guifg=Black     guibg=Orange
+hi SpellBad             gui=NONE                    guibg=DarkRed
 hi Statement            gui=NONE    guifg=#ffff60
 hi StatusLine           gui=NONE    guifg=Black     guibg=#ffff60
 hi StatusLineNC         gui=NONE    guifg=Grey50    guibg=Grey15
