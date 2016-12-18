@@ -626,7 +626,7 @@ runtime set_abbreviations.vim
 """ Signs
 """
 
-runtime configure_signs.vim
+"runtime configure_signs.vim
 
 
 """
@@ -690,17 +690,17 @@ let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
 
 " Syntastic
 "
-" let g:loaded_syntastic_plugin = 1
+let g:loaded_syntastic_plugin = 1
 "
-runtime configure_syntastic.vim
+"runtime configure_syntastic.vim
 
 
 
 " YouCompleteMe
 "
-" let g:loaded_youcompleteme = 1
+let g:loaded_youcompleteme = 1
 "
-runtime configure_youcompleteme.vim
+"runtime configure_youcompleteme.vim
 
 
 
