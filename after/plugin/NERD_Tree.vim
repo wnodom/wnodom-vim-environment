@@ -6,11 +6,16 @@
 "
 "autocmd VimEnter * NERDTree | wincmd p
 
-" Add _instructor.md and _explanation.md files to NERDTree's
-" 'Ignore' filter.
+" By default, don't show:
+" - _instructor.md files
+" - _explanation.md files
+" - _outline.md files
+" - directories with 'SKIP' anywhere in the name
 "
 call extend(g:NERDTreeIgnore, [
 \   '^_instructor\.md$[[file]]' ,
-\   '^_explanation\.md$[[file]]'
+\   '^_explanation\.md$[[file]]',
+\   '^_outline\.md$[[file]]',
+\   'SKIP[[dir]]',
 \ ])
 
