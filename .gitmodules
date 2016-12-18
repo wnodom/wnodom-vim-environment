@@ -45,9 +45,6 @@
 [submodule "bundle/jshint"]
 	path = bundle/jshint
 	url = git://github.com/walm/jshint.vim.git
-[submodule "bundle/javascript"]
-	path = bundle/javascript
-	url = https://github.com/pangloss/vim-javascript.git
 [submodule "bundle/less"]
 	path = bundle/less
 	url = https://github.com/groenewege/vim-less
@@ -57,3 +54,6 @@
 [submodule "bundle/vimproc.vim"]
 	path = bundle/vimproc.vim
 	url = https://github.com/Shougo/vimproc.vim.git
+[submodule "bundle/vim-javascript"]
+	path = bundle/vim-javascript
+	url = https://github.com/pangloss/vim-javascript.git
