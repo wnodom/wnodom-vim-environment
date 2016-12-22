@@ -185,10 +185,6 @@ if &t_Co > 2 || has("gui_running")
     syntax on
 endif
 
-" Use pathogen for better plugin management.
-"
-call pathogen#infect()
-
 
 """
 """ Autocommands
