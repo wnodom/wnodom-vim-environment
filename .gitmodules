@@ -11,7 +11,7 @@
 	url = https://github.com/scrooloose/nerdcommenter.git
 	ignore = dirty
 [submodule "bundle/ack"]
-	path = bundle/ack
+	path = pack/wnodom/opt/ack
 	url = https://github.com/mileszs/ack.vim.git
 	ignore = dirty
 [submodule "bundle/bufexplorer"]
@@ -19,7 +19,7 @@
 	url = https://github.com/vim-scripts/bufexplorer.zip.git
 	ignore = dirty
 [submodule "bundle/taglist"]
-	path = bundle/taglist
+	path = pack/wnodom/opt/taglist
 	url = https://github.com/vim-scripts/taglist.vim.git
 	ignore = dirty
 [submodule "bundle/matchit"]
@@ -35,7 +35,7 @@
 	url = https://github.com/tpope/vim-unimpaired.git
 	ignore = dirty
 [submodule "bundle/accentuate"]
-	path = bundle/accentuate
+	path = pack/wnodom/opt/accentuate
 	url = https://github.com/wnodom/vim-accentuate.git
 	ignore = dirty
 
@@ -44,11 +44,11 @@
 	url = https://github.com/tpope/vim-surround.git
 	ignore = dirty
 [submodule "bundle/jshint"]
-	path = bundle/jshint
+	path = pack/wnodom/opt/jshint
 	url = git://github.com/walm/jshint.vim.git
 	ignore = dirty
 [submodule "bundle/less"]
-	path = bundle/less
+	path = pack/wnodom/opt/less
 	url = https://github.com/groenewege/vim-less
 	ignore = dirty
 [submodule "bundle/typescript-vim"]
