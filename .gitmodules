@@ -1,13 +1,13 @@
 [submodule "bundle/fugitive"]
-	path = bundle/fugitive
+	path = pack/wnodom/start/fugitive
 	url = http://github.com/tpope/vim-fugitive.git
 	ignore = dirty
 [submodule "bundle/NERD_tree"]
-	path = bundle/NERD_tree
+	path = pack/wnodom/start/NERD_tree
 	url = http://github.com/scrooloose/nerdtree.git
 	ignore = dirty
 [submodule "bundle/NERD_commenter"]
-	path = bundle/NERD_commenter
+	path = pack/wnodom/start/NERD_commenter
 	url = https://github.com/scrooloose/nerdcommenter.git
 	ignore = dirty
 [submodule "bundle/ack"]
@@ -15,7 +15,7 @@
 	url = https://github.com/mileszs/ack.vim.git
 	ignore = dirty
 [submodule "bundle/bufexplorer"]
-	path = bundle/bufexplorer
+	path = pack/wnodom/start/bufexplorer
 	url = https://github.com/vim-scripts/bufexplorer.zip.git
 	ignore = dirty
 [submodule "bundle/taglist"]
@@ -23,15 +23,15 @@
 	url = https://github.com/vim-scripts/taglist.vim.git
 	ignore = dirty
 [submodule "bundle/matchit"]
-	path = bundle/matchit
+	path = pack/wnodom/start/matchit
 	url = https://github.com/vim-scripts/matchit.zip.git
 	ignore = dirty
 [submodule "bundle/tabular"]
-	path = bundle/tabular
+	path = pack/wnodom/start/tabular
 	url = https://github.com/godlygeek/tabular.git
 	ignore = dirty
 [submodule "bundle/unimpaired"]
-	path = bundle/unimpaired
+	path = pack/wnodom/start/unimpaired
 	url = https://github.com/tpope/vim-unimpaired.git
 	ignore = dirty
 [submodule "bundle/accentuate"]
@@ -40,7 +40,7 @@
 	ignore = dirty
 
 [submodule "bundle/surround"]
-	path = bundle/surround
+	path = pack/wnodom/start/surround
 	url = https://github.com/tpope/vim-surround.git
 	ignore = dirty
 [submodule "bundle/jshint"]
@@ -52,14 +52,14 @@
 	url = https://github.com/groenewege/vim-less
 	ignore = dirty
 [submodule "bundle/typescript-vim"]
-	path = bundle/typescript-vim
+	path = pack/wnodom/start/typescript-vim
 	url = https://github.com/leafgarland/typescript-vim.git
 	ignore = dirty
 [submodule "bundle/vimproc.vim"]
-	path = bundle/vimproc.vim
+	path = pack/wnodom/start/vimproc.vim
 	url = https://github.com/Shougo/vimproc.vim.git
 	ignore = dirty
 [submodule "bundle/vim-javascript"]
-	path = bundle/vim-javascript
+	path = pack/wnodom/start/vim-javascript
 	url = https://github.com/pangloss/vim-javascript.git
 	ignore = dirty
