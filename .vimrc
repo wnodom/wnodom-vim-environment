@@ -17,6 +17,7 @@ set shortmess+=I        " Don't show the Vim welcome screen.
 
 set autoindent          " Copy indent from current line for new line.
 set nosmartindent       " 'smartindent' breaks right-shifting of # lines.
+set breakindent         " Indent soft-wrapped lines same as beginning of line
 
 set hidden              " Keep changed buffers without requiring saves.
 
