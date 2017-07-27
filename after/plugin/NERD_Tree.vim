@@ -12,10 +12,10 @@
 " - _outline.md files
 " - directories with 'SKIP' anywhere in the name
 "
-call extend(g:NERDTreeIgnore, [
-\   '^_instructor\.md$[[file]]' ,
-\   '^_explanation\.md$[[file]]',
-\   '^_outline\.md$[[file]]',
-\   'SKIP[[dir]]',
-\ ])
+"call extend(g:NERDTreeIgnore, [
+"\   '^_instructor\.md$[[file]]' ,
+"\   '^_explanation\.md$[[file]]',
+"\   '^_outline\.md$[[file]]',
+"\   'SKIP[[dir]]',
+"\ ])
 
