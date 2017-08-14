@@ -5,10 +5,7 @@
 setlocal tabstop=2      " Set the visible width of tabs.
 setlocal softtabstop=2  " Edit as if tabs are 2 characters wide.
 setlocal shiftwidth=2   " Number of spaces to use for indent and unindent.
-
-" Wrap text at 78 columns.
-"
-setlocal textwidth=78
+setlocal textwidth=78   " Wrap text at 78 columns.
 
 " Show the colorcolumn just after the textwidth.
 " (Disabled since it's distracting during presentations and classes.)
