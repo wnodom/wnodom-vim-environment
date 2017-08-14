@@ -63,3 +63,6 @@
 	path = pack/wnodom/start/vim-javascript
 	url = https://github.com/pangloss/vim-javascript.git
 	ignore = dirty
+[submodule "pack/wnodom/start/vim-css-color"]
+	path = pack/wnodom/start/vim-css-color
+	url = https://github.com/ap/vim-css-color
