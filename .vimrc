@@ -95,12 +95,11 @@ set matchtime=1                 " In tenths of seconds, when showmatch is on
 set wildmenu                    " Use menu for completions
 set wildmode=full
 
-" Create a status line that's close to what's displayed when
-" 'statusline' is empty. (This is mostly so commands that append to the
-" statusline, like Syntastic, will have something to append to.)
+" Create a mostly-default statusline that also includes the current Git
+" branch name, if there is one. (A non-empty statusline also gives
+" commands that append to it, like Syntastic, something to append to.)
 "
-set statusline=%<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
-
+set statusline=%<%f\ %((%{fugitive#head()})%)\ \ %h%m%r%=%-14.(%l,%c%V%)\ %P
 
 if has("win32")
     set grepprg=internal        " Windows findstr.exe just isn't good enough.
