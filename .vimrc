@@ -724,12 +724,12 @@ function! s:ConfigureWindow()
     " Highlight the usual to-do markers (including my initials followed by a
     " colon), even if the current syntax highlighting doesn't include them.
     "
-    call matchadd('Todo', 'XXX')
-    call matchadd('Todo', 'BUG')
-    call matchadd('Todo', 'HACK')
-    call matchadd('Todo', 'FIXME')
-    call matchadd('Todo', 'TODO')
-    call matchadd('Todo', 'WNO:')
+    call matchadd('Todo', '\<XXX\>')
+    call matchadd('Todo', '\<BUG\>')
+    call matchadd('Todo', '\<HACK\>')
+    call matchadd('Todo', '\<FIXME\>')
+    call matchadd('Todo', '\<TODO\>')
+    call matchadd('Todo', '\<WNO:')  " Don't want closing boundary on this one
 
 endfunction
 
