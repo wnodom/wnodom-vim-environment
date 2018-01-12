@@ -657,6 +657,12 @@ let NERDTreeShowHidden=1
 let NERDTreeWinSize=38
 let NERDTreeAutoDeleteBuffer=1
 
+
+" Dev Icons - https://github.com/ryanoasis/vim-devicons
+"
+let WebDevIconsNerdTreeAfterGlyphPadding = ' '
+
+
 " Taglist
 "
 " XXX: Set the correct pathname for Windows.
