@@ -18,6 +18,9 @@ function! <SID>SetDefaultFontOptions()
     elseif has("gui_macvim")
         set antialias
 
+        " Nerd Fonts patched with several libraries of icon and glyphs
+        " https://github.com/ryanoasis/nerd-fonts
+        "
         set linespace=5 guifont=M+_1m_regular_Nerd_Font_Complete_Mono:h23
     "   set linespace=2 guifont=Sauce_Code_Pro_Nerd_Font_Complete_Mono:h20
 
