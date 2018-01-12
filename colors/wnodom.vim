@@ -117,6 +117,24 @@ hi ShowMarksHLu         gui=NONE    guifg=White     guibg=Grey20
 " hi treeBookmarksName
 " hi NERDTreeCurrentNode
 
+" NERDTree file highlighting based on extension, adapted from
+" <https://github.com/ryanoasis/vim-devicons/wiki/FAQ-&-Troubleshooting>
+"
+function! NERDTreeHighlightFile(extension, guifg)
+  exec 'autocmd FileType nerdtree highlight ' . a:extension . ' guifg=' . a:guifg
+  exec 'autocmd FileType nerdtree syn match ' . a:extension . ' #^\s\+.*' . a:extension . '$#'
+endfunction
+
+call NERDTreeHighlightFile('ts',            '#60ff60')
+call NERDTreeHighlightFile('js',            'pink')
+call NERDTreeHighlightFile('json',          'wheat')
+call NERDTreeHighlightFile('html',          '#ffff60')
+call NERDTreeHighlightFile('css',           '#ffaf4d')
+call NERDTreeHighlightFile('scss',          '#ffaf4d')
+call NERDTreeHighlightFile('DS_Store',      'grey')
+call NERDTreeHighlightFile('gitignore',     'grey')
+call NERDTreeHighlightFile('editorconfig',  'grey')
+
 
 " Syntastic highlight groups
 "
