@@ -1,0 +1,771 @@
+*devicons*  VimDevIcons - Add Icons to Your Plugins
+
+===============================================================================
+Contents ~
+
+ 1. Introduction                                        |devicons-introduction|
+ 2. Image: vim-devicons (see reference [1])                |image-vim-devicons|
+   1. Image: vim-devicons overall screenshot (see reference [23]) |image-vim-devicons-overall-screenshot|
+  1. Features                                               |devicons-features|
+  2. Quick Links                                         |devicons-quick-links|
+  3. Table of Contents                             |devicons-table-of-contents|
+  4. Installation                                       |devicons-installation|
+   1. Step 1 'Nerd Font'                                            |Nerd-Font|
+   2. Step 2 'VimDevIcons Plugin'                          |VimDevIcons-Plugin|
+    1. Pathogen [33]                                     |devicons-pathogen-33|
+    2. NeoBundle [34]                                   |devicons-neobundle-34|
+    3. Vundle [35]                                         |devicons-vundle-35|
+    4. Manual                                                 |devicons-manual|
+   3. Step 3 'Configure Vim'                                    |Configure-Vim|
+     1. Set VimDevIcons to load _after_ these plugins! |set-vimdevicons-to-load-_after_-these-plugins|
+     2. Set encoding to UTF-8 to show glyphs |devicons-set-encoding-to-utf-8-to-show-glyphs|
+     3. Set Vim font to a Nerd Font        |devicons-set-vim-font-to-nerd-font|
+     4. If you use vim-airline you need this |devicons-if-you-use-vim-airline-you-need-this|
+     5. vimrc examples                                |devicons-vimrc-examples|
+   4. That's it! You're done.                  |devicons-thats-it-youre-done.|
+  5. Usage                                                     |devicons-usage|
+   1. Lightline Setup                                |devicons-lightline-setup|
+   2. Powerline Setup                                |devicons-powerline-setup|
+  6. Detailed Features                             |devicons-detailed-features|
+  7. Extra Configuration                         |devicons-extra-configuration|
+   1. Character Mappings                          |devicons-character-mappings|
+  8. Public Methods                                   |devicons-public-methods|
+  9. Developer                                             |devicons-developer|
+   1. API                                                        |devicons-api|
+    1. API Examples                                     |devicons-api-examples|
+     1. Simple function call                    |devicons-simple-function-call|
+     2. vim-startify [20]                            |devicons-vim-startify-20|
+     3. Custom status line                        |devicons-custom-status-line|
+  10. Todo                                                      |devicons-todo|
+  11. License                                                |devicons-license|
+  12. FAQ / Troubleshooting                      |devicons-faq-troubleshooting|
+  13. Screenshots                                        |devicons-screenshots|
+  14. Contributing                                      |devicons-contributing|
+   1. Promotion                                            |devicons-promotion|
+   2. Source code                                        |devicons-source-code|
+  15. Rationale                                            |devicons-rationale|
+  16. Inspiration and special thanks      |devicons-inspiration-special-thanks|
+  17. License
+ 3. References                                            |devicons-references|
+
+===============================================================================
+                                                        *devicons-introduction*
+Introduction ~
+
+===============================================================================
+                                                           *image-vim-devicons*
+Image: vim-devicons (see reference [1]) ~
+
+Image: GitHub version [2] Image: Join the chat at https://gitter.im/ryanoasis
+/vim-devicons [4] Image: CodeClimate [6] Image: Issue Count [6] Image: Code of
+Conduct [9] Image: PRs Welcome [11]
+
+**VimDevIcons** adds filetype glyphs (icons) to other plugins such as NERDTree
+[13], vim-airline [14], CtrlP [15], powerline [16], Denite [17], unite [18],
+lightline.vim [19], vim-startify [20], vimfiler [21], and flagship [22].
+
+-------------------------------------------------------------------------------
+                                        *image-vim-devicons-overall-screenshot*
+Image: vim-devicons overall screenshot (see reference [23]) ~
+
+-------------------------------------------------------------------------------
+                                                            *devicons-features*
+Features ~
+
+**VimDevIcons integrates with these plugins and more:**
+
+NERDTree [13] | vim-airline [14] | CtrlP [15] | powerline [16] | Denite [17] |
+unite [18] | lightline.vim [19] | vim-startify [20] | vimfiler [21] | flagship
+[22] | vim-workspace [24]
+
+- Customizable and extendable glyphs (icons) settings
+- ability to override defaults and use your own characters or glyphs
+- Supports a wide range of file type extensions _(» More details... «)_
+- Supports full filename matches _(» More details... «)_
+- Supports library pattern matches _(» More details... «)_
+- Works with patched fonts, especially Nerd Fonts [25]
+
+-------------------------------------------------------------------------------
+                                                         *devicons-quick-links*
+Quick Links ~
+
+| **Screenshots**| **API** | **Fonts ➶ [26]** | **Patcher ➶ [25]** | |---------
+-----------------------|-----------------|------------------------------|------
+-----------------------| | Image: screenshots | Image: api | Image: patcher-
+logo-small [26] | Image: patcher-logo-small [25] |
+
+-------------------------------------------------------------------------------
+                                                   *devicons-table-of-contents*
+Table of Contents ~
+
+**TL;DR Installation**
+
+**Installation**
+
+**Usage** _**Lightline Setup**_ **Powerline Setup** _**Extra Configuration**_
+**Character Mappings**
+
+**Features**
+
+**Screenshots**
+
+**Methods**
+
+**Developer** _**API**_ **Contributing** _**Inspiration and special thanks**_
+**Todo** * **License**
+
+**FAQ / Troubleshooting**
+
+**Rationale**
+
+Quick Installation (TL;DR)
+
+1. Download and install a patched **Nerd Font [25]** (or patch your own) _(»
+   More details... «) [25]_
+
+2. Install the plugin per your usual method _(» More details... «)_
+
+3. Configure Vim _(» More details... «)_
+
+4. a. **vim**: Set your terminal emulator font
+5. b. **gvim**: Set 'guifont' in your 'vimrc'
+
+-------------------------------------------------------------------------------
+                                                        *devicons-installation*
+Installation ~
+
+-------------------------------------------------------------------------------
+                                                                    *Nerd-Font*
+Step 1 'Nerd Font' ~
+
+Get a **Nerd Font!** [31] or patch your own. [32] Without this, things break
+
+-------------------------------------------------------------------------------
+                                                           *VimDevIcons-Plugin*
+Step 2 'VimDevIcons Plugin' ~
+
+Choose your favorite plugin manager
+
+-------------------------------------------------------------------------------
+                                                         *devicons-pathogen-33*
+Pathogen [33] ~
+
+- 'git clone https://github.com/ryanoasis/vim-devicons ~/.vim/bundle/vim-
+  devicons'
+
+-------------------------------------------------------------------------------
+                                                        *devicons-neobundle-34*
+NeoBundle [34] ~
+
+- Add to vimrc:
+
+  "vim NeoBundle 'ryanoasis/vim-devicons'" * And install it:
+
+  'vim :so ~/.vimrc :NeoBundleInstall'
+
+-------------------------------------------------------------------------------
+                                                           *devicons-vundle-35*
+Vundle [35] ~
+
+- Add to vimrc:
+
+  "vim Plugin 'ryanoasis/vim-devicons'" * And install it:
+
+  'vim :so ~/.vimrc :PluginInstall'
+
+-------------------------------------------------------------------------------
+                                                              *devicons-manual*
+Manual ~
+
+- copy all of the files into your '~/.vim' directory
+
+-------------------------------------------------------------------------------
+                                                                *Configure-Vim*
+Step 3 'Configure Vim' ~
+
+Add the following in your '.vimrc' or '.gvimrc':
+
+-------------------------------------------------------------------------------
+                                *set-vimdevicons-to-load-_after_-these-plugins*
+Set VimDevIcons to load _after_ these plugins! ~
+
+NERDTree [13] | vim-airline [14] | CtrlP [15] | powerline [16] | Denite [17] |
+unite [18] | lightline.vim [19] | vim-startify [20] | vimfiler [21] | flagship
+[22]
+
+-------------------------------------------------------------------------------
+                                *devicons-set-encoding-to-utf-8-to-show-glyphs*
+Set encoding to UTF-8 to show glyphs ~
+
+'vim set encoding=utf8'
+
+-------------------------------------------------------------------------------
+                                           *devicons-set-vim-font-to-nerd-font*
+Set Vim font to a Nerd Font ~
+
+Linux 'vim set guifont=<FONT_NAME> <FONT_SIZE>'
+>
+  set guifont=DroidSansMono\ Nerd\ Font\ 11
+<
+macOS (OS X) and Windows
+>
+  set guifont=<FONT_NAME>:h<FONT_SIZE>
+<
+
+>
+  set guifont=DroidSansMono\ Nerd\ Font:h11
+  " or:
+  set guifont=DroidSansMono_Nerd_Font:h11
+<
+**Note:** if you don't set 'guifont' then you'll have to set your terminal's
+font, else things break!
+
+-------------------------------------------------------------------------------
+                                *devicons-if-you-use-vim-airline-you-need-this*
+If you use vim-airline you need this ~
+
+'vim let g:airline_powerline_fonts = 1'
+
+-------------------------------------------------------------------------------
+                                                      *devicons-vimrc-examples*
+vimrc examples ~
+
+- Sample Windows vimrc configuration 1 [36]
+- Sample Linux vimrc configuration 1 [37]
+
+-------------------------------------------------------------------------------
+                                                *devicons-thats-it-youre-done.*
+That's it! You're done.  ~
+
+-------------------------------------------------------------------------------
+                                                               *devicons-usage*
+Usage ~
+
+If you installed and setup things correctly you should now see icons in the
+supported plugins!
+
+**Notes on include order:** _for support of these plugins: NERDTree [13], vim-
+airline [14], CtrlP [15], powerline [16], Denite [17], unite [18], vimfiler
+[21], flagship [22] you **must** configure vim to load those plugins__before_
+vim-devicons loads. for better nerdtree-git-plugin [38] support, you _should_
+configure vim to load nerdtree-git-plugin **_before_** VimDevIcons loads.
+
+Lightline Setup and Powerline Setup require some extra setup as shown below:
+
+-------------------------------------------------------------------------------
+                                                     *devicons-lightline-setup*
+Lightline Setup ~
+
+To add the appropriate icon to lightline [19], call the function
+'WebDevIconsGetFileTypeSymbol()' and/or 'WebDevIconsGetFileFormatSymbol()' in
+your '.vimrc'. For example, you could set your sections to:
+>
+  let g:lightline = {
+        \ 'component_function': {
+        \   'filetype': 'MyFiletype',
+        \   'fileformat': 'MyFileformat',
+        \ }
+        \ }
+  
+  function! MyFiletype()
+    return winwidth(0) > 70 ? (strlen(&filetype) ? &filetype . ' ' . WebDevIconsGetFileTypeSymbol() : 'no ft') : ''
+  endfunction
+  
+  function! MyFileformat()
+    return winwidth(0) > 70 ? (&fileformat . ' ' . WebDevIconsGetFileFormatSymbol()) : ''
+  endfunction
+<
+-------------------------------------------------------------------------------
+                                                     *devicons-powerline-setup*
+Powerline Setup ~
+
+- _Note this is for the current Powerline [16] not the deprecated vim-
+  powerline [39]_
+
+To enable for Powerline [16] some 'vimrc' and powerline configuration changes
+are needed:
+
+'vimrc' changes (only required if you don't already have powerline setup for
+vim):
+>
+  set rtp+=$HOME/.local/lib/python2.7/site-packages/powerline/bindings/vim/
+  
+  " Always show statusline
+  set laststatus=2
+  
+  " Use 256 colours (Use this setting only if your terminal supports 256 colours)
+  set t_Co=256
+<
+powerline configuration changes:
+
+file type segment
+>
+  {
+      "function": "vim_devicons.powerline.segments.webdevicons",
+      "priority": 10,
+      "draw_soft_divider": false,
+      "after": "  "
+  }
+<
+file format segment
+>
+  {
+      "function": "vim_devicons.powerline.segments.webdevicons_file_format",
+      "draw_soft_divider": false,
+      "exclude_modes": ["nc"],
+      "priority": 90
+   }
+<
+for full example see sample file [40]
+
+-------------------------------------------------------------------------------
+                                                   *devicons-detailed-features*
+Detailed Features ~
+
+- Adds filetype glyphs (icons) to various vim plugins, currently supports:
+
+- NERDTree [13]
+
+  - Using the version hosted on vimscripts [41] in favor of GitHub will
+    lead to a outdated message, and icons will fail to show.
+
+- vim-airline [14] (statusline and tabline)
+
+- CtrlP [15]  (All modes now supported)
+
+  - Using the version hosted on vimscripts [42] in favor of GitHub will
+    lead to a outdated message, and icons will fail to show.
+
+- powerline [16]  (statusline)
+
+  - see: powerline setup
+
+- Denite [17]
+
+  - Currently supports 'file_rec', 'file_old', 'buffer', and
+    'directory_rec'
+
+- unite [18]
+
+  - Currently supports 'file', 'file_rec', 'buffer', 'file_rec/async', and
+    'file_rec/neovim'
+
+- lightline.vim [19]  (statusline)
+
+  - see: lightline setup
+
+- vim-startify [20]
+
+- vimfiler [21]
+
+- flagship [22]
+
+  - Support is **experimental** because the API may be changing [43]
+
+- Supports byte order marker (BOM)
+
+- Customizable and extendable glyphs (icons) settings
+
+- ability to override defaults and use your own characters or glyphs
+
+- Supports a wide range of file type extensions by default:
+
+- 'styl, sass, scss, htm, html, slim, ejs, css, less, md, rmd, json, js, jsx,
+  rb, php, py, pyc, pyd, pyo, coffee, mustache, hbs, conf, ini, yml, yaml,
+  bat, jpg, jpeg, bmp, png, gif, twig, cpp, c++, cxx, cc, cp, c, h, hpp, hxx,
+  hs, lhs, lua, java, sh, bash, zsh, ksh, csh, awk, ps1, fish, diff, db, clj,
+  cljs, edn, scala, go, dart, xul, sln, suo, pl, pm, t, rss, f#, fsscript,
+  fsx, fs, fsi, rs, rlib, d, erl, hrl, vim, ai, psd, psb, ts, jl, pp'
+
+- Supports a few full filename matches, by default:
+
+- 'gruntfile.coffee, gruntfile.js, gruntfile.ls, gulpfile.coffee,
+  gulpfile.js, gulpfile.ls, dropbox, .ds_store, .gitconfig, .gitignore,
+  .bashrc, .zshrc, .vimrc, .bashprofile, favicon.ico, license, node_modules,
+  react.jsx, procfile'
+
+- Supports a few library pattern matches, by default:
+
+- 'jquery, angular, backbone, requirejs, materialize, mootools, Vagrantfile'
+
+- Works with patched fonts, especially Nerd Fonts [25]
+
+-------------------------------------------------------------------------------
+                                                 *devicons-extra-configuration*
+Extra Configuration ~
+
+- These options can be defined in your 'vimrc' or 'gvimrc'
+
+- Most options are enabled **'1'** by default but can be disabled with
+  **'0'**
+
+- You _should_**not** need to configure anything, however, the following
+  options are provided for customizing or changing the defaults:
+>
+  " loading the plugin 
+  let g:webdevicons_enable = 1
+<
+
+>
+  " adding the flags to NERDTree 
+  let g:webdevicons_enable_nerdtree = 1
+<
+
+>
+  " adding the custom source to unite 
+  let g:webdevicons_enable_unite = 1
+<
+
+>
+  " adding the column to vimfiler 
+  let g:webdevicons_enable_vimfiler = 1
+<
+
+>
+  " adding to vim-airline's tabline 
+  let g:webdevicons_enable_airline_tabline = 1
+<
+
+>
+  " adding to vim-airline's statusline 
+  let g:webdevicons_enable_airline_statusline = 1
+<
+
+>
+  " ctrlp glyphs
+  let g:webdevicons_enable_ctrlp = 1
+<
+
+>
+  " adding to flagship's statusline 
+  let g:webdevicons_enable_flagship_statusline = 1
+<
+
+>
+  " turn on/off file node glyph decorations (not particularly useful)
+  let g:WebDevIconsUnicodeDecorateFileNodes = 1
+<
+
+>
+  " use double-width(1) or single-width(0) glyphs 
+  " only manipulates padding, has no effect on terminal or set(guifont) font
+  let g:WebDevIconsUnicodeGlyphDoubleWidth = 1
+<
+
+>
+  " whether or not to show the nerdtree brackets around flags 
+  let g:webdevicons_conceal_nerdtree_brackets = 1
+<
+
+>
+  " the amount of space to use after the glyph character (default ' ')
+  let g:WebDevIconsNerdTreeAfterGlyphPadding = '  '
+<
+
+>
+  " Force extra padding in NERDTree so that the filetype icons line up vertically 
+  let g:WebDevIconsNerdTreeGitPluginForceVAlign = 1
+<
+-------------------------------------------------------------------------------
+                                                  *devicons-character-mappings*
+Character Mappings ~
+
+- 'ƛ' is used as an example below, substitute for the glyph you **actually**
+  want to use
+>
+  " change the default character when no match found
+  let g:WebDevIconsUnicodeDecorateFileNodesDefaultSymbol = 'ƛ'
+<
+
+>
+  " set a byte character marker (BOM) utf-8 symbol when retrieving file encoding
+  " disabled by default with no value
+  let g:WebDevIconsUnicodeByteOrderMarkerDefaultSymbol = ''
+<
+
+>
+  " enable folder/directory glyph flag (disabled by default with 0)
+  let g:WebDevIconsUnicodeDecorateFolderNodes = 1
+<
+
+>
+  " enable open and close folder/directory glyph flags (disabled by default with 0)
+  let g:DevIconsEnableFoldersOpenClose = 1
+<
+
+>
+  " enable pattern matching glyphs on folder/directory (enabled by default with 1)
+  let g:DevIconsEnableFolderPatternMatching = 1
+<
+
+>
+  " enable file extension pattern matching glyphs on folder/directory (disabled by default with 0)
+  let g:DevIconsEnableFolderExtensionPatternMatching = 0
+<
+
+>
+  " enable custom folder/directory glyph exact matching 
+  " (enabled by default when g:WebDevIconsUnicodeDecorateFolderNodes is set to 1)
+  let WebDevIconsUnicodeDecorateFolderNodesExactMatches = 1
+<
+
+>
+  " change the default folder/directory glyph/icon
+  let g:WebDevIconsUnicodeDecorateFolderNodesDefaultSymbol = 'ƛ'
+<
+
+>
+  " change the default open folder/directory glyph/icon (default is '')
+  let g:DevIconsDefaultFolderOpenSymbol = 'ƛ'
+<
+
+>
+  " change the default dictionary mappings for file extension matches
+  
+  let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols = {} " needed
+  let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['js'] = 'ƛ'
+<
+
+>
+  " change the default dictionary mappings for exact file node matches
+  
+  let g:WebDevIconsUnicodeDecorateFileNodesExactSymbols = {} " needed
+  let g:WebDevIconsUnicodeDecorateFileNodesExactSymbols['MyReallyCoolFile.okay'] = 'ƛ'
+<
+
+>
+  " add or override individual additional filetypes
+  
+  let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols = {} " needed
+  let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['myext'] = 'ƛ'
+<
+
+>
+  " add or override pattern matches for filetypes
+  " these take precedence over the file extensions
+  
+  let g:WebDevIconsUnicodeDecorateFileNodesPatternSymbols = {} " needed
+  let g:WebDevIconsUnicodeDecorateFileNodesPatternSymbols['.*jquery.*\.js$'] = 'ƛ'
+<
+specify OS to decide an icon for unix fileformat (_not_ defined by default) -
+this is useful for avoiding unnecessary 'system()' call. see #135 [44] for
+further details.
+>
+  let g:WebDevIconsOS = 'Darwin'
+<
+-------------------------------------------------------------------------------
+                                                      *devicons-public-methods*
+Public Methods ~
+>
+  " Returns the current version of the plugin
+  webdevicons#version()
+<
+
+>
+  " Calls webdevicons#softRefresh()
+  " basically a backwards compatibility convenience
+  webdevicons#refresh()
+<
+
+>
+  " Does a 'hard' refresh of NERDTree
+  " resets vim-devicons syntax and closes and reopens NERDTree
+  webdevicons#hardRefresh()
+<
+
+>
+  " Does a 'soft' refresh of NERDTree
+  " resets vim-devicons syntax and toggles NERDTree to the same state
+  webdevicons#softRefresh()
+<
+-------------------------------------------------------------------------------
+                                                           *devicons-developer*
+Developer ~
+
+-------------------------------------------------------------------------------
+                                                                 *devicons-api*
+API ~
+>
+  " returns the font character that represents the icon
+  " parameters: a:1 (filename), a:2 (isDirectory)
+  " both parameters optional
+  " by default without parameters uses buffer name
+  WebDevIconsGetFileTypeSymbol(...)
+  
+  " returns the font character that represents
+  " the file format as an icon (windows, linux, mac)
+  WebDevIconsGetFileFormatSymbol()
+<
+-------------------------------------------------------------------------------
+                                                        *devicons-api-examples*
+API Examples ~
+
+-------------------------------------------------------------------------------
+                                                *devicons-simple-function-call*
+Simple function call ~
+>
+  echo WebDevIconsGetFileFormatSymbol()
+<
+-------------------------------------------------------------------------------
+                                                     *devicons-vim-startify-20*
+vim-startify [20] ~
+>
+  let entry_format = "'   ['. index .']'. repeat(' ', (3 - strlen(index)))"
+  
+  if exists('*WebDevIconsGetFileTypeSymbol')  " support for vim-devicons
+    let entry_format .= ". WebDevIconsGetFileTypeSymbol(entry_path) .' '.  entry_path"
+  else
+    let entry_format .= '. entry_path'
+  endif
+<
+-------------------------------------------------------------------------------
+                                                  *devicons-custom-status-line*
+Custom status line ~
+
+Custom vim status line (not relying on vim-airline or lightline):
+>
+  :set statusline=%f\ %{WebDevIconsGetFileTypeSymbol()}\ %h%w%m%r\ %=%(%l,%c%V\ %Y\ %=\ %P%)
+<
+-------------------------------------------------------------------------------
+                                                                *devicons-todo*
+Todo ~
+
+- [ ] more filetypes to support
+- [ ] customize filetype icon colors [45] (for a current solution see:
+  tiagofumo/vim-nerdtree-syntax-highlight [46])
+- [ ] more customization options in general
+- [ ] more specific FAQ and Troubleshooting help
+
+-------------------------------------------------------------------------------
+                                                             *devicons-license*
+License ~
+
+See LICENSE
+
+-------------------------------------------------------------------------------
+                                                 *devicons-faq-troubleshooting*
+FAQ / Troubleshooting ~
+
+See FAQ [47]
+
+-------------------------------------------------------------------------------
+                                                         *devicons-screenshots*
+Screenshots ~
+
+See Screenshots [48]
+
+-------------------------------------------------------------------------------
+                                                        *devicons-contributing*
+Contributing ~
+
+Best ways to contribute _Star it on GitHub - if you use it and like it please
+at least star it :)_ Promote _Open issues/tickets [49]_ Submit fixes and/or
+improvements with Pull Requests
+
+-------------------------------------------------------------------------------
+                                                           *devicons-promotion*
+Promotion ~
+
+Like the project? Please support to ensure continued development going forward:
+_Star this repo on GitHub [50]_ Follow the repo on GitHub [50] _Vote for it on
+vim.org [51]_ Follow me * Twitter [52] * GitHub [53]
+
+-------------------------------------------------------------------------------
+                                                         *devicons-source-code*
+Source code ~
+
+Contributions and Pull Requests are welcome.
+
+No real formal process has been setup - just stick to general good conventions
+for now.
+
+-------------------------------------------------------------------------------
+                                                           *devicons-rationale*
+Rationale ~
+
+After seeing the awesome theme for Atom (seti-ui) and the awesome plugins work
+done for NERDTree and vim-airline and wanting something like this for Vim I
+decided to create my first plugin.
+
+-------------------------------------------------------------------------------
+                                          *devicons-inspiration-special-thanks*
+Inspiration and special thanks ~
+
+- vim-airline [14]
+- nerdtree [13]
+- nerdtree-git-plugin [38]
+- seti-ui [54]
+- devicons by Theodore Vorillas [55]
+- benatespina development.svg.icons [56]
+- Steve Losh [57]
+- Also thanks to the many contributors [58]
+
+-------------------------------------------------------------------------------
+License ~
+
+See LICENSE
+
+===============================================================================
+                                                          *devicons-references*
+References ~
+
+[1] https://github.com/ryanoasis/vim-devicons/wiki/screenshots/v0.9.x/branding-logo.png
+[2] http://badge.fury.io/gh/ryanoasis%2Fvim-devicons
+[3] https://img.shields.io/github/release/ryanoasis/vim-devicons.svg?style=flat-square
+[4] https://gitter.im/ryanoasis/vim-devicons?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge
+[5] https://img.shields.io/gitter/room/nwjs/nw.js.svg?style=flat-square
+[6] https://codeclimate.com/github/ryanoasis/vim-devicons
+[7] https://img.shields.io/codeclimate/github/ryanoasis/vim-devicons.svg?style=flat-square
+[8] https://img.shields.io/codeclimate/issues/github/ryanoasis/vim-devicons.svg?style=flat-square
+[9] https://github.com/ryanoasis/vim-devicons/blob/master/code_of_conduct.md
+[10] https://img.shields.io/badge/code%20of-conduct-ff69b4.svg?style=flat-square
+[11] http://makeapullrequest.com
+[12] https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square&logo=data%3Aimage%2Fpng%3Bbase64%2CiVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAACWFBMVEXXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWkrXWko2FeWCAAAAAXRSTlMAQObYZgAAAAFiS0dEAIgFHUgAAAAJcEhZcwAAI28AACNvATX8B%2FsAAAAHdElNRQfhBQMBMCLAfV85AAAAi0lEQVQ4y2NgIBYszkPmJc5ORZE9DgEJqNxmmPS%2B43AA4h5B5TIwbD5%2BHFnoKCoXYSBMBIW7CF0eAxChoPM4ARXHB4GCZEIKKA8H%2FCoWE1LAwIBfBVp6wQA1DPhVzMJMcyggCVuqxGI%2FLhWY6Z6QPKoK7HmHkDwDwxYC8gwMdSDprXiz6PHjpQxUBgCLDfI7GXNh5gAAAABJRU5ErkJggg%3D%3D
+[13] https://github.com/scrooloose/nerdtree
+[14] https://github.com/bling/vim-airline
+[15] https://github.com/ctrlpvim/ctrlp.vim
+[16] https://github.com/powerline/powerline
+[17] https://github.com/Shougo/denite.nvim
+[18] https://github.com/Shougo/unite.vim
+[19] https://github.com/itchyny/lightline.vim
+[20] https://github.com/mhinz/vim-startify
+[21] https://github.com/Shougo/vimfiler.vim
+[22] https://github.com/tpope/vim-flagship
+[23] https://github.com/ryanoasis/vim-devicons/wiki/screenshots/v0.9.x/overall-screenshot.png
+[24] https://github.com/bagrat/vim-workspace
+[25] https://github.com/ryanoasis/nerd-fonts
+[26] https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts
+[27] https://github.com/ryanoasis/vim-devicons/wiki/screenshots/v1.0.0/branding-logo-screenshots-sm.png
+[28] https://github.com/ryanoasis/vim-devicons/wiki/screenshots/v1.0.0/branding-logo-api-sm.png
+[29] https://raw.githubusercontent.com/ryanoasis/nerd-fonts/master/images/nerd-fonts-character-logo-md.png
+[30] https://raw.githubusercontent.com/ryanoasis/nerd-fonts/master/images/nerd-fonts-patcher-logo-md.png
+[31] https://github.com/ryanoasis/nerd-fonts#font-installation
+[32] https://github.com/ryanoasis/nerd-fonts#font-patcher
+[33] https://github.com/tpope/vim-pathogen
+[34] https://github.com/Shougo/neobundle.vim
+[35] https://github.com/gmarik/vundle
+[36] https://github.com/ryanoasis/vim-devicons/wiki/samples/v0.9.x/.vimrc-windows-1
+[37] https://github.com/ryanoasis/vim-devicons/wiki/samples/v0.9.x/.vimrc-linux-1
+[38] https://github.com/Xuyuanp/nerdtree-git-plugin
+[39] https://github.com/Lokaltog/vim-powerline
+[40] https://github.com/ryanoasis/vim-devicons/wiki/samples/v0.9.x/powerline/themes/vim/default.json
+[41] http://www.vim.org/scripts/script.php?script_id=1658
+[42] http://www.vim.org/scripts/script.php?script_id=3736
+[43] https://github.com/tpope/vim-flagship/issues/6#issuecomment-116121220
+[44] https://github.com/ryanoasis/vim-devicons/pull/135
+[45] https://github.com/ryanoasis/vim-devicons/issues/158
+[46] https://github.com/tiagofumo/vim-nerdtree-syntax-highlight
+[47] https://github.com/ryanoasis/vim-devicons/wiki/FAQ
+[48] https://github.com/ryanoasis/vim-devicons/wiki/Screenshots
+[49] https://github.com/ryanoasis/vim-devicons/issues
+[50] https://github.com/ryanoasis/vim-devicons
+[51] http://www.vim.org/scripts/script.php?script_id=5114
+[52] http://twitter.com/ryanlmcintyre
+[53] https://github.com/ryanoasis
+[54] https://atom.io/themes/seti-ui
+[55] http://vorillaz.github.io/devicons
+[56] https://github.com/benatespina/development.svg.icons
+[57] http://learnvimscriptthehardway.stevelosh.com/
+[58] https://github.com/ryanoasis/vim-devicons/graphs/contributors
+
+vim: ft=help

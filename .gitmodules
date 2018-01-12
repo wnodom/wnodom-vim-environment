@@ -66,3 +66,6 @@
 [submodule "pack/wnodom/start/vim-css-color"]
 	path = pack/wnodom/start/vim-css-color
 	url = https://github.com/ap/vim-css-color
+[submodule "/Users/bodom/.vim/pack/wnodom/start/vim-devicons"]
+	path = /Users/bodom/.vim/pack/wnodom/start/vim-devicons
+	url = https://github.com/ryanoasis/vim-devicons

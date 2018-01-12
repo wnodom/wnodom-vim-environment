@@ -22,7 +22,8 @@ function! <SID>SetDefaultFontOptions()
     "   set linespace=0 guifont=Droid_Sans_Mono:h13
     "   set linespace=0 guifont=Inconsolata:h15
     "   set linespace=2 guifont=M+_1m_regular:h15
-        set linespace=3 guifont=M+_1m_regular:h23
+    "   set linespace=3 guifont=M+_1m_regular:h23
+        set linespace=5 guifont=M+_1m_regular_Nerd_Font_Complete_Mono:h23
     "   set linespace=2 guifont=Source_Code_Pro:h20
     "   set linespace=2 guifont=Source_Code_Pro:h13
     "   set linespace=2 guifont=Source_Code_Pro_Light:h17
