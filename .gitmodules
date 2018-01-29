@@ -69,3 +69,9 @@
 [submodule "/Users/bodom/.vim/pack/wnodom/start/vim-devicons"]
 	path = /Users/bodom/.vim/pack/wnodom/start/vim-devicons
 	url = https://github.com/ryanoasis/vim-devicons
+[submodule "/Users/bodom/.vim/pack/wnodom/start/vim-rhubarb"]
+	path = /Users/bodom/.vim/pack/wnodom/start/vim-rhubarb
+	url = https://github.com/tpope/vim-rhubarb.git
+[submodule "/Users/bodom/.vim/pack/wnodom/start/vim-fubitive"]
+	path = /Users/bodom/.vim/pack/wnodom/start/vim-fubitive
+	url = https://github.com/tommcdo/vim-fubitive.git
