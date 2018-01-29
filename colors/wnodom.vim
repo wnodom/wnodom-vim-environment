@@ -14,53 +14,54 @@ endif
 let g:colors_name = "wnodom"
 
 
-hi Comment              gui=NONE    guifg=Grey
-hi Constant             gui=NONE    guifg=Cyan
-hi Cursor               gui=NONE    guifg=bg        guibg=#AAFFAA
-hi CursorLine           gui=NONE                    guibg=Grey30
-hi CursorColumn         gui=NONE                    guibg=Grey30
-hi ColorColumn          gui=NONE                    guibg=DarkRed
-hi Directory            gui=NONE    guifg=Cyan
-hi Error                gui=NONE    guifg=Black     guibg=Red
-hi ErrorMsg             gui=NONE    guifg=White     guibg=Red
-hi FoldColumn           gui=NONE    guifg=Grey      guibg=Grey15
-hi Folded               gui=NONE    guifg=White     guibg=DarkGreen
-hi Identifier           gui=NONE    guifg=Orange
-hi LineNr               gui=NONE    guifg=Grey25    guibg=Black
-hi MatchParen           gui=NONE                    guibg=DarkMagenta
-hi Menu                 gui=NONE    guifg=Black     guibg=Cyan
-hi ModeMsg              gui=NONE    guifg=White     guibg=Blue
-hi MoreMsg              gui=NONE    guifg=SeaGreen
-hi NonText              gui=NONE    guifg=Grey50    guibg=Grey20
-hi Normal               gui=NONE    guifg=White     guibg=Black
-hi Pmenu                gui=NONE    guifg=White     guibg=DarkMagenta
-hi PreProc              gui=NONE    guifg=#ff80ff
-hi Question             gui=NONE    guifg=Green
-hi Scrollbar            gui=NONE    guifg=DarkCyan  guibg=Cyan
-hi Search               gui=NONE    guifg=White     guibg=Red
-hi SignColumn           gui=NONE    guifg=White     guibg=Black
-hi Special              gui=NONE    guifg=Orange
-hi SpecialKey           gui=NONE    guifg=Black     guibg=Orange
-hi SpellBad             gui=NONE                    guibg=DarkRed
-hi Statement            gui=NONE    guifg=#ffff60
-hi StatusLine           gui=NONE    guifg=Black     guibg=#ffff60
-hi StatusLineNC         gui=NONE    guifg=Grey50    guibg=Grey15
-hi Title                gui=NONE    guifg=#ffff60
-hi Todo                 gui=NONE    guifg=Black     guibg=Yellow
-hi Type                 gui=NONE    guifg=#60ff60
-hi VertSplit            gui=NONE    guifg=Grey50    guibg=Grey15
-hi Visual               gui=NONE    guifg=White     guibg=#3c6182
-hi WarningMsg           gui=NONE    guifg=Red
+hi Comment              gui=NONE       guifg=Grey
+hi Constant             gui=NONE       guifg=Cyan
+hi Cursor               gui=NONE       guifg=bg        guibg=#AAFFAA
+hi CursorLine           gui=NONE                       guibg=Grey30
+hi CursorColumn         gui=NONE                       guibg=Grey30
+hi ColorColumn          gui=NONE                       guibg=DarkRed
+hi Directory            gui=NONE       guifg=Cyan
+hi Error                gui=NONE       guifg=Black     guibg=Red
+hi ErrorMsg             gui=NONE       guifg=White     guibg=Red
+hi FoldColumn           gui=NONE       guifg=Grey      guibg=Grey15
+hi Folded               gui=NONE       guifg=White     guibg=DarkGreen
+hi Identifier           gui=NONE       guifg=Orange
+hi LineNr               gui=NONE       guifg=Grey25    guibg=Black
+hi MatchParen           gui=NONE                       guibg=DarkMagenta
+hi Menu                 gui=NONE       guifg=Black     guibg=Cyan
+hi ModeMsg              gui=NONE       guifg=White     guibg=Blue
+hi MoreMsg              gui=NONE       guifg=SeaGreen
+hi NonText              gui=NONE       guifg=Grey50    guibg=Grey20
+hi Normal               gui=NONE       guifg=White     guibg=Black
+hi Pmenu                gui=NONE       guifg=White     guibg=DarkMagenta
+hi PreProc              gui=NONE       guifg=#ff80ff
+hi Question             gui=NONE       guifg=Green
+hi Scrollbar            gui=NONE       guifg=DarkCyan  guibg=Cyan
+hi Search               gui=NONE       guifg=White     guibg=Red
+hi SignColumn           gui=NONE       guifg=White     guibg=Black
+hi Special              gui=NONE       guifg=Orange
+hi SpecialKey           gui=NONE       guifg=Black     guibg=Orange
+hi SpellBad             gui=NONE                       guibg=DarkRed
+hi Statement            gui=NONE       guifg=#ffff60
+hi StatusLine           gui=NONE       guifg=Black     guibg=#ffff60
+hi StatusLineNC         gui=NONE       guifg=Grey50    guibg=Grey15
+hi Title                gui=NONE       guifg=#ffff60
+hi Todo                 gui=NONE       guifg=Black     guibg=Yellow
+hi Type                 gui=NONE       guifg=#60ff60
+hi VertSplit            gui=NONE       guifg=Grey50    guibg=Grey15
+hi Underlined           gui=underline  guifg=LightBlue
+hi Visual               gui=NONE       guifg=White     guibg=#3c6182
+hi WarningMsg           gui=NONE       guifg=Red
 
 
 " Perl-specific colors
 "
-hi perlPOD              gui=NONE    guifg=LightBlue
-hi perlString           gui=NONE    guifg=Cyan
-hi perlStringUnexpanded gui=NONE    guifg=#AAFFAA
-hi perlHereDoc          gui=NONE    guifg=White     guibg=#404040
-hi perlDATA             gui=NONE    guifg=White     guibg=#002040
-hi perlSpecial          gui=NONE    guifg=LightRed
+hi perlPOD              gui=NONE       guifg=LightBlue
+hi perlString           gui=NONE       guifg=Cyan
+hi perlStringUnexpanded gui=NONE       guifg=#AAFFAA
+hi perlHereDoc          gui=NONE       guifg=White     guibg=#404040
+hi perlDATA             gui=NONE       guifg=White     guibg=#002040
+hi perlSpecial          gui=NONE       guifg=LightRed
 
 
 " Taglist highlight groups
@@ -70,7 +71,7 @@ hi perlSpecial          gui=NONE    guifg=LightRed
 " hi TagListTitle
 " hi TagListComment
 "
-hi TagListFileName      gui=NONE    guifg=Cyan      guibg=Black
+hi TagListFileName      gui=NONE       guifg=Cyan      guibg=Black
 
 
 " ShowMarks highlight groups.
@@ -84,10 +85,10 @@ hi TagListFileName      gui=NONE    guifg=Cyan      guibg=Black
 " SignColumn highlight group. That's why the guibg color for
 " each of the ShowMarksHL* is set the same as the SignColumn.
 "
-hi ShowMarksHLl         gui=NONE    guifg=White     guibg=Grey20
-hi ShowMarksHLm         gui=NONE    guifg=Red       guibg=Grey20
-hi ShowMarksHLo         gui=NONE    guifg=Green     guibg=Grey20
-hi ShowMarksHLu         gui=NONE    guifg=White     guibg=Grey20
+hi ShowMarksHLl         gui=NONE       guifg=White     guibg=Grey20
+hi ShowMarksHLm         gui=NONE       guifg=Red       guibg=Grey20
+hi ShowMarksHLo         gui=NONE       guifg=Green     guibg=Grey20
+hi ShowMarksHLu         gui=NONE       guifg=White     guibg=Grey20
 
 
 " NERDTree highlight groups (temporarily here for reference)
@@ -142,7 +143,7 @@ call NERDTreeHighlightFile('editorconfig',  'grey')
 " SyntasticWarningSign        - For syntax warnings, links to "todo" by default
 " SyntasticStyleErrorSign     - For style errors, links to "SyntasticErrorSign" by default
 " SyntasticStyleWarningSign   - For style warnings, links to "SyntasticWarningSign" by default
-" 
+"
 " SyntasticError              - Links to "SpellBad" by default (see |hl-SpellBad|)
 " SyntasticWarning            - Links to "SpellCap" by default (see |hl-SpellCap|)
 " SyntasticStyleError         - Links to "SyntasticError" by default
