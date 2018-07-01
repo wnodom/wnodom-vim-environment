@@ -153,6 +153,14 @@ hi SyntasticErrorSign   gui=NONE guifg=Red
 hi SyntasticWarningSign gui=NONE guifg=Yellow
 
 
+" ALE highlight groups
+"
+" ALEError    - Links to "SpellBad" by default
+" ALEWarning  - Links to "SpellCap" by default
+"
+hi ALEErrorSign     gui=NONE guifg=Red
+hi ALEWarningSign   gui=NONE guifg=Yellow
+
 
 hi link IncSearch       Visual
 
