@@ -75,3 +75,6 @@
 [submodule "/Users/bodom/.vim/pack/wnodom/start/vim-fubitive"]
 	path = /Users/bodom/.vim/pack/wnodom/start/vim-fubitive
 	url = https://github.com/tommcdo/vim-fubitive.git
+[submodule "pack/wnodom/start/ale"]
+	path = pack/wnodom/start/ale
+	url = https://github.com/w0rp/ale.git
