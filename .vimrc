@@ -630,13 +630,20 @@ runtime set_abbreviations.vim
 """
 
 " ALE (Asynchronous Lint Engine)
-"
-let g:ale_fixers = {
-\   'typescript': [
-\     'tslint',
-\   ],
-\ }
 
+let g:ale_fixers = {}
+let g:ale_fixers.typescript = [ 'tslint', 'trim_whitespace' ]
+
+let g:ale_sign_column_always = 1
+
+" NOTE: The leading spaces below are non-breaking spaces (ASCII
+" 160 vs ASCII 32). Normal spaces cause errors.
+"
+let g:ale_sign_error    = ' »'
+let g:ale_sign_warning  = ' ›'
+
+highlight clear ALEErrorSign
+highlight clear ALEWarningSign
 
 " Perl syntax
 "
