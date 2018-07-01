@@ -631,19 +631,22 @@ runtime set_abbreviations.vim
 
 " ALE (Asynchronous Lint Engine)
 
+" Automatically open window for lint errors
+let g:ale_open_list = 1
+
+" Configure fixers for :ALEFix
 let g:ale_fixers = {}
 let g:ale_fixers.typescript = [ 'tslint', 'trim_whitespace' ]
 
-let g:ale_sign_column_always = 1
-
-" NOTE: The leading spaces below are non-breaking spaces (ASCII
-" 160 vs ASCII 32). Normal spaces cause errors.
+" Customize sign column and symbols
 "
+" NOTE: The leading spaces in the symbols are non-breaking spaces
+" (ASCII 160 vs ASCII 32). Normal spaces cause errors.
+"
+let g:ale_sign_column_always = 1
 let g:ale_sign_error    = ' »'
 let g:ale_sign_warning  = ' ›'
 
-highlight clear ALEErrorSign
-highlight clear ALEWarningSign
 
 " Perl syntax
 "
