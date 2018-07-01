@@ -629,6 +629,15 @@ runtime set_abbreviations.vim
 """ Extension settings (plugins, syntax files, etc.)
 """
 
+" ALE (Asynchronous Lint Engine)
+"
+let g:ale_fixers = {
+\   'typescript': [
+\     'tslint',
+\   ],
+\ }
+
+
 " Perl syntax
 "
 let perl_include_pod = 1
